@@ -588,7 +588,7 @@ if(path.replace('test','')!=path){
         }
         var hashTagActive = "";
         //To reach to the category heading from sidebar
-        /*$(".scrolly").click(function (event) {
+        $(".scrolly").click(function (event) {
             if(hashTagActive != this.hash) { //this will prevent if the user click several times the same link to freeze the scroll.
                 event.preventDefault();
                 //calculate destination place
@@ -605,7 +605,7 @@ if(path.replace('test','')!=path){
                 hashTagActive = this.hash;
             }
         });
-            */        
+                    
             // To make sidebars fixed         
             var $sidebar   = $(".scr-fixed"), 
             $window    = $(window),
@@ -645,7 +645,7 @@ if(path.replace('test','')!=path){
         
         var counter_item = 0;
         $('.add_combo_profile').live('click',function(){
-            //alert('test');        
+                    
             var menu_id = $(this).attr('id').replace('profilemenu','');
             var ids = "";
             var app_title = "";
@@ -660,7 +660,6 @@ if(path.replace('test','')!=path){
             {
                 
                 var tit = $(this).attr('title');
-                //alert(tit);
                 var title = tit.split("_");
                 if(index!=0){
                     extratitle =extratitle+","+title[1];
@@ -669,7 +668,6 @@ if(path.replace('test','')!=path){
                 
                 if($(this).val()!="")
                 {
-                    alert($(this).val());
                     var cnn =0;
                     var catid = $(this).attr('id');
                     catarray.push(catid);

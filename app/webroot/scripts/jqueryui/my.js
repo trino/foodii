@@ -3,7 +3,7 @@ define(['jquery','jqueryui/core'], function (jQuery) {
 
 var path = window.location.pathname;
 if(path.replace('ordering_system','')!=path)
-var base_url = 'http://localhost/ordering_system/';
+var base_url = 'http://localhost/charlies/';
 else
 var base_url = 'http://charlieschopsticks.com/';
 
@@ -573,7 +573,7 @@ $('.order_now').change(function(){
 });
                 
 //Script for profile page          
-if(path.replace('profile','')!=path){            
+if(path.replace('test','')!=path){            
          //for google map
          path1 = path.substring(path.length-1, path.length);
          
