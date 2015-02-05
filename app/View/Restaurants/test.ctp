@@ -450,340 +450,215 @@
                                 </table>
                             </div>
                             <?php }}?>
-                            <h2>Rice Bowls</h2>
+                            <?php
+                            $nco=0;
+                            foreach($rescat as $cat)
+                            {
+                                
+                               ?> 
+                            <h2 id="category<?php echo $cat['MenuCategory']['id'];?>"><?php echo $cat['MenuCategory']['title'];?></h2>
 
                             <div class="table-scrollable">
                                 <table class="">
                                     <tbody>
                                     <tr>
+                                    
+                                    <?php
+                                        $ks=0;
+                                        foreach($cat['Menu'] as $ks=>$me)
+                                        {
+                                            //var_dump($me);
+                                            if(!$me['showmenu'])
+                                                continue;
+                                            $submenuscat = $this->requestAction('restaurants/getMenucat/'.$me['id']);
+                                            //var_dump($submenuscat);
+                                            if($me['price']==0 && count($submenuscat)>0)
+                                            {
+                                    
+                                                $me['price'] = $this->requestAction('restaurants/get_price/'.$me['id']);
+                                                $me['price'] =number_format($me['price'],2);
+                                                $pr = $me['price']."+";
+                                            }
+                                            else
+                                            {
+                                                $pr = number_format($me['price'],2);
+                                            }
+                                            ?>
                                         <td>
 
                                             <div class="tiles">
                                                 <div class="tile image double ">
                                                     <div class="tile-body">
-                                                        <img src="<?php echo $this->webroot; ?>profile/assets/admin/pages/media/gallery/image4.jpg"
-                                                             alt="">
+                                                        <?php if(count($submenuscat)>0){?>
+                                                            <a href="#Modal<?php echo $me['id'];?>" role="button" data-toggle="modal">
+                                                                <img class="i menutileimg" src="<?php if($me['image']&& file_exists(APP."webroot/images/menus/".$me['image'])){echo $this->webroot;?>images/menus/<?php echo $me['image'];}else{echo $this->webroot.'profile/assets/admin/pages/media/gallery/image4.jpg';}?>"/>
+                                                            </a>
+                                                        <?php }
+                                                        else
+                                                        {?>
+                                                            <a href="#Modal<?php echo $me['id'];?>" role="button" data-toggle="modal">
+                                                                <center><img class="i menutileimg" src="<?php if($me['image']&& file_exists(APP."webroot/images/menus/".$me['image'])){echo $this->webroot;?>images/menus/<?php echo $me['image'];}else{echo $this->webroot.'profile/assets/admin/pages/media/gallery/image4.jpg';}?>"/></center>
+                                                            </a>
+                                                        <?php }?>
                                                     </div>
                                                     <div class="tile-object">
+                                                    <a href="#Modal<?php echo $me['id'];?>" role="button" data-toggle="modal" style="display: block;">
                                                         <div class="name">
-                                                            Sushi
+                                                            <?php echo $me['menu_item']?>
                                                         </div>
                                                         <div class="number">
-                                                            $24
+                                                            $<?php echo $pr;?>
+                                                        </div>
+                                                    </a>
+                                                    </div>
+                                                    
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="modal  fade" id="Modal<?php echo $me['id'];?>" tabindex="-1" role="dialog" aria-labelledby="Modal<?php echo $me['id'];?>Label" aria-hidden="true">
+                                                <div class="modal-dialog" style="width: 70%;">
+                                                    <div class="modal-content ">
+                                                        <div class="modal-header">
+                                                            <button type="button" class="close close<?php echo $me['id'];?>" data-dismiss="modal" aria-hidden="true" id="clear_<?php echo $me['id'];?>">x</button>
+                                                            <div class="clearfix"></div>
+                                
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <div class="col-sm-6" style="text-align: left;padding:0px;">
+                                                                <h3><?php echo $me['menu_item']." : $ ".$pr;?></h3>
+                                                                <p><?php if($me['description']!='undefined')echo $me['description'];?></p>
+                                                            </div>
+                                                            <div class="col-sm-6">
+                                                                <!--img width="150" src="<?php if($me['image']&& file_exists(APP."webroot/images/menus/".$me['image'])){echo $this->webroot;?>images/menus/<?php echo $me['image'];}else{echo $this->webroot.'images/default.png';}?>" /-->
+                                                            </div>
+                                                            <div class="clearfix"></div>
+                                                            <div class="subitems_<?php echo $me['id'];?> optionals" >
+                                                                <!--<span class="topright"><a href="javascript:void(0)" onclick="$('#Modal<?php echo $me['id'];?>').toggle();"><strong class="btn btn-danger">x</strong></a></span>-->
+                                
+                                                                <div class="clearfix space10"></div>
+                                                                <input type="checkbox" class="chk" value="" title="<?php echo $me['id']."_".$me['menu_item']."-_".$me['price']."_"."";?>" checked="checked" style="display: none;" />
+                                
+                                                                <?php
+                                                                //var_dump($submenuscat);
+                                                                $ch = 0;
+                                                                foreach($submenuscat as $key=>$subm)
+                                                                {
+                                                                    $ch++;?>
+                                
+                                                                    <input type="hidden" id="extra_no_<?php echo $subm['MenuCategory']['id'];?>" value="<?php echo $subm['MenuCategory']['itemno'];?>" />
+                                                                    <input type="hidden" id="required_<?php echo $subm['MenuCategory']['id'];?>" value="<?php echo $subm['MenuCategory']['is_required'];?>" />
+                                                                    <input type="hidden" id="multiple_<?php echo $subm['MenuCategory']['id'];?>" value="<?php echo $subm['MenuCategory']['is_multiple'];?>" />
+                                                                    <input type="hidden" id="upto_<?php echo $subm['MenuCategory']['id'];?>" value="<?php echo $subm['MenuCategory']['up_to'];?>" />
+                                                                    <div class="infolist col-xs-12" style="border-right: 5px solid #CCC;margin-bottom:10px" >
+                                                                        <input type="checkbox" class="chk" checked="checked" style="display: none;" id="<?php echo $subm['MenuCategory']['id'];?>" title="___" value="<?php echo ($key!=0)?"| ".$subm['MenuCategory']['title']:$subm['MenuCategory']['title'];?>" />
+                                                                        <a href="javascript:void(0);" <?php /*onclick="$($(this).parent().children('div:eq(0)')).toggle('slow'); $('.extra-<?php echo $subm['MenuCategory']['id'];?>').each(function(){$(this).removeAttr('checked');}) "*/?> ><strong><?php echo $subm['MenuCategory']['title'];?></strong></a> <?php if($subm['MenuCategory']['description'] && $subm['MenuCategory']['description']!='undefined'){?>:<?php }?> <span><em> <?php echo $subm['MenuCategory']['description'];?></em></span>
+                                
+                                
+                                
+                                                                        <br />
+                                 
+                                							<span>
+                                                            <?php
+                                                            if($subm['MenuCategory']['up_to']==1)
+                                                                $upto = "up to ";
+                                                            else
+                                                                $upto = "exactly ";
+                                                            if($subm['MenuCategory']['is_required']=='0')
+                                                            {
+                                                                if($subm['MenuCategory']['itemno']>0 &&$subm['MenuCategory']['is_multiple']=='1' )
+                                                                    echo "Select ".$upto.$subm['MenuCategory']['itemno']." Items ";
+                                                                echo "(Optional)";
+                                
+                                                            }
+                                                            elseif($subm['MenuCategory']['is_required']=='1' )
+                                                            {
+                                                                if($subm['MenuCategory']['itemno']>0 &&$subm['MenuCategory']['is_multiple']=='1')
+                                                                    echo "Select ".$upto.$subm['MenuCategory']['itemno']." Items ";
+                                
+                                                                echo "(Mandatory)";
+                                                            }
+                                                            ?></span>
+                                                                        <br />
+                                                                        <span style="color: red; font-weight: bold;" class="error_<?php echo $subm['MenuCategory']['id'];?>"></span>
+                                
+                                                                        <div>
+                                                                            <?php
+                                                                            $k=0;
+                                                                            foreach($subm['Menu'] as $k=>$m)
+                                                                            {
+                                                                                //if($k%3 == 0 ){?>
+                                                                                <div class="subin">
+                                                                                    <?php //}?>
+                                                                                    <?php if($subm['MenuCategory']['is_multiple']=='1'){?>
+                                                                                        <div class="col-xs-12 "  style="padding-left:0px;" >
+                                                                                            <input type="checkbox" value="" name="extra" class="extra-<?php echo $subm['MenuCategory']['id'];?> spanextra_<?php echo $m['id'];?>" title="<?php echo $m['id']."_".$m['menu_item']."_".$m['price']."_".$subm['MenuCategory']['title'];?>" id="extra_<?php echo $m['id'];?>" />&nbsp;&nbsp;<?php if($m['price'])echo $m['menu_item']."  (+ $".number_format(str_replace('$','',$m['price']),2).")";else{echo $m['menu_item'];}?> &nbsp;&nbsp;
+                                                                                            <b>
+                                                                                                <a href="javascript:;" class="remspan" id="remspan_<?php echo $m['id'];?>" style="text-decoration: none; color: #fff;" onclick=""><b>&nbsp;&nbsp;-&nbsp;&nbsp;</b></a>
+                                                                                                <span class="span_<?php echo $m['id'];?> allspan" id="sprice_<?php echo $m['price'];?>">&nbsp;&nbsp;1&nbsp;&nbsp;</span>
+                                                                                                <a href="javascript:;" class="addspan" id="addspan_<?php echo $m['id'];?>" onclick="" style="text-decoration: none; color: #fff;"><b>&nbsp;&nbsp;+&nbsp;&nbsp;</b></a></b>
+                                                                                        </div>
+                                                                                    <?php }else
+                                                                                    {?>
+                                                                                        <div class="col-xs-12 " style="padding-left:0px;" >
+                                                                                            <input type="radio" value="" name="extra_<?php echo $subm['MenuCategory']['id'];?>" class="extra-<?php echo $subm['MenuCategory']['id'];?>" title="<?php echo $m['id']."_".$m['menu_item']."_".$m['price']."_".$subm['MenuCategory']['title'];?>" id="extra_<?php echo $m['id'];?>" />&nbsp;&nbsp;<?php if($m['price'])echo $m['menu_item']."  (+ $".number_format(str_replace('$','',$m['price']),2).")";else{echo $m['menu_item'];}?>
+                                                                                        </div>
+                                                                                    <?php
+                                                                                    }?>
+                                                                                    <?php
+                                                                                    //if(($k+1)%3==0)
+                                                                                    //{?>
+                                                                                    <div class="clearfix"></div>
+                                                                                </div>
+                                                                                <?php
+                                                                                //}
+                                                                            }
+                                
+                                                                            ?>
+                                
+                                
+                                                                        </div>
+                                                                    </div>
+                                                                    <?php
+                                                                    if($ch%4==0)
+                                                                    {
+                                                                        ?>
+                                                                        <div class="clearfix"></div>
+                                                                    <?php
+                                                                    }
+                                                                }
+                                                                ?>
+                                                                <div class="clearfix"></div>
+                                                                <div class="col-xs-12 alignr">
+                                
+                                                                    &nbsp;<a href="javascript:void(0);" class="btn btn-info--transition add_menu_profile" id="profilemenu<?php echo $me['id'];?>" style="float: right;margin-left: 10px;" style="">Add</a>&nbsp;
+                                                                    <?php if(count($submenuscat)>0){?>&nbsp;<a href="javascript:void(0);" class="btn btn-primary--transition  clearall" id="clear_<?php echo $me['id'];?>" style="float: right;margin-left:10px;" >Clear</a>&nbsp;<?php }?>
+                                
+                                                                    &nbsp;<button type="button" class="close" id="clear_<?php echo $me['id'];?>" data-dismiss="modal" aria-hidden="false" style="opacity: 1; text-shadow:none;margin-left: 10px;" >
+                                                                        <a href="javascript:void(0)" class="btn btn-danger"  >Close</a>
+                                                                    </button>&nbsp;
+                                                                    <div class="clearfix"></div>
+                                                                </div>
+                                                                <div class="clearfix"></div>
+                                                            </div>
+                                                            <div class="clearfix"></div>
                                                         </div>
                                                     </div>
+                                
                                                 </div>
+                                
                                             </div>
 
                                         </td>
-                                        <td>
-                                            <div class="tiles">
-
-                                                <div class="tile image double">
-                                                    <div class="tile-body">
-                                                        <img src="<?php echo $this->webroot; ?>profile/assets/admin/pages/media/gallery/image4.jpg"
-                                                             alt="">
-                                                    </div>
-                                                    <div class="tile-object">
-                                                        <div class="name">
-                                                            Sushi
-                                                        </div>
-                                                        <div class="number">
-                                                            $24
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </td>
-
-                                        <td>
-                                            <div class="tiles">
-
-                                                <div class="tile image double">
-                                                    <div class="tile-body">
-                                                        <img src="<?php echo $this->webroot; ?>profile/assets/admin/pages/media/gallery/image4.jpg"
-                                                             alt="">
-                                                    </div>
-                                                    <div class="tile-object">
-                                                        <div class="name">
-                                                            Sushi
-                                                        </div>
-                                                        <div class="number">
-                                                            $24
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="tiles">
-
-                                                <div class="tile image double">
-                                                    <div class="tile-body">
-                                                        <img src="<?php echo $this->webroot; ?>profile/assets/admin/pages/media/gallery/image4.jpg"
-                                                             alt="">
-                                                    </div>
-                                                    <div class="tile-object">
-                                                        <div class="name">
-                                                            Sushi
-                                                        </div>
-                                                        <div class="number">
-                                                            $24
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                        </td>
-                                        <td>
-                                            <div class="tiles">
-
-                                                <div class="tile image double">
-                                                    <div class="tile-body">
-                                                        <img src="<?php echo $this->webroot; ?>profile/assets/admin/pages/media/gallery/image4.jpg"
-                                                             alt="">
-                                                    </div>
-                                                    <div class="tile-object">
-                                                        <div class="name">
-                                                            Sushi
-                                                        </div>
-                                                        <div class="number">
-                                                            $24
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </td>
-
+                                        
+                                    <?php }?>
                                     </tr>
 
 
                                     </tbody>
                                 </table>
                             </div>
-
-                            <h2>Combos</h2>
-
-                            <div class="table-scrollable">
-                                <table class="">
-                                    <tbody>
-                                    <tr>
-                                        <td>
-
-                                            <div class="tiles">
-                                                <div class="tile image double ">
-                                                    <div class="tile-body">
-                                                        <img src="<?php echo $this->webroot; ?>profile/assets/admin/pages/media/gallery/image4.jpg"
-                                                             alt="">
-                                                    </div>
-                                                    <div class="tile-object">
-                                                        <div class="name">
-                                                            Sushi
-                                                        </div>
-                                                        <div class="number">
-                                                            $24
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                        </td>
-                                        <td>
-                                            <div class="tiles">
-
-                                                <div class="tile image double">
-                                                    <div class="tile-body">
-                                                        <img src="<?php echo $this->webroot; ?>profile/assets/admin/pages/media/gallery/image4.jpg"
-                                                             alt="">
-                                                    </div>
-                                                    <div class="tile-object">
-                                                        <div class="name">
-                                                            Sushi
-                                                        </div>
-                                                        <div class="number">
-                                                            $24
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </td>
-
-                                        <td>
-                                            <div class="tiles">
-
-                                                <div class="tile image double">
-                                                    <div class="tile-body">
-                                                        <img src="<?php echo $this->webroot; ?>profile/assets/admin/pages/media/gallery/image4.jpg"
-                                                             alt="">
-                                                    </div>
-                                                    <div class="tile-object">
-                                                        <div class="name">
-                                                            Sushi
-                                                        </div>
-                                                        <div class="number">
-                                                            $24
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="tiles">
-
-                                                <div class="tile image double">
-                                                    <div class="tile-body">
-                                                        <img src="<?php echo $this->webroot; ?>profile/assets/admin/pages/media/gallery/image4.jpg"
-                                                             alt="">
-                                                    </div>
-                                                    <div class="tile-object">
-                                                        <div class="name">
-                                                            Sushi
-                                                        </div>
-                                                        <div class="number">
-                                                            $24
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                        </td>
-                                        <td>
-                                            <div class="tiles">
-
-                                                <div class="tile image double">
-                                                    <div class="tile-body">
-                                                        <img src="<?php echo $this->webroot; ?>profile/assets/admin/pages/media/gallery/image4.jpg"
-                                                             alt="">
-                                                    </div>
-                                                    <div class="tile-object">
-                                                        <div class="name">
-                                                            Sushi
-                                                        </div>
-                                                        <div class="number">
-                                                            $24
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </td>
-
-                                    </tr>
-
-
-                                    </tbody>
-                                </table>
-                            </div>
-                            <h2>Sushi</h2>
-
-                            <div class="table-scrollable">
-                                <table class="">
-                                    <tbody>
-                                    <tr>
-                                        <td>
-
-                                            <div class="tiles">
-                                                <div class="tile image double ">
-                                                    <div class="tile-body">
-                                                        <img src="<?php echo $this->webroot; ?>profile/assets/admin/pages/media/gallery/image4.jpg"
-                                                             alt="">
-                                                    </div>
-                                                    <div class="tile-object">
-                                                        <div class="name">
-                                                            Sushi
-                                                        </div>
-                                                        <div class="number">
-                                                            $24
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                        </td>
-                                        <td>
-                                            <div class="tiles">
-
-                                                <div class="tile image double">
-                                                    <div class="tile-body">
-                                                        <img src="<?php echo $this->webroot; ?>profile/assets/admin/pages/media/gallery/image4.jpg"
-                                                             alt="">
-                                                    </div>
-                                                    <div class="tile-object">
-                                                        <div class="name">
-                                                            Sushi
-                                                        </div>
-                                                        <div class="number">
-                                                            $24
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </td>
-
-                                        <td>
-                                            <div class="tiles">
-
-                                                <div class="tile image double">
-                                                    <div class="tile-body">
-                                                        <img src="<?php echo $this->webroot; ?>profile/assets/admin/pages/media/gallery/image4.jpg"
-                                                             alt="">
-                                                    </div>
-                                                    <div class="tile-object">
-                                                        <div class="name">
-                                                            Sushi
-                                                        </div>
-                                                        <div class="number">
-                                                            $24
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="tiles">
-
-                                                <div class="tile image double">
-                                                    <div class="tile-body">
-                                                        <img src="<?php echo $this->webroot; ?>profile/assets/admin/pages/media/gallery/image4.jpg"
-                                                             alt="">
-                                                    </div>
-                                                    <div class="tile-object">
-                                                        <div class="name">
-                                                            Sushi
-                                                        </div>
-                                                        <div class="number">
-                                                            $24
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                        </td>
-                                        <td>
-                                            <div class="tiles">
-
-                                                <div class="tile image double">
-                                                    <div class="tile-body">
-                                                        <img src="<?php echo $this->webroot; ?>profile/assets/admin/pages/media/gallery/image4.jpg"
-                                                             alt="">
-                                                    </div>
-                                                    <div class="tile-object">
-                                                        <div class="name">
-                                                            Sushi
-                                                        </div>
-                                                        <div class="number">
-                                                            $24
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </td>
-
-                                    </tr>
-
-
-                                    </tbody>
-                                </table>
-                            </div>
+                            <?php }?>
+                            
                         </div>
                     </div>
 
