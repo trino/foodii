@@ -1,0 +1,451 @@
+<style>
+/* div{border:1px solid green;} */
+</style>
+
+<div class="breadcrumbs">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <nav>
+          <ol class="breadcrumb">
+            
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html">Restaurants</a></li>
+            <li class="active"><?php echo $res['Restaurant']['name'];?></li>
+            
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <!-- Big banner -->
+  <div class="row">
+    <div class="col-xs-12 col-sm-4 profilepic">
+			
+			            <h5 class="sidebar__subtitle"><?php echo $res['Restaurant']['name'];?></h5>
+
+						
+						
+            <hr class="shop__divider" />
+            <img src="<?php echo $this->webroot?>images/restaurants/<?php echo $res['Restaurant']['picture'];?>" />
+            <input type="hidden" id="address" value="<?php if($res['Restaurant']['street'])echo $res['Restaurant']['street'].', ';echo $res['Restaurant']['city'];if($res['Restaurant']['prov_state'])echo ', '.$res['Restaurant']['prov_state'];?>" />    
+    </div>
+    <div class="col-xs-12 col-sm-4">
+            <h5 class="sidebar__subtitle">Restaurant Info</h5>
+            
+            <hr class="shop__divider" />
+            <!--div class="infolist"><?php echo ucfirst($res['Restaurant']['style']);?>, <?php echo $res['Restaurant']['cuisine']?> cuisine.</div--> 
+        <div class="infolist"><strong>Description: &nbsp; </strong> <?php echo $res['Restaurant']['description'];?></div>
+		            <div class="infolist"><strong>Contact: &nbsp; </strong>  <?php echo $res['Restaurant']['phone'];?>, <?php echo $res['Restaurant']['email'];?></div>
+         
+            <!--div class="infolist"><strong>Hours of Operation: &nbsp; </strong><br />
+            <strong>Monday: &nbsp; </strong><?php echo $res['Restaurant']['monday'];?><br />
+            <strong>Tuesday: &nbsp; </strong><?php echo $res['Restaurant']['tuesday'];?><br />
+            <strong>Wednesday: &nbsp; </strong><?php echo $res['Restaurant']['wednesday'];?><br />
+            <strong>Thursday: &nbsp; </strong><?php echo $res['Restaurant']['thursday'];?><br />
+            <strong>Friday: &nbsp; </strong><?php echo $res['Restaurant']['friday'];?><br />
+            <strong>Saturday: &nbsp; </strong><?php echo $res['Restaurant']['saturday'];?><br />
+			<strong>Sunday: &nbsp; </strong><?php echo $res['Restaurant']['sunday'];?><br />
+            </div-->
+	            <div class="infolist"><strong>Location: &nbsp; </strong> <?php echo $res['Restaurant']['street'];?>, <?php echo $res['Restaurant']['city'].' '.$res['Restaurant']['prov_state'];?></div>
+		
+    </div>
+    <div class="col-xs-12 col-sm-4">
+	
+	            <h5 class="sidebar__subtitle">Get In Touch</h5>
+
+				
+				
+    <hr class="shop__divider" />
+        <p>
+        
+
+	
+		<iframe
+  width="100%"
+  height="200"
+		src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d92977.6637089352!2d-79.93539580000004!3d43.2608103999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882c986c27de778f%3A0x2b6aee56d8df0e21!2sHamilton%2C+ON!5e0!3m2!1sen!2sca!4v1411582016649" frameborder="0" style="border:0"></iframe>
+		
+		
+        <!--iframe
+  width="100%"
+  height="200"
+  frameborder="0" style="border:0"
+  src="https://www.google.com/maps/embed/v1/place?key=<?php if($_SERVER['SERVER_NAME']=='charlieschopsticks.com'){?>AIzaSyAcCefWxk_hh9-YO5p31ay2vQE-1_kJK5I<?php }else{echo 'AIzaSyDoBmY11-CrGRIhbo1_bGNfKjYUV36YL0E';}?>&q=<?php if($res['Restaurant']['street'])echo str_replace(' ','+',$res['Restaurant']['street']).',';echo str_replace(' ','+',$res['Restaurant']['city']);if($res['Restaurant']['prov_state'])echo ','.str_replace(' ','+',$res['Restaurant']['prov_state']);?>">
+</iframe-->        
+        <?php /*<div class="infolist">
+        <strong>70 Reviews: </strong>
+            <span class="glyphicon glyphicon-star star-on"></span>
+            <span class="glyphicon glyphicon-star star-on"></span>
+            <span class="glyphicon glyphicon-star star-on"></span>
+            <span class="glyphicon glyphicon-star star-on"></span>
+            <span class="glyphicon glyphicon-star star-off"></span>
+        </div>
+        <a href="#" class="btn btn-primary--transition">View Reviews</a>*/?>
+		
+		
+<script type="text/javascript">var switchTo5x=true;</script>
+<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+<script type="text/javascript">stLight.options({publisher: "d062983e-e7fe-4c6c-a80c-c04d91d98519", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
+
+<span class='st_facebook_large' displayText='Facebook'></span>
+<span class='st_twitter_large' displayText='Tweet'></span>
+<span class='st_linkedin_large' displayText='LinkedIn'></span>
+<span class='st_pinterest_large' displayText='Pinterest'></span>
+<span class='st_email_large' displayText='Email'></span>
+
+</div>
+        </p>
+    </div>
+<div class="divider" style="margin:5px 0 20px 0;"></div>  
+  <div class="row ">
+    <div class="col-xs-12  col-sm-2 sidecat">
+      <aside class="sidebar  sidebar--shop  scr-fixed">
+        
+        
+        <div class="shop-filter">
+
+          <h5 class="sidebar__subtitle">Categories</h5>
+          <ul class="nav  nav--filter">
+          <?php
+          if($res['MenuCategory'])
+          {
+            foreach($res['MenuCategory'] as $mc)
+            {
+                
+            ?>
+            <li><a href="#category<?php echo $mc['id'];?>" class="scrolly"><?php echo $mc['title'];?></a></li>
+          
+            
+          
+            
+            <?php
+            }
+          }
+          ?>
+          
+          </ul>
+
+          
+        </div>
+      </aside>
+    </div>
+    <div class="col-xs-12  col-sm-10">
+      <div class="grid">
+        
+        <div class="row menulisting">
+        <div class="col-xs-12 col-sm-8 menuparent">
+        <?php
+        foreach($rescat as $cat)
+        {
+            ?>
+            <h5 class="sidebar__subtitle" id="category<?php echo $cat['MenuCategory']['id'];?>"><?php echo $cat['MenuCategory']['title'];?></h5>
+            <?php
+            $ks=0;
+            foreach($cat['Menu'] as $ks=>$me)
+            {
+                $submenuscat = $this->requestAction('restaurants/getMenucat/'.$me['id']);
+            ?>
+             
+             <div class="col-xs-12 col-sm-4 menutile" style="">
+
+
+
+
+                <div class="menucl menu-title" style="text-align: center;">
+				
+				
+				             <?php if($me['image']){      ?>
+                
+<div class="menucl" style="">
+<a href="#Modal<?php echo $me['id'];?>" role="button" data-toggle="modal">
+<img class="i menutileimg" src="<?php echo $this->webroot;?>images/menus/<?php echo $me['image'];?>"/>
+</a>
+</div>
+				
+                <div class="clearfix"></div>
+                <div class="modal  fade" id="Modal<?php echo $me['id'];?>" tabindex="-1" role="dialog" aria-labelledby="Modal<?php echo $me['id'];?>Label" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content ">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+                        <h3><?php echo $me['menu_item']." : $ ".$me['price'];?></h3>
+                        <hr class="divider">
+                      </div>
+                      <div class="modal-body">
+                        <img src="<?php echo $this->webroot;?>images/menus/<?php echo $me['image'];?>" style="max-width: 500px;"/>
+                      </div>
+                    </div>
+                 </div>
+                 </div>
+<?php } ?>
+
+
+
+
+                    <?php if(count($submenuscat)>0){?>
+             <a href="javascript:void(0);" onclick="$('.optionals:not(.subitems_<?php echo $me['id'];?>)').hide();$('.subitems_<?php echo $me['id'];?>').toggle('slow');"><?php }else{?><a href="javascript:void(0);" onclick="$('.optionals').hide();" class="add_menu_profile" id="profilemenu<?php echo $me['id'];?>"><?php }?>
+             <strong><?php echo $me['menu_item'];?></strong>: $<span class="profileprice<?php echo $me['id'];?>"><?php if($me['price'])echo number_format(str_replace('$','',(int)$me['price']),2);else echo "0.00";?></span></a><br />
+                    <?php //echo $me['description'];?>
+                </div>
+
+                <div class="clearfix space10"></div>
+                
+                <!-- Sub Categories -->
+                <div class="subitems_<?php echo $me['id'];?> optionals" style="display: none;">
+                <span class="topright"><a href="javascript:void(0)" onclick="$('.subitems_<?php echo $me['id'];?>').toggle();"><strong class="btn btn-danger">x</strong></a></span>
+				<p>Description goes here Description goes here Description goes here Description goes here Description goes here Description goes here Description goes here Description goes here Description goes here Description goes here Description goes here </p>
+                <div class="clearfix space10"></div>
+                    <input type="checkbox" class="chk" value="" title="<?php echo $me['id']."_".$me['menu_item']."_".$me['price']."_"."";?>" checked="checked" style="display: none;" />
+                    <?php 
+                    //var_dump($submenuscat);
+                        $ch = 0;
+                        foreach($submenuscat as $subm)
+                        {
+                            $ch++;?>
+                            
+                            <input type="hidden" id="extra_no_<?php echo $subm['MenuCategory']['id'];?>" value="<?php echo $subm['MenuCategory']['itemno'];?>" />
+                            <input type="hidden" id="required_<?php echo $subm['MenuCategory']['id'];?>" value="<?php echo $subm['MenuCategory']['is_required'];?>" />
+                            <input type="hidden" id="multiple_<?php echo $subm['MenuCategory']['id'];?>" value="<?php echo $subm['MenuCategory']['is_multiple'];?>" />
+                            <div class="infolist col-xs-12  col-sm-4" style="border-right: 5px solid #CCC;min-height:200px;" >
+                            <input type="checkbox" class="chk" checked="checked" style="display: none;" id="<?php echo $subm['MenuCategory']['id'];?>" title="___" value="<?php echo $subm['MenuCategory']['title'];?>" />
+                            <a href="javascript:void(0);" <?php /*onclick="$($(this).parent().children('div:eq(0)')).toggle('slow'); $('.extra-<?php echo $subm['MenuCategory']['id'];?>').each(function(){$(this).removeAttr('checked');}) "*/?> ><strong><?php echo $subm['MenuCategory']['title'];?></strong></a>
+                              <br />
+							<span><?php if($subm['MenuCategory']['is_required']=='0'){ 
+							if($subm['MenuCategory']['itemno']>0 &&$subm['MenuCategory']['is_multiple']=='1' )
+							echo "SELCET ".$subm['MenuCategory']['itemno']." ITEMS ";
+							echo "Optional";
+
+							}
+							elseif($subm['MenuCategory']['is_required']=='1' )
+							{ 
+							if($subm['MenuCategory']['itemno']>0 &&$subm['MenuCategory']['is_multiple']=='1')
+							echo "SELCET ".$subm['MenuCategory']['itemno']." ITEMS ";
+
+							echo "Mandatory";
+							}
+							?></span>
+                              <br />
+                              <span style="color: red; font-weight: bold;" id="error_<?php echo $subm['MenuCategory']['id'];?>"></span>
+                              
+                              <div>
+                                <?php
+                                $k=0; 
+                                foreach($subm['Menu'] as $k=>$m)
+                                    {
+                                    //if($k%3 == 0 ){?>
+                                      <div class="subin">
+                                <?php //}?>
+                                        <?php if($subm['MenuCategory']['is_multiple']=='1'){?>
+                                       <div class="col-xs-12 "  style="padding-left:0px;" >
+                                            <input type="checkbox" value="" name="extra" class="extra-<?php echo $subm['MenuCategory']['id'];?>" title="<?php echo $m['id']."_".$m['menu_item']."_".$m['price']."_".$subm['MenuCategory']['title'];?>" id="extra_<?php echo $m['id'];?>" />&nbsp;&nbsp;<?php if($m['price'])echo $m['menu_item']."  (+ $".number_format(str_replace('$','',$m['price']),2).")";else{echo $m['menu_item']."  (+ $".number_format(str_replace('$','','0.00'),2).")";}?>
+                                       </div> 
+                                       <?php }else
+                                       {?>
+                                        <div class="col-xs-12 " style="padding-left:0px;" >
+                                            <input type="radio" value="" name="extra_<?php echo $subm['MenuCategory']['id'];?>" class="extra-<?php echo $subm['MenuCategory']['id'];?>" title="<?php echo $m['id']."_".$m['menu_item']."_".$m['price']."_".$subm['MenuCategory']['title'];?>" id="extra_<?php echo $m['id'];?>" />&nbsp;&nbsp;<?php if($m['price'])echo $m['menu_item']."  (+ $".number_format(str_replace('$','',$m['price']),2).")";else{echo $m['menu_item']."  (+ $".number_format(str_replace('$','','0.00'),2).")";}?>
+                                        </div> 
+                                       <?php
+                                       }?>
+                                 <?php
+                                        if(($k+1)%3==0)
+                                        //{?>
+                                         <div class="clearfix"></div>   
+                                        </div> 
+                                     <?php
+                                        //}
+                                    }
+                                    /*
+                                    if($k%3==0)
+                                    {
+                                        ?>
+                                        <div class="col-xs-12 col-sm-4"></div>
+                                        <div class="col-xs-12 col-sm-4"></div>
+                                        <div class="clearfix"></div>   
+                                        </div> 
+                                        <?php
+                                    }
+                                    if($k%3==1)
+                                    {
+                                        ?>
+                                        
+                                        <div class="col-xs-12 col-sm-4"></div>
+                                        <div class="clearfix"></div>   
+                                        </div> 
+                                        <?php
+                                    }*/
+                                ?>
+                                
+                                
+                           </div>     
+                         </div>    
+                    <?php 
+                    if($ch%3==0)
+                    {
+                        ?>
+                        <div class="clearfix"></div>
+                        <?php
+                    }
+                        }
+                        
+                    ?>
+                    <div class="clearfix"></div>
+                   <div class="menucl menu-act col-xs-12 alignr">
+                    <a href="javascript:void(0)" class="btn btn-primary--transition  clearall" id="clear_<?php echo $me['id'];?>" >Clear</a>
+                    <a href="javascript:void(0)" class="btn btn-primary--transition add_menu_profile" id="profilemenu<?php echo $me['id'];?>">Add</a></div>                     
+                </div>
+                <!-- Sub End-->
+                                
+             
+             </div>
+             </a>
+             <?php
+                if(($ks+1)%3==0)
+                {?>
+                 <div class="clearfix"></div>   
+                 
+               
+        
+            <?php
+                }
+            }
+            if($ks%3==0)
+            {
+                ?>
+                <div class="col-xs-12 col-sm-4"></div>
+                <div class="col-xs-12 col-sm-4"></div>
+                <div class="clearfix"></div>   
+                 
+                <?php
+            }
+            if($ks%3==1)
+            {
+                ?>
+                
+                <div class="col-xs-12 col-sm-4"></div>
+                <div class="clearfix"></div>   
+                 
+                <?php
+            }
+        ?>
+            <div class="clearfix"></div>  
+            <div class="divider"></div>    
+        <?php
+        }
+        ?> 
+        <hr class="shop__divider">
+         
+        </div>
+        
+        <div class="col-xs-12 col-sm-4">
+        <div class="scr-fixed">
+        <form action="<?php echo $this->webroot;?>restaurants/order/<?php echo $res['Restaurant']['id'];?><?php if($order){?>/<?php echo $order['Reservation']['id']; }?>" method="post">
+        <?php
+                if($order)
+                {
+                    $menu_ids = $order['Reservation']['menu_ids'];
+                            $qtys = $order['Reservation']['qtys'];
+                            $arr_m = explode(',',$menu_ids);
+                            $arr_qty = explode(',',$qtys);
+                            $arr_extras = explode(',',$order['Reservation']['extras']);
+                            $list_ids = explode(',',$order['Reservation']['listid']);
+                            $prices = explode(',',$order['Reservation']['prs']);
+                            $order_type = $order['Reservation']['order_type'];
+                }
+                else
+                $order_type ='delivery';
+                //var_dump($list_ids);
+                ?>
+        <h5 class="sidebar__subtitle">Order Receipt</h5>
+            <ul class="listnone">
+                <li class="active">
+                    <input type="radio" <?php if($order_type =='delivery')echo "checked='checked'";?> name="order_type" value="delivery"  onchange="if($(this).is(':checked')){$('#df').show();$('.df').val('<?php echo str_replace('$','',$res['Restaurant']['delivery_fee']);?>');}"/> For Delivery
+                </li>
+                <li class="">
+                <input type="radio" name="order_type" <?php if($order_type =='Pickup')echo "checked='checked'";?> value="Pickup" onchange="if($(this).is(':checked')){$('.df').val('0');$('#df').hide();}"/> Pickup
+                </li>                
+            </ul>  
+            <div class="tab-content">
+                <div id="" class="">
+                
+                <p class="tab-text">
+                
+                    <div class="orders" <?php if($order && count($arr_m)>0){?>style="overflow-y:scroll;height:260px;"<?php }?>>
+                        <?php
+                        if($order)
+                        {
+                            
+                            foreach($arr_m as $k=>$me)
+                            {
+                                $menu = $menus->findById($me);
+                                $x = str_replace(array("% ",':'),array(" ",': '),$arr_extras[$k]);
+                                $x = str_replace("%",",",$x);
+                                ?>
+                                <div id="list<?php echo $list_ids[$k];?>" class="infolist">
+                                <strong class="namemenu"><?php echo str_replace(":",": ",$menu['Menu']['menu_item'])." ".$x;?></strong>
+                                <div class="left">
+                                <a id="dec<?php echo $list_ids[$k];?>" class="decrease small btn btn-danger" href="javascript:void(0);">
+                                <strong>-</strong>
+                                </a>
+                                <span class="count"><?php echo $arr_qty[$k];?></span>
+                                <input type="hidden" class="count" name="qtys[]" value="<?php echo $arr_qty[$k];?>" />
+                                <input type="hidden" class="menu_ids" name="menu_ids[]" value="<?php echo $menu['Menu']['id'];?>" />
+                                <input type="hidden" name="extras[]" value="<?php echo $arr_extras[$k];?>"/>
+                                <input type="hidden" name="listid[]" value="<?php echo $list_ids[$k];?>" />
+                                <input type="hidden" class="prs" name="prs[]" value="<?php echo str_replace('$','',$prices[$k]);?>" />
+                                X $
+                                <span class="amount"><?php echo number_format(str_replace('$','',$prices[$k]),2);?></span>
+                                </div>
+                                <div class="right">
+                                <strong>
+                                $
+                                <span class="total"><?php echo number_format((str_replace('$','',$prices[$k])*$arr_qty[$k]),2);?></span>
+                                </strong>
+                                <a id="inc<?php echo $list_ids[$k];?>" class="increase btn btn-success small " href="javascript:void(0);">
+                                <strong>+</strong>
+                                </a>
+                                </div>
+                                <div class="clearfix"></div>
+                                </div>
+                                <?php
+                            }
+                            
+                        }
+                        ?>
+                        
+                    </div>
+                   
+                </p>
+                <hr class="shop__divider" />
+                        <strong>Subtotal </strong> : $<span class="subtotal"><?php if($order){echo $order['Reservation']['subtotal'];}else{?>0.00<?php }?></span>
+                        <input type="hidden" value="0.00" class="subtotal" name="subtotal" />
+                        <span id="df">
+                        <br />
+                        <strong>Delivery Fee </strong> : $<?php echo number_format(str_replace('$','',$res['Restaurant']['delivery_fee']),2);?>
+                        <input type="hidden" name="delivery_fee" class="df" value="<?php echo str_replace('$','',$res['Restaurant']['delivery_fee']);?>" />
+                        </span>
+                        <br />
+                        <strong>Tax </strong> : $<span class="tax"><?php if($order){echo $order['Reservation']['tax'];}else{?>0.00<?php }?></span> (<span id="tax"><?php echo str_replace('$','',$res['Restaurant']['tax']);?></span>%)
+                        <input type="hidden" class="tax" name="tax" value="<?php if($order){echo $order['Reservation']['tax'];}else{?>0.00<?php }?>" />
+                        <br />
+                        <strong>Total</strong> : $<span class="grandtotal"><?php if($order){echo $order['Reservation']['g_total'];}else{echo number_format(str_replace('$','',$res['Restaurant']['delivery_fee']),2); }?></span>
+                        <input type="hidden" value="<?php if($order){echo $order['Reservation']['g_total'];}else{echo number_format(str_replace('$','',$res['Restaurant']['delivery_fee']),2); }?>" class="grandtotal" name="g_total" />
+                        <br />
+                        <br />
+                        <input type="submit" value="Submit Order" class="btn btn-success" />
+                </div>
+                
+                
+            </div>  
+            </form>         
+        </div>
+        </div>   
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
