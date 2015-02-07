@@ -670,21 +670,23 @@ if(path.replace('test','')!=path){
                 {
                     var cnn =0;
                     var catid = $(this).attr('id');
+                    //alert(catid);
                     catarray.push(catid);
                     
-                    var is_required = $(this).parent().find('.required_'+catid).val();
-                    var extra_no =  $(this).parent().find('.extra_no_'+catid).val();
+                    var is_required = $(this).parent().parent().parent().parent().find('.required_'+catid).val();
+                    var extra_no =  $(this).parent().parent().parent().parent().find('.extra_no_'+catid).val();
                     if(extra_no == 0)
                         extra_no = 1;
-                    var multiples =  $(this).parent().find('.multiple_'+catid).val();
-                    var upto =  $(this).parent().find('.upto_'+catid).val();
+                    var multiples =  $(this).parent().parent().parent().parent().find('.multiple_'+catid).val();
+                    var upto =  $(this).parent().parent().parent().parent().find('.upto_'+catid).val();
                     
-                    $(this).parent().find('.extra-'+catid).each(function(){
+                    $(this).parent().parent().parent().parent().find('.extra-'+catid).each(function(){
+                        
                         if($(this).is(":checked"))
                         {
                             var mid = $(this).attr('id').replace('extra_','');
                             
-                            var qty = Number($(this).parent().children().find('.span_'+mid).text());
+                            var qty = Number($(this).parent().parent().parent().parent().children().find('.span_'+mid).text());
                             //alert(mid+","+qty);
                             if(qty != "")
                             {
@@ -705,18 +707,18 @@ if(path.replace('test','')!=path){
                             if(cnn == 0)
                             {   
                                 err++;
-                                $(this).parent().find('.error_'+catid).html("Options are Mandatory");
+                                $(this).parent().parent().parent().parent().find('.error_'+catid).html("Options are Mandatory");
                             }
                             else
                             if(multiples ==1 && cnn > extra_no)
                             {
     
                                 err++;
-                                $(this).parent().find('.error_'+catid).html("Select up to "+extra_no+" Options");
+                                $(this).parent().parent().parent().parent().find('.error_'+catid).html("Select up to "+extra_no+" Options");
                             }
                             else
                             {
-                                $(this).parent().find('.error_'+catid).html("");
+                                $(this).parent().parent().parent().parent().find('.error_'+catid).html("");
                             }
                         }
                      else
@@ -724,18 +726,18 @@ if(path.replace('test','')!=path){
                           if(cnn == 0)
                             {   
                                 err++;
-                                $(this).parent().find('.error_'+catid).html("Options are Mandatory");
+                                $(this).parent().parent().parent().parent().find('.error_'+catid).html("Options are Mandatory");
                             }
                             else
                             if(multiples ==1 && cnn!= extra_no)
                             {
     
                                 err++;
-                                $(this).parent().find('.error_'+catid).html("Select "+extra_no+" Options");
+                                $(this).parent().parent().parent().parent().find('.error_'+catid).html("Select "+extra_no+" Options");
                             }
                             else
                             {
-                                $(this).parent().find('.error_'+catid).html("");
+                                $(this).parent().parent().parent().parent().find('.error_'+catid).html("");
                             }
                         }
                     }
@@ -746,11 +748,11 @@ if(path.replace('test','')!=path){
                             if(multiples ==1 && cnn >0 && cnn > extra_no)
                             {
                                 err++;
-                                $(this).parent().find('.error_'+catid).html("Select up to "+extra_no+" Options");
+                                $(this).parent().parent().parent().parent().find('.error_'+catid).html("Select up to "+extra_no+" Options");
                             }
                             else
                             {
-                               $(this).parent().find('.error_'+catid).html(""); 
+                               $(this).parent().parent().parent().parent().find('.error_'+catid).html(""); 
                             }
                         }
                         else
@@ -758,11 +760,11 @@ if(path.replace('test','')!=path){
                             if(multiples ==1 && cnn >0 && cnn!= extra_no)
                             {
                                 err++;
-                                $(this).parent().find('.error_'+catid).html("Select "+extra_no+" Options");
+                                $(this).parent().parent().parent().parent().find('.error_'+catid).html("Select "+extra_no+" Options");
                             }
                             else
                             {
-                               $(this).parent().find('.error_'+catid).html(""); 
+                               $(this).parent().parent().parent().parent().find('.error_'+catid).html(""); 
                             }
                         }
                         
@@ -786,6 +788,15 @@ if(path.replace('test','')!=path){
                 
             }
             });
+            //alert('Cat'+catarray);
+            if(err>0)
+                return false;
+            else
+            {
+                catarray.forEach(function(catid){
+                    $('#error_'+catid).html("");
+                })
+            }
             ids = ids.replace("__","_");
             
             //app_title =app_title.replace(",,"," ");
@@ -814,14 +825,8 @@ if(path.replace('test','')!=path){
                 
             dbtitle = extratitle.split(",").join("%");
             dbtitle = dbtitle.split("%%").join("");
-            if(err>0)
-                return false;
-            else
-            {
-                catarray.forEach(function(catid){
-                    $('#error_'+catid).html("");
-                })
-            }
+            
+            
             
            //alert(ids);
         /*$(this).text('Added');
@@ -840,6 +845,20 @@ if(path.replace('test','')!=path){
             else
                 pre_cnt = 1;
             $('#list'+ids).remove();
+            $('.orders').prepend('<tr id="list'+ids+'" class="infolist" ></tr>');
+            $('#list'+ids).html('<td><strong class="namemenu">'+app_title+'</strong></td>'+
+            '<td><span class="label label-sm label-info"><a style="padding: 6px;height: 20px;line-height: 6px" id="dec'+ids+'" class="decrease small btn btn-danger" href="javascript:void(0);">'+
+            '<strong>-</strong></a> &nbsp;<span class="count">'+pre_cnt+'</span><input type="hidden" class="count" name="qtys[]" value="'+pre_cnt+'" />'+ '&nbsp;<span  class="label label-sm label-danger"><a id="inc'+ids+'" class="increase btn btn-success small " href="javascript:void(0);" style="padding: 6px;height: 20px;line-height: 6px">'+
+            '<strong>+</strong></a></span> &nbsp; '+
+            '<input type="hidden" class="menu_ids" name="menu_ids[]" value="C_'+menu_id+'" />'+
+            '<input type="hidden" name="extras[]" value="'+dbtitle+'"/><input type="hidden" name="listid[]" value="'+ids+'" />'+
+            '<input type="hidden" class="prs" name="prs[]" value="'+price.toFixed(2)+'" />X $'+
+            '<span class="amount">'+price.toFixed(2)+'</span></td>'+
+            '<td>'+
+            '<strong>$<span class="total">'+(pre_cnt*price).toFixed(2)+'</span>'+
+            '</strong></div><div class="clearfix"></td>');
+            
+            /*
             $('.orders').prepend('<div id="list'+ids+'" class="infolist" ></div>');
             $('#list'+ids).html('<strong class="namemenu">'+app_title+'</strong>'+
             '<div class="left"><a style="padding: 6px;height: 20px;line-height: 6px" id="dec'+ids+'" class="decrease small btn btn-danger" href="javascript:void(0);">'+
@@ -851,7 +870,7 @@ if(path.replace('test','')!=path){
             '<span class="amount">'+price.toFixed(2)+'</span></div>'+
             '<div class="right">'+
             '<strong>$<span class="total">'+(pre_cnt*price).toFixed(2)+'</span>'+
-            '</strong></div><div class="clearfix"></div>');
+            '</strong></div><div class="clearfix"></div>');*/
         //$('#list'+menu_id).load(base_url+'restaurants/orderlist/'+menu_id);
         //var price = $('.profileprice'+menu_id).text();
         
@@ -1157,6 +1176,21 @@ if(path.replace('test','')!=path){
                 pre_cnt = Number(pre_cnt)+Number(1);
             else
                 pre_cnt = 1;
+            
+            $('#list'+ids).remove();
+            $('.orders').prepend('<tr id="list'+ids+'" class="infolist" ></tr>');
+            $('#list'+ids).html('<td><strong class="namemenu">'+app_title+'</strong></td>'+
+            '<td><span class="label label-sm label-info"><a style="padding: 6px;height: 20px;line-height: 6px" id="dec'+ids+'" class="decrease small btn btn-danger" href="javascript:void(0);">'+
+            '<strong>-</strong></a> &nbsp;<span class="count">'+pre_cnt+'</span><input type="hidden" class="count" name="qtys[]" value="'+pre_cnt+'" />'+ '&nbsp;<span  class="label label-sm label-danger"><a id="inc'+ids+'" class="increase btn btn-success small " href="javascript:void(0);" style="padding: 6px;height: 20px;line-height: 6px">'+
+            '<strong>+</strong></a></span> &nbsp; '+
+            '<input type="hidden" class="menu_ids" name="menu_ids[]" value="C_'+menu_id+'" />'+
+            '<input type="hidden" name="extras[]" value="'+dbtitle+'"/><input type="hidden" name="listid[]" value="'+ids+'" />'+
+            '<input type="hidden" class="prs" name="prs[]" value="'+price.toFixed(2)+'" />X $'+
+            '<span class="amount">'+price.toFixed(2)+'</span></td>'+
+            '<td>'+
+            '<strong>$<span class="total">'+(pre_cnt*price).toFixed(2)+'</span>'+
+            '</strong></div><div class="clearfix"></td>');
+            /*
             $('#list'+ids).remove();
             $('.orders').prepend('<div id="list'+ids+'" class="infolist" ></div>');
             $('#list'+ids).html('<strong class="namemenu">'+app_title+'</strong>'+
@@ -1169,7 +1203,7 @@ if(path.replace('test','')!=path){
             '<span class="amount">'+price.toFixed(2)+'</span></div>'+
             '<div class="right">'+
             '<strong>$<span class="total">'+(pre_cnt*price).toFixed(2)+'</span>'+
-            '</strong></div><div class="clearfix"></div>');
+            '</strong></div><div class="clearfix"></div>');*/
         //$('#list'+menu_id).load(base_url+'restaurants/orderlist/'+menu_id);
         //var price = $('.profileprice'+menu_id).text();
         

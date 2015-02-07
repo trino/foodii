@@ -298,7 +298,7 @@
                                                                     <input type="hidden" class="required_<?php echo $subm['MenuCategory']['id'];?>" value="<?php echo $subm['MenuCategory']['is_required'];?>" />
                                                                     <input type="hidden" class="multiple_<?php echo $subm['MenuCategory']['id'];?>" value="<?php echo $subm['MenuCategory']['is_multiple'];?>" />
                                                                     <input type="hidden" class="upto_<?php echo $subm['MenuCategory']['id'];?>" value="<?php echo $subm['MenuCategory']['up_to'];?>" />
-                                                                        <input type="checkbox" class="chk" checked="checked" style="display: none;" id="<?php echo $subm['MenuCategory']['id'];?>" title="___" value="<?php echo $subm['MenuCategory']['title'];?>" />
+                                                                        <div style="display: none;"><input type="checkbox" class="chk" checked="checked" style="display: none;" id="<?php echo $subm['MenuCategory']['id'];?>" title="___" value="<?php echo $subm['MenuCategory']['title'];?>" /></div>
                                                                         <a href="javascript:void(0);" <?php /*onclick="$($(this).parent().children('div:eq(0)')).toggle('slow'); $('.extra-<?php echo $subm['MenuCategory']['id'];?>').each(function(){$(this).removeAttr('checked');}) "*/?> ><strong><?php echo $subm['MenuCategory']['title'];?></strong></a> <?php if($subm['MenuCategory']['description'] && $subm['MenuCategory']['description']!='undefined'){?>:<?php }?> <span><em> <?php echo $subm['MenuCategory']['description'];?></em></span>
                                                                         &nbsp; &nbsp;
                                              
@@ -693,9 +693,10 @@
                                         </th>
                                     </tr>
                                     </thead>
-                                    <tbody>
+                                    </table>
+                                    <table id="clearorder" class="orders">
 
-                                    <tr>
+                                    <!--<tr>
                                         <td><strong>Sushi Roll</strong> 3 piece roll with sesame salmon spicy</td>
                                         <td><span class="label label-sm label-info"> - </span>&nbsp;4 <span
                                                 class="label label-sm label-danger">+ </span></td>
@@ -736,8 +737,8 @@
                                         <td><span class="label label-sm label-info"> - </span>&nbsp;4 <span
                                                 class="label label-sm label-danger">+ </span></td>
                                         <td>$19.99</td>
-                                    </tr>
-                                    </tbody>
+                                    </tr>-->
+                                    
                                 </table>
                             </div>
 
@@ -745,13 +746,16 @@
                             <div class="invoice-block">
                                 <ul class="list-unstyled amounts">
                                     <li>
-                                        <strong>Subtotal:</strong> $9265
+                                        <strong >Subtotal:</strong> $<span class="subtotal">12</span>
+                                        <input type="hidden" value="<?php if($order){echo $order['Reservation']['subtotal'];}else{?>0.00<?php }?>" class="subtotal" name="subtotal" />
                                     </li>
                                     <li>
-                                        <strong>Tax:</strong> 12.9%
+                                        <strong>Tax:</strong> $<span class="tax">12.9</span>
+                                        <input type="hidden" class="tax" name="tax" value="<?php if($order){echo $order['Reservation']['tax'];}else{?>0.00<?php }?>" />
                                     </li>
                                     <li>
-                                        <strong>Grand Total:</strong> $12489
+                                        <strong>Grand Total:</strong> $<span class="grandtotal">12489</span>
+                                        <input type="hidden" value="<?php if($order){echo $order['Reservation']['g_total'];}else{echo '0.00'; }?>" class="grandtotal" name="g_total" />
                                     </li>
                                 </ul>
                                 <br>
