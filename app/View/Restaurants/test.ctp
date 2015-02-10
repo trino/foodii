@@ -678,7 +678,34 @@
 
                         </div>
                         <div class="portlet-body">
+                             <form action="<?php echo $this->webroot;?>restaurants/order/<?php echo $res['Restaurant']['id'];?><?php if($order){?>/<?php echo $order['Reservation']['id']; }?>" method="post" onsubmit="if($('input.subtotal').val()=='0.00'){$('.error_order').show(function(){$('.error_order').fadeOut(5000);});return false;}else if( (Number($('input.subtotal').val()) < Number(<?php echo $res['Restaurant']['min_delivery'];?>) ) && $('input[name=order_type]:checked').val()== 'delivery' ){ $('.error_delivery').show(function(){$('.error_delivery').fadeOut(5000);});return false;}">
+                            <?php
+                            if($order)
+                            {
+                                $menu_ids = $order['Reservation']['menu_ids'];
+                                $qtys = $order['Reservation']['qtys'];
+                                $arr_m = explode(',',$menu_ids);
+                                $arr_qty = explode(',',$qtys);
+                                $arr_extras = explode(',',$order['Reservation']['extras']);
+                                $list_ids = explode(',',$order['Reservation']['listid']);
+                                $prices = explode(',',$order['Reservation']['prs']);
+                                $order_type = $order['Reservation']['order_type'];
+                            }
+                            else
+                                $order_type ='Pickup';
+                            //var_dump($list_ids);
+                            ?>
+                            <ul class="listnone">
+                                <li class="active">
+                                    <input type="radio" name="order_type" <?php if($order_type =='Pickup')echo "checked='checked'";?> value="Pickup" onchange="if($(this).is(':checked')){$('.df').val('0');$('#df').hide(); var tax = $('.tax').text();var grandtotal = 0; var subtotal = $('.subtotal').text(); grandtotal = Number(grandtotal)+Number(tax)+Number(subtotal);  $('.grandtotal').text(grandtotal.toFixed(2));$('.grandtotal').val(grandtotal.toFixed(2)); }"/> Pickup
+                                </li>
+                                <li class="">
+                                    <input type="radio" <?php if($order_type =='delivery')echo "checked='checked'";?> name="order_type" value="delivery"  onchange="if($(this).is(':checked')){$('#df').show(); var df ='<?php echo number_format(str_replace('$','',$res['Restaurant']['delivery_fee']),'2');?>'; var tax = $('.tax').text(); var grandtotal = 0;var subtotal = $('.subtotal').text();  grandtotal = Number(grandtotal)+Number(df)+Number(subtotal)+Number(tax);  $('.df').val(df);$('.grandtotal').text(grandtotal.toFixed(2));$('.grandtotal').val(grandtotal.toFixed(2)); }"/> For Delivery
+                                </li>
+            
+                            </ul>
                             <div class="table-scrollable">
+                            
                                 <table class="table">
                                     <thead>
                                     <tr>
@@ -694,8 +721,59 @@
                                     </tr>
                                     </thead>
                                     </table>
-                                    <table id="clearorder" class="orders">
-
+                                    <table id="clearorder" class="orders table">
+                                    <?php
+                                    if($order)
+                                    {
+            
+                                        foreach($arr_m as $k=>$me)
+                                        {
+                                            $menu = $menus->findById($me);
+                                            $x = str_replace(array("% ",':'),array(" ",': '),$arr_extras[$k]);
+                                            $x = str_replace("%",",",$x);
+                                            if(is_numeric($me))
+                                            {
+                                                $m = $menus->findById($me);
+                                                $tt = $m['Menu']['menu_item'];
+                                            }
+                                            else
+                                            {
+                                                $m = $combo1->findById(str_replace("C_"," ",$me));
+                                                $tt = $m['Combo']['title'];
+                                            }
+                                            ?>
+                                            <tr id="list<?php echo $list_ids[$k];?>" class="infolist">
+                                                <td><strong class="namemenu"><?php echo str_replace(":",": ",$tt)." ".$x;?></strong></td>
+                                                <td>
+                                                    <a id="dec<?php echo $list_ids[$k];?>" class="decrease small btn btn-danger" href="javascript:void(0);"  style="padding: 6px;height: 20px;line-height: 6px">
+                                                        <strong>-</strong> &nbsp;
+                                                    </a>
+                                                
+                                                    <span class="count"><?php echo $arr_qty[$k];?></span> &nbsp;
+                                                    <a id="inc<?php echo $list_ids[$k];?>" class="increase btn btn-success small " href="javascript:void(0);" style="padding: 6px;height: 20px;line-height: 6px">
+                                                        <strong>+</strong></a> &nbsp;
+                                                    <input type="hidden" class="count" name="qtys[]" value="<?php echo $arr_qty[$k];?>" />
+                                                    <input type="hidden" class="menu_ids" name="menu_ids[]" value="<?php echo $me;?>" />
+                                                    <input type="hidden" name="extras[]" value="<?php echo $arr_extras[$k];?>"/>
+                                                    <input type="hidden" name="listid[]" value="<?php echo $list_ids[$k];?>" />
+                                                    <input type="hidden" class="prs" name="prs[]" value="<?php echo str_replace('$','',$prices[$k]);?>" />
+                                                    X $
+                                                    <span class="amount"><?php echo number_format(str_replace('$','',$prices[$k]),2);?></span>
+                                                </td>
+                                                <td>
+                                                    <strong>
+                                                        $
+                                                        <span class="total"><?php echo number_format((str_replace('$','',$prices[$k])*$arr_qty[$k]),2);?></span>
+                                                    </strong>
+            
+                                                </td>
+                                                
+                                            </tr>
+                                        <?php
+                                        }
+            
+                                    }
+                                    ?>
                                     <!--<tr>
                                         <td><strong>Sushi Roll</strong> 3 piece roll with sesame salmon spicy</td>
                                         <td><span class="label label-sm label-info"> - </span>&nbsp;4 <span
@@ -744,40 +822,46 @@
 
 
                             <div class="invoice-block">
-                                <ul class="list-unstyled amounts">
+                                    <div class="totals">
+                                    <ul class="list-unstyled amounts">
                                     <li>
-                                        <strong >Subtotal:</strong> $<span class="subtotal">12</span>
-                                        <input type="hidden" value="<?php if($order){echo $order['Reservation']['subtotal'];}else{?>0.00<?php }?>" class="subtotal" name="subtotal" />
+                                            <strong>Subtotal&nbsp;</strong>:&nbsp;$<span class="subtotal"><?php if($order){echo $order['Reservation']['subtotal'];}else{?>0.00<?php }?></span>
+                                            <input type="hidden" value="<?php if($order){echo $order['Reservation']['subtotal'];}else{?>0.00<?php }?>" class="subtotal" name="subtotal" />
                                     </li>
                                     <li>
-                                        <strong>Tax:</strong> $<span class="tax">12.9</span>
+                                        <strong>Tax&nbsp;</strong>:&nbsp;$<span class="tax"><?php if($order){echo $order['Reservation']['tax'];}else{?>0.00<?php }?></span>&nbsp;(<span id="tax"><?php echo str_replace('$','',$res['Restaurant']['tax']);?></span>%)
                                         <input type="hidden" class="tax" name="tax" value="<?php if($order){echo $order['Reservation']['tax'];}else{?>0.00<?php }?>" />
                                     </li>
+                                
+                                    <li id="df" style="display: none;">
+                                        <strong>Delivery Fee&nbsp;</strong>:&nbsp;$<?php echo number_format(str_replace('$','',$res['Restaurant']['delivery_fee']),2);?>
+                                        <input type="hidden" name="delivery_fee" class="df" value="<?php if($order)    echo str_replace('$','',$res['Restaurant']['delivery_fee']);else echo "0.00";?>" />
+                                     
+                                    </li>
                                     <li>
-                                        <strong>Grand Total:</strong> $<span class="grandtotal">12489</span>
+                                        <strong>Total</strong>&nbsp;:&nbsp;$<span class="grandtotal"><?php if($order){echo $order['Reservation']['g_total'];}else{echo "0.00"; }?></span>
                                         <input type="hidden" value="<?php if($order){echo $order['Reservation']['g_total'];}else{echo '0.00'; }?>" class="grandtotal" name="g_total" />
                                     </li>
-                                </ul>
-                                <br>
-                                <a class="btn btn-lg blue hidden-print margin-bottom-5">
+            
+                            </div>
+                             <div class="submits">
+                                <input <?php if($closed){?>disabled="disabled"<?php }?> type="submit" value="Submit Order" class="btn btn-lg blue hidden-print margin-bottom-5" />
+                                <!--<a class="btn btn-lg blue hidden-print margin-bottom-5">
                                     Submit Order <i class="fa fa-check"></i>
-                                </a>
+                                </a>-->
                                 <a class="btn btn-lg white hidden-print margin-bottom-5"
-                                   onclick="javascript:window.print();">
+                                   href="">
                                     Restart <i class="fa fa-refresh"></i>
                                 </a>
 
                             </div>
+                            <div class="clearfix"></div>
+                            <div class="error_order" style="display: none;margin-top:5px;color:red;">Order can't be blank</div>
+                            <div class="error_delivery" style="display: none;margin-top:5px;color:red;">Minimum amount for delivery is $<?php echo $res['Restaurant']['min_delivery']; ?> </div>
 
 
                         </div>
-
-
                     </div>
-
-
-
-
                     <!-- BEGIN BORDERED TABLE PORTLET-->
                     <div class="portlet box yellow">
                         <div class="portlet-title">

@@ -847,16 +847,16 @@ if(path.replace('test','')!=path){
             $('#list'+ids).remove();
             $('.orders').prepend('<tr id="list'+ids+'" class="infolist" ></tr>');
             $('#list'+ids).html('<td><strong class="namemenu">'+app_title+'</strong></td>'+
-            '<td><span class="label label-sm label-info"><a style="padding: 6px;height: 20px;line-height: 6px" id="dec'+ids+'" class="decrease small btn btn-danger" href="javascript:void(0);">'+
-            '<strong>-</strong></a> &nbsp;<span class="count">'+pre_cnt+'</span><input type="hidden" class="count" name="qtys[]" value="'+pre_cnt+'" />'+ '&nbsp;<span  class="label label-sm label-danger"><a id="inc'+ids+'" class="increase btn btn-success small " href="javascript:void(0);" style="padding: 6px;height: 20px;line-height: 6px">'+
-            '<strong>+</strong></a></span> &nbsp; '+
+            '<td><a style="padding: 6px;height: 20px;line-height: 6px" id="dec'+ids+'" class="decrease small btn btn-danger" href="javascript:void(0);">'+
+            '<strong>-</strong></a> &nbsp;<span class="count">'+pre_cnt+'</span><input type="hidden" class="count" name="qtys[]" value="'+pre_cnt+'" />'+ '&nbsp;<a id="inc'+ids+'" class="increase btn btn-success small " href="javascript:void(0);" style="padding: 6px;height: 20px;line-height: 6px">'+
+            '<strong>+</strong></a> &nbsp; '+
             '<input type="hidden" class="menu_ids" name="menu_ids[]" value="C_'+menu_id+'" />'+
             '<input type="hidden" name="extras[]" value="'+dbtitle+'"/><input type="hidden" name="listid[]" value="'+ids+'" />'+
             '<input type="hidden" class="prs" name="prs[]" value="'+price.toFixed(2)+'" />X $'+
             '<span class="amount">'+price.toFixed(2)+'</span></td>'+
             '<td>'+
             '<strong>$<span class="total">'+(pre_cnt*price).toFixed(2)+'</span>'+
-            '</strong></div><div class="clearfix"></td>');
+            '</strong></td>');
             
             /*
             $('.orders').prepend('<div id="list'+ids+'" class="infolist" ></div>');
@@ -1180,16 +1180,16 @@ if(path.replace('test','')!=path){
             $('#list'+ids).remove();
             $('.orders').prepend('<tr id="list'+ids+'" class="infolist" ></tr>');
             $('#list'+ids).html('<td><strong class="namemenu">'+app_title+'</strong></td>'+
-            '<td><span class="label label-sm label-info"><a style="padding: 6px;height: 20px;line-height: 6px" id="dec'+ids+'" class="decrease small btn btn-danger" href="javascript:void(0);">'+
-            '<strong>-</strong></a> &nbsp;<span class="count">'+pre_cnt+'</span><input type="hidden" class="count" name="qtys[]" value="'+pre_cnt+'" />'+ '&nbsp;<span  class="label label-sm label-danger"><a id="inc'+ids+'" class="increase btn btn-success small " href="javascript:void(0);" style="padding: 6px;height: 20px;line-height: 6px">'+
-            '<strong>+</strong></a></span> &nbsp; '+
+            '<td><a style="padding: 6px;height: 20px;line-height: 6px" id="dec'+ids+'" class="decrease small btn btn-danger" href="javascript:void(0);">'+
+            '<strong>-</strong></a> &nbsp;<span class="count">'+pre_cnt+'</span><input type="hidden" class="count" name="qtys[]" value="'+pre_cnt+'" />'+ '&nbsp;<a id="inc'+ids+'" class="increase btn btn-success small " href="javascript:void(0);" style="padding: 6px;height: 20px;line-height: 6px">'+
+            '<strong>+</strong></a> &nbsp; '+
             '<input type="hidden" class="menu_ids" name="menu_ids[]" value="C_'+menu_id+'" />'+
             '<input type="hidden" name="extras[]" value="'+dbtitle+'"/><input type="hidden" name="listid[]" value="'+ids+'" />'+
             '<input type="hidden" class="prs" name="prs[]" value="'+price.toFixed(2)+'" />X $'+
             '<span class="amount">'+price.toFixed(2)+'</span></td>'+
             '<td>'+
             '<strong>$<span class="total">'+(pre_cnt*price).toFixed(2)+'</span>'+
-            '</strong></div><div class="clearfix"></td>');
+            '</strong></td>');
             /*
             $('#list'+ids).remove();
             $('.orders').prepend('<div id="list'+ids+'" class="infolist" ></div>');
