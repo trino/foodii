@@ -28,6 +28,7 @@ font-family: mainfont;
 src: url(../CubeComp-Expan.ttf);
 }
 
+.container{ background-color: #fff;}
 .pagination2 ul{
 	margin:0px;
 }

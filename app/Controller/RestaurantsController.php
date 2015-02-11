@@ -7,7 +7,7 @@ class RestaurantsController extends AppController
     {
         // 	date_default_timezone_set('Canada/Eastern');
 
-        $this->layout = 'order';
+        //$this->layout = 'order';
         $time = date('His');
         $day = date('l');
         $day = strtolower($day);
@@ -605,6 +605,7 @@ class RestaurantsController extends AppController
 
     function order($res_id, $order = 0)
     {
+        //$this->layout = 'default_';
         $this->loadModel('Reservation');
         $free = $this->Reservation->find('count', array('conditions' => array('ordered_by <>' => '')));
         $this->loadModel('Country');

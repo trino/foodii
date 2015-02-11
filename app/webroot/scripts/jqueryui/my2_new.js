@@ -1,5 +1,5 @@
 var path = window.location.pathname;
-if(path.replace('ordering_system','')!=path)
+if(path.replace('charlies','')!=path)
 var base_url = 'http://localhost/charlies/';
 else
 var base_url = 'http://charlieschopsticks.com/';
@@ -101,6 +101,7 @@ if(path.replace('menuManager','')!=path)
               });
                
                 $('.savemenu').live('click',function(){
+                   var bug=0;
                    var save_id = $(this).attr('id').replace('save','');
                    var menu_name = $('#menuname'+save_id).val();
                    if(menu_name == '')
@@ -120,7 +121,7 @@ if(path.replace('menuManager','')!=path)
                         
                                                 
                         $('.item'+save_id).hide();
-                        var bug=0;
+                       
                         if($('#had_opt'+save_id).val() == 1)
                         {
                         //alert('test');
@@ -189,6 +190,7 @@ if(path.replace('menuManager','')!=path)
                                     $.ajax({
                                        url:base_url+'restaurants/removeMenu/'+res 
                                     });
+                                    bug=1;
                                     return false;
                             }
                             }
@@ -229,6 +231,7 @@ if(path.replace('menuManager','')!=path)
                                         initiate_ajax_upload3('uploadimage'+res);
                                     });
                     }
+                    
                     if(bug==0)
                     alert('Item updated successfully!');
                     

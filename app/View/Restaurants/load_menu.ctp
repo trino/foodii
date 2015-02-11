@@ -12,7 +12,7 @@
                                             <a href="javascript:void(0)" onclick="$('.item<?php echo $menu['Menu']['id'];?>').show();" id="editmenu<?php echo $menu['Menu']['id'];?>" class="btn btn-success">Edit</a>
                                             <a href="javascript:void(0)" id="uploadimage<?php echo $menu['Menu']['id'];?>" class="uploadimg btn btn-info">Add Image</a>
                                             <a href="javascript:void(0)" id="deletemenu<?php echo $menu['Menu']['id'];?>" class="btn btn-danger deletemenu">Delete</a>
-                                            <br /><input type="checkbox" id="showmenu<?php echo $me['id'];?>" class="showmenu" <?php if($me['Menu']['showmenu']){?>checked="checked"<?php }?> /> <strong>Show Menu</strong></div>
+                                            <br /><input type="checkbox" id="showmenu<?php echo $menu['Menu']['id'];?>" class="showmenu" <?php if($menu['Menu']['showmenu']){?>checked="checked"<?php }?> /> <strong>Show Menu</strong></div>
                                             
                                         <div class="clearfix"></div>
                                         <div class="menu_item item<?php echo $menu['Menu']['id']?> col-xs-12 col-sm-8" style="display: none;margin-top: 10px;">

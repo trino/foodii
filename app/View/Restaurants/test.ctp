@@ -536,7 +536,7 @@
                                                                 <!--<span class="topright"><a href="javascript:void(0)" onclick="$('#Modal<?php echo $me['id'];?>').toggle();"><strong class="btn btn-danger">x</strong></a></span>-->
                                 
                                                                 <div class="clearfix space10"></div>
-                                                                <input type="checkbox" class="chk" value="" title="<?php echo $me['id']."_".$me['menu_item']."-_".$me['price']."_"."";?>" checked="checked" style="display: none;" />
+                                                                <div style="display:none;"><input type="checkbox" class="chk" value="" title="<?php echo $me['id']."_".$me['menu_item']."-_".$me['price']."_"."";?>" checked="checked" style="display: none;" /></div>
                                 
                                                                 <?php
                                                                 //var_dump($submenuscat);
@@ -550,7 +550,7 @@
                                                                     <input type="hidden" id="multiple_<?php echo $subm['MenuCategory']['id'];?>" value="<?php echo $subm['MenuCategory']['is_multiple'];?>" />
                                                                     <input type="hidden" id="upto_<?php echo $subm['MenuCategory']['id'];?>" value="<?php echo $subm['MenuCategory']['up_to'];?>" />
                                                                     <div class="infolist col-xs-12" style="border-right: 5px solid #CCC;margin-bottom:10px" >
-                                                                        <input type="checkbox" class="chk" checked="checked" style="display: none;" id="<?php echo $subm['MenuCategory']['id'];?>" title="___" value="<?php echo ($key!=0)?"| ".$subm['MenuCategory']['title']:$subm['MenuCategory']['title'];?>" />
+                                                                       <div style="display: none;"> <input type="checkbox" class="chk" checked="checked" style="display: none;" id="<?php echo $subm['MenuCategory']['id'];?>" title="___" value="<?php echo ($key!=0)?"| ".$subm['MenuCategory']['title']:$subm['MenuCategory']['title'];?>" /></div>
                                                                         <a href="javascript:void(0);" <?php /*onclick="$($(this).parent().children('div:eq(0)')).toggle('slow'); $('.extra-<?php echo $subm['MenuCategory']['id'];?>').each(function(){$(this).removeAttr('checked');}) "*/?> ><strong><?php echo $subm['MenuCategory']['title'];?></strong></a> <?php if($subm['MenuCategory']['description'] && $subm['MenuCategory']['description']!='undefined'){?>:<?php }?> <span><em> <?php echo $subm['MenuCategory']['description'];?></em></span>
                                 
                                 

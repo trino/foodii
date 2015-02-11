@@ -1,9 +1,9 @@
 $(function(){
 var path = window.location.pathname;
-if(path.replace('ordering_system','')!=path)
-var base_url = 'http://localhost/charlies/';
+if(path.replace('charlies','')!=path)
+    var base_url = 'http://localhost/charlies/';
 else
-var base_url = 'http://charlieschopsticks.com/';
+    var base_url = 'http://charlieschopsticks.com/';
 
 
 

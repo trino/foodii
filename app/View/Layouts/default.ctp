@@ -1,8 +1,25 @@
 <!DOCTYPE html>
+<!--
+Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 3.3.1
+Version: 3.6.1
+Author: KeenThemes
+Website: http://www.keenthemes.com/
+Contact: support@keenthemes.com
+Follow: www.twitter.com/keenthemes
+Like: www.facebook.com/keenthemes
+Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes
+License: You must have a valid license purchased only from themeforest(the above link) in order to legally use the theme for your project.
+-->
+<!--[if IE 8]>
+<html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]>
+<html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+    <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <?php
     $generic = $this->requestAction('/pages/getGeneric');
@@ -23,90 +40,159 @@
 
     <title><?php if(isset($title)){echo $title." - Charilie's Chopsticks";}else{echo str_replace('_',' ',$gtitle).' - '.$generic['title'];}?></title>
 
-    <!-- Custom styles for this template -->
-    <!-- build:css css/main.css -->
-    <link href="<?php echo $this->webroot;?>css/bootstrap.css" rel="stylesheet">
-    <link href="<?php echo $this->webroot;?>css/main.css" rel="stylesheet">
+    <!-- BEGIN GLOBAL MANDATORY STYLES -->
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet"
+          type="text/css"/>
+    <link href="<?php echo $this->webroot; ?>css/main.css" rel="stylesheet" type="text/css"/>      
+    <link href="<?php echo $this->webroot; ?>profile/assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="<?php echo $this->webroot; ?>profile/assets/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet"
+          type="text/css"/>
+    <link href="<?php echo $this->webroot; ?>profile/assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link href="<?php echo $this->webroot; ?>profile/assets/global/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css"/>
+    <link href="<?php echo $this->webroot; ?>profile/assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet"
+          type="text/css"/>
+    <!-- END GLOBAL MANDATORY STYLES -->
+    <!-- BEGIN PAGE LEVEL PLUGIN STYLES -->
+    <link href="<?php echo $this->webroot; ?>profile/assets/global/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css" rel="stylesheet"
+          type="text/css"/>
+    <link href="<?php echo $this->webroot; ?>profile/assets/global/plugins/fullcalendar/fullcalendar.min.css" rel="stylesheet" type="text/css"/>
+    <link href="<?php echo $this->webroot; ?>profile/assets/global/plugins/jqvmap/jqvmap/jqvmap.css" rel="stylesheet" type="text/css"/>
+    <!-- END PAGE LEVEL PLUGIN STYLES -->
+    <!-- BEGIN PAGE STYLES -->
+    <link href="<?php echo $this->webroot; ?>profile/assets/admin/pages/css/tasks.css" rel="stylesheet" type="text/css"/>
+    <!-- END PAGE STYLES -->
+    <!-- BEGIN THEME STYLES -->
+    <link href="<?php echo $this->webroot; ?>profile/assets/global/css/components.css" id="style_components" rel="stylesheet" type="text/css"/>
+    <link href="<?php echo $this->webroot; ?>profile/assets/global/css/plugins.css" rel="stylesheet" type="text/css"/>
+    <link href="<?php echo $this->webroot; ?>profile/assets/admin/layout/css/layout.css" rel="stylesheet" type="text/css"/>
+    <link id="style_color" href="<?php echo $this->webroot; ?>profile/assets/admin/layout/css/themes/darkblue.css" rel="stylesheet" type="text/css"/>
+    <link href="<?php echo $this->webroot; ?>profile/assets/admin/layout/css/custom.css" rel="stylesheet" type="text/css"/>
     <link href="<?php echo $this->webroot;?>css/timepicker.css" rel="stylesheet">
-    <link href="<?php echo $this->webroot;?>css/ui.css" rel="stylesheet">
-    <!-- endbuild -->
-
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-    <![endif]-->
-
-    <!-- Google fonts -->
-    <script type="text/javascript">
-      WebFontConfig = {
-        google: { families: [ 'Arvo:700:latin', 'Open+Sans:400,600,700:latin' ] }
-      };
-      (function() {
-        var wf = document.createElement('script');
-        wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
-          '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
-        wf.type = 'text/javascript';
-        wf.async = 'true';
-        var s = document.getElementsByTagName('script')[0];
-        s.parentNode.insertBefore(wf, s);
-      })();
-    </script>
-
-  </head>
-  <body><!--center class="noprint"><h1 style="color:red;">Currently Under Development</h1></center-->
-
-    <div class="top  js--fixed-header-offset">
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12  col-sm-6">
-        <div class="top__slogan">
-          Have it your way
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css" />
+    <!-- END THEME STYLES -->
+    <link rel="shortcut icon" href="favicon.ico"/>
+    
+</head>
+<!-- END HEAD -->
+<!-- BEGIN BODY -->
+<!-- DOC: Apply "page-header-fixed-mobile" and "page-footer-fixed-mobile" class to body element to force fixed header or footer in mobile devices -->
+<!-- DOC: Apply "page-sidebar-closed" class to the body and "page-sidebar-menu-closed" class to the sidebar menu element to hide the sidebar by default -->
+<!-- DOC: Apply "page-sidebar-hide" class to the body to make the sidebar completely hidden on toggle -->
+<!-- DOC: Apply "page-sidebar-closed-hide-logo" class to the body element to make the logo hidden on sidebar toggle -->
+<!-- DOC: Apply "page-sidebar-hide" class to body element to completely hide the sidebar on sidebar toggle -->
+<!-- DOC: Apply "page-sidebar-fixed" class to have fixed sidebar -->
+<!-- DOC: Apply "page-footer-fixed" class to the body element to have fixed footer -->
+<!-- DOC: Apply "page-sidebar-reversed" class to put the sidebar on the right side -->
+<!-- DOC: Apply "page-full-width" class to the body element to have full width page without the sidebar menu -->
+<body class="page-header-fixed page-quick-sidebar-over-content page-full-width">
+<!-- BEGIN HEADER -->
+<div class="page-header navbar navbar-fixed-top">
+    <!-- BEGIN HEADER INNER -->
+    <div class="page-header-inner">
+        <!-- BEGIN LOGO -->
+        <div class="page-logo">
+            <a href="">
+                <h4 style="font-weight:bold;color:white;padding-top:2px;">Charlie's Chopsticks</h4>
+            </a>
         </div>
-      </div>
-      <div class="col-xs-12  col-sm-6">
-        <div class="top__menu">
-          <ul class="nav  nav-pills">
-            <?php
-            if(!$this->Session->read('restaurant'))
-            {?>
-               
-            <!--li><a href="#registerModal" role="button" data-toggle="modal">Register</a></li-->
-            <li><a href="#loginModal" role="button" data-toggle="modal">Login</a></li>
-            <?php 
-            }
-            if($this->Session->read('restaurant'))
-            {?>
-            <li><a href="<?php echo $this->webroot;?>restaurants/dashboard">Dashboard</a></li>
-            <li><a href="<?php echo $this->webroot;?>restaurants/logout">Logout</a></li>
-            <?php }?>
+        <!-- END LOGO -->
+        <!-- BEGIN HORIZANTAL MENU -->
+        <!-- DOC: Apply "hor-menu-light" class after the "hor-menu" class below to have a horizontal menu with white background -->
+        <!-- DOC: This is desktop version of the horizontal menu. The mobile version is defined(duplicated) sidebar menu below. So the horizontal menu has 2 seperate versions -->
+        <div class="hor-menu hidden-sm hidden-xs">
+            <ul class="nav navbar-nav">
+                <!-- DOC: Remove data-hover="dropdown" and data-close-others="true" attributes below to disable the horizontal opening on mouse hover -->
+                <li class="classic-menu-dropdown <?php if($this->params['action']=="test")echo "active";?>">
+                    <a href="<?php echo $this->webroot;?>restaurants/test/Charlie-s-Chopsticks">
+                        Order Online <span class="selected">
+					</span>
+                    </a>
+                </li>
+
+                <li class="mega-menu-dropdown mega-menu-full <?php if($this->params['action']=="")echo "active";?>">
+                    <a data-toggle="dropdown" href="javascript:;" class="dropdown-toggle" data-hover="megamenu-dropdown"
+                       data-close-others="true">
+                        Flyer  <span class="selected">
+					</span>
+                    </a>
+
+                </li>
+
+                <li class="mega-menu-dropdown mega-menu-full <?php if($this->params['action']=="about")echo "active";?>">
+                    <a  href="<?php echo $this->webroot;?>pages/about" class="dropdown-toggle" data-hover="megamenu-dropdown"
+                       data-close-others="true">
+                        About CC  <span class="selected">
+					</span>
+                    </a>
+
+                </li>
+
+                <li class="mega-menu-dropdown mega-menu-full <?php if($this->params['action']=="contact")echo "active";?>">
+                    <a  href="<?php echo $this->webroot;?>pages/contact" class="dropdown-toggle" data-hover="megamenu-dropdown"
+                       data-close-others="true">
+                        Contact & Locations  <span class="selected">
+					</span>
+                    </a>
+
+                </li>
+
+
+            </ul>
+        </div>
+        <!-- END HORIZANTAL MENU -->
+        <!-- BEGIN HEADER SEARCH BOX -->
+        <!-- DOC: Apply "search-form-expanded" right after the "search-form" class to have half expanded search box -->
+
+        <!-- END HEADER SEARCH BOX -->
+        <!-- BEGIN RESPONSIVE MENU TOGGLER -->
+
+        <!-- END RESPONSIVE MENU TOGGLER -->
+        <!-- BEGIN TOP NAVIGATION MENU -->
+        <div class="top-menu">
+            <ul class="nav navbar-nav pull-right">
+                <!-- BEGIN NOTIFICATION DROPDOWN -->
+                <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
+
+                <!-- END NOTIFICATION DROPDOWN -->
+                <!-- BEGIN INBOX DROPDOWN -->
+                <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
+
+                <!-- END INBOX DROPDOWN -->
+                <!-- BEGIN TODO DROPDOWN -->
+                <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
+
+                <!-- END TODO DROPDOWN -->
+                <!-- BEGIN USER LOGIN DROPDOWN -->
+                <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
+                <?php
+                if(!$this->Session->read('restaurant'))
+                {?>
+                   
+                <li><a href="#registerModal" role="button" data-toggle="modal">Register</a></li>
+                <li class="dropdown dropdown-user"><a href="#loginModal" role="button" data-toggle="modal"><span class="username username-hide-on-mobile">Login</span></a></li>
+                <?php 
+                }
+                if($this->Session->read('restaurant'))
+                {?>
+                <li><a href="<?php echo $this->webroot;?>restaurants/dashboard">Dashboard</a></li>
+                <li><a href="<?php echo $this->webroot;?>restaurants/logout">Logout</a></li>
+                <?php }?>
             
-            <?php /*<li class="dropdown  js--mobile-dropdown">
-              <a class="dropdown-toggle" href="#">
-                English <span class="caret"></span>
-              </a>
-              <ul class="dropdown-menu">
-                <li><a href="#">Deutsch</a></li>
-                <li><a href="#">Espagnol</a></li>
-              </ul>
-            </li>
-            <li class="dropdown  js--mobile-dropdown">
-              <a class="dropdown-toggle"  href="#">
-                USD <span class="caret"></span>
-              </a>
-              <ul class="dropdown-menu">
-                <li><a href="#">EUR</a></li>
-                <li><a href="#">YEN</a></li>
-              </ul>
-            </li><?php /*/?>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+                <!--<li class="dropdown dropdown-user">
+                    <a href="#loginModal" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"
+                       data-close-others="true">
+					<span class="username username-hide-on-mobile">
+					Login </span>
+                    </a>
 
-<!-- Modal register-->
+                </li>-->
+
+                <!-- END QUICK SIDEBAR TOGGLER -->
+            </ul>
+        </div>
+        <!-- END TOP NAVIGATION MENU -->
+    </div>
+    <!-- Modal register-->
 <div class="modal  fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content  center">
@@ -161,262 +247,492 @@
             <div id="passerror" style="display: none;"></div>
           </div>
           <a href="javascript:void(0)" class="btn  btn-primary loginbtn">SIGN IN</a>
+          
           <div id="formerror" style="display: none;"></div>
         </form>
       </div>
     </div>
   </div>
 </div>
-
-<div class="modal  fade" id="suggestModal" tabindex="-1" role="dialog" aria-labelledby="suggestModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content  center">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
-        <h3><span class="light">Tell</span> a Friend!</h3>
-        <hr class="divider">
-      </div>
-      <div class="modal-body">
-        <form action="<?php echo $this->webroot;?>pages/suggest" id="suggestform" class="push-down-15" method="post">
-          <div class="form-group">
-            <input required="" type="text" id="yourname" name="name" class="form-control  form-control--contact" placeholder="Your Name">            
-          </div>
-          <div class="form-group">
-            <input type="text" required="" id="fname" name="fname" class="form-control  form-control--contact" placeholder="Friend's Name"/>
-          </div>
-          <div class="form-group">
-            <input type="email" required="" id="femail" name="femail" class="form-control  form-control--contact" placeholder="Friend's Email"/>
-          </div>
-          <button type="submit" class="btn  btn-primary">Suggest</button>
-          
-        </form>
-      </div>
-    </div>
-  </div>
+    <!-- END HEADER INNER -->
 </div>
-<header class="header">
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-10  col-md-3">
-        <div class="header-logo">
-          <a href="<?php echo $this->webroot;?>"><img alt="Logo" src="<?php echo $this->webroot;?>images/logo.png"  style="padding:10px 0;"></a>
-        </div>
-      </div>
-      <div class="col-xs-2  visible-sm  visible-xs">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle  collapsed" data-toggle="collapse" data-target="#collapsible-navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-        </div>
-      </div>
-      <div class="col-xs-12  col-md-9">
-        <nav class="navbar  navbar-default" role="navigation">
-  <!-- Collect the nav links, forms, and other content for toggling -->
-  <div class="collapse  navbar-collapse" id="collapsible-navbar">
-    <ul class="nav  navbar-nav" style="  font-family: mainfont!important;font-size:18px;
-">
-      <li>
-        <a href="<?php echo $this->webroot;?>" class="dropdown-toggle">HOME</a>
-        
-      </li>
-      <!--<li class="dropdown">
-        <a href="<?php echo $this->webroot;?>pages/shop" class="dropdown-toggle">SHOP<b class="caret"></b></a>
-        <ul class="dropdown-menu">
-          <li><a href="<?php echo $this->webroot;?>pages/shop">Shop (Grid view)</a></li>
-          <li><a href="shop-list-view.html">Shop (List view)</a></li>
-          <li><a href="single-product.html">Single product</a></li>
-          <li><a href="cart.html">Cart</a></li>
-          <li><a href="checkout.html">Checkout</a></li>
-          <li><a href="order-received.html">Order Received</a></li>
-        </ul>
-      </li>-->
-	        <li >
-        <?php $slug = $this->requestAction('restaurants/getslug');?>
-        <a href="<?php echo $this->webroot;?>restaurants/profile/<?php echo $slug;?>">ORDER ONLINE</a>
-      </li>
- 
- 	        <li >
-        <a href="<?php echo $this->webroot;?>pages/menu">MENU</a>
-      </li>
-	  
-      <li >
-        <a href="<?php echo $this->webroot;?>pages/about">ABOUT US</a>
-      </li>
-    
-      <li>
-        <a href="<?php echo $this->webroot;?>pages/findus">FIND US</a>
-        
-      </li>
-      <li>
-        <a href="<?php echo $this->webroot;?>pages/contact">CONTACT US</a>
-        
-      </li>
-      
-      <?php /*?>
-      <li class="dropdown">
-        <a href="<?php echo $this->webroot;?>pages/features" class="dropdown-toggle">FEATURES <b class="caret"></b></a>
-        <ul class="dropdown-menu">
-          <li><a href="features.html">Responsive design</a></li>
-          <li><a href="features.html">Retina ready</a></li>
-          <li><a href="features.html">Lightning fast</a></li>
-          <li><a href="features.html">Search engine optimized</a></li>
-          <li><a href="features.html">Layered PSDs included</a></li>
-          <li><a href="features.html">Unlimited colors and layouts</a></li>
-          <li><a href="features.html">290+ Glyphicons and Zocial icons</a></li>
-          <li><a href="features.html">Advance shop filters</a></li>
-          
-          
-          <li><a href="features.html">Awesome support</a></li>
-          <li class="dropdown">
-            <a href="blog.html" class="dropdown-toggle">3rd level menu</a>
-            <ul class="dropdown-menu">
-              <li><a href="blog-right-sidebar.html">Blog (Right sidebar)</a></li>
-              <li><a href="blog-left-sidebar.html">Blog (Left sidebar)</a></li>
-              <li><a href="blog.html">Blog (Alternative)</a></li>
-              <li><a href="single-post.html">Single Blogpost</a></li>
+
+<!-- END HEADER -->
+<div class="clearfix">
+</div>
+<!-- BEGIN CONTAINER -->
+<div class="page-container">
+    <!-- BEGIN SIDEBAR -->
+    <div class="page-sidebar-wrapper">
+        <!-- BEGIN HORIZONTAL RESPONSIVE MENU -->
+        <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
+        <!-- DOC: Change data-auto-speed="200" to adjust the sub menu slide up/down speed -->
+        <div class="page-sidebar navbar-collapse collapse">
+            <ul class="page-sidebar-menu" data-slide-speed="200" data-auto-scroll="true">
+                <!-- DOC: To remove the search box from the sidebar you just need to completely remove the below "sidebar-search-wrapper" LI element -->
+                <!-- DOC: This is mobile version of the horizontal menu. The desktop version is defined(duplicated) in the header above -->
+                <li class="sidebar-search-wrapper">
+                    <!-- BEGIN RESPONSIVE QUICK SEARCH FORM -->
+                    <!-- DOC: Apply "sidebar-search-bordered" class the below search form to have bordered search box -->
+                    <!-- DOC: Apply "sidebar-search-bordered sidebar-search-solid" class the below search form to have bordered & solid search box -->
+                    <form class="sidebar-search sidebar-search-bordered" action="extra_search.html" method="POST">
+                        <a href="javascript:;" class="remove">
+                            <i class="icon-close"></i>
+                        </a>
+
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Search...">
+							<span class="input-group-btn">
+							<button class="btn submit"><i class="icon-magnifier"></i></button>
+							</span>
+                        </div>
+                    </form>
+                    <!-- END RESPONSIVE QUICK SEARCH FORM -->
+                </li>
+                <li class="active">
+                    <a href="index.html">
+                        Dashboard <span class="selected">
+					</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        Mega <span class="arrow">
+					</span>
+                    </a>
+                    <ul class="sub-menu">
+                        <li>
+                            <a href="#">
+                                Layouts <span class="arrow">
+							</span>
+                            </a>
+                            <ul class="sub-menu">
+                                <li class="active">
+                                    <a href="layout_horizontal_sidebar_menu.html">
+                                        Horizontal & Sidebar Menu </a>
+                                </li>
+                                <li>
+                                    <a href="index_horizontal_menu.html">
+                                        Dashboard & Mega Menu </a>
+                                </li>
+                                <li>
+                                    <a href="layout_horizontal_menu1.html">
+                                        Horizontal Mega Menu 1 </a>
+                                </li>
+                                <li>
+                                    <a href="layout_horizontal_menu2.html">
+                                        Horizontal Mega Menu 2 </a>
+                                </li>
+                                <li>
+                                    <a href="layout_fontawesome_icons.html">
+                                        <span class="badge badge-roundless badge-danger">new</span>Layout with
+                                        Fontawesome Icons</a>
+                                </li>
+                                <li>
+                                    <a href="layout_glyphicons.html">
+                                        Layout with Glyphicon</a>
+                                </li>
+                                <li>
+                                    <a href="layout_full_height_portlet.html">
+                                        <span class="badge badge-roundless badge-success">new</span>Full Height Portlet</a>
+                                </li>
+                                <li>
+                                    <a href="layout_full_height_content.html">
+                                        <span class="badge badge-roundless badge-warning">new</span>Full Height Content</a>
+                                </li>
+                                <li>
+                                    <a href="layout_search_on_header1.html">
+                                        Search Box On Header 1 </a>
+                                </li>
+                                <li>
+                                    <a href="layout_search_on_header2.html">
+                                        Search Box On Header 2 </a>
+                                </li>
+                                <li>
+                                    <a href="layout_sidebar_search_option1.html">
+                                        Sidebar Search Option 1 </a>
+                                </li>
+                                <li>
+                                    <a href="layout_sidebar_search_option2.html">
+                                        Sidebar Search Option 2 </a>
+                                </li>
+                                <li>
+                                    <a href="layout_sidebar_reversed.html">
+									<span class="badge badge-roundless badge-warning">
+									new </span>
+                                        Right Sidebar Page </a>
+                                </li>
+                                <li>
+                                    <a href="layout_sidebar_fixed.html">
+                                        Sidebar Fixed Page </a>
+                                </li>
+                                <li>
+                                    <a href="layout_sidebar_closed.html">
+                                        Sidebar Closed Page </a>
+                                </li>
+                                <li>
+                                    <a href="layout_ajax.html">
+                                        Content Loading via Ajax </a>
+                                </li>
+                                <li>
+                                    <a href="layout_disabled_menu.html">
+                                        Disabled Menu Links </a>
+                                </li>
+                                <li>
+                                    <a href="layout_blank_page.html">
+                                        Blank Page </a>
+                                </li>
+                                <li>
+                                    <a href="layout_boxed_page.html">
+                                        Boxed Page </a>
+                                </li>
+                                <li>
+                                    <a href="layout_language_bar.html">
+                                        Language Switch Bar </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">
+                                More Layouts <span class="arrow">
+							</span>
+                            </a>
+                            <ul class="sub-menu">
+                                <li>
+                                    <a href="layout_sidebar_search_option1.html">
+                                        Sidebar Search Option 1 </a>
+                                </li>
+                                <li>
+                                    <a href="layout_sidebar_search_option2.html">
+                                        Sidebar Search Option 2 </a>
+                                </li>
+                                <li>
+                                    <a href="layout_sidebar_reversed.html">
+									<span class="badge badge-roundless badge-success">
+									new </span>
+                                        Right Sidebar Page </a>
+                                </li>
+                                <li>
+                                    <a href="layout_sidebar_fixed.html">
+                                        Sidebar Fixed Page </a>
+                                </li>
+                                <li>
+                                    <a href="layout_sidebar_closed.html">
+                                        Sidebar Closed Page </a>
+                                </li>
+                                <li>
+                                    <a href="layout_ajax.html">
+                                        Content Loading via Ajax </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">
+                                Even More <span class="arrow">
+							</span>
+                            </a>
+                            <ul class="sub-menu">
+                                <li>
+                                    <a href="layout_disabled_menu.html">
+                                        Disabled Menu Links </a>
+                                </li>
+                                <li>
+                                    <a href="layout_blank_page.html">
+                                        Blank Page </a>
+                                </li>
+                                <li>
+                                    <a href="layout_boxed_page.html">
+                                        Boxed Page </a>
+                                </li>
+                                <li>
+                                    <a href="layout_language_bar.html">
+                                        Language Switch Bar </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">
+                        Full Mega <span class="arrow">
+					</span>
+                    </a>
+                    <ul class="sub-menu">
+                        <li>
+                            <a href="#">
+                                Layouts <span class="arrow">
+							</span>
+                            </a>
+                            <ul class="sub-menu">
+                                <li>
+                                    <a href="index_horizontal_menu.html">
+                                        Dashboard & Mega Menu </a>
+                                </li>
+                                <li>
+                                    <a href="layout_horizontal_sidebar_menu.html">
+                                        Horizontal & Sidebar Menu </a>
+                                </li>
+                                <li>
+                                    <a href="layout_horizontal_menu1.html">
+                                        Horizontal Mega Menu 1 </a>
+                                </li>
+                                <li>
+                                    <a href="layout_horizontal_menu2.html">
+                                        Horizontal Mega Menu 2 </a>
+                                </li>
+                                <li>
+                                    <a href="layout_search_on_header1.html">
+                                        Search Box On Header 1 </a>
+                                </li>
+                                <li>
+                                    <a href="layout_search_on_header2.html">
+                                        Search Box On Header 2 </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">
+                                More Layouts <span class="arrow">
+							</span>
+                            </a>
+                            <ul class="sub-menu">
+                                <li>
+                                    <a href="layout_sidebar_search_option1.html">
+                                        Sidebar Search Option 1 </a>
+                                </li>
+                                <li>
+                                    <a href="layout_sidebar_search_option2.html">
+                                        Sidebar Search Option 2 </a>
+                                </li>
+                                <li>
+                                    <a href="layout_sidebar_reversed.html">
+									<span class="badge badge-roundless badge-success">
+									new </span>
+                                        Right Sidebar Page </a>
+                                </li>
+                                <li>
+                                    <a href="layout_sidebar_fixed.html">
+                                        Sidebar Fixed Page </a>
+                                </li>
+                                <li>
+                                    <a href="layout_sidebar_closed.html">
+                                        Sidebar Closed Page </a>
+                                </li>
+                                <li>
+                                    <a href="layout_ajax.html">
+                                        Content Loading via Ajax </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">
+                                Even More <span class="arrow">
+							</span>
+                            </a>
+                            <ul class="sub-menu">
+                                <li>
+                                    <a href="layout_disabled_menu.html">
+                                        Disabled Menu Links </a>
+                                </li>
+                                <li>
+                                    <a href="layout_blank_page.html">
+                                        Blank Page </a>
+                                </li>
+                                <li>
+                                    <a href="layout_boxed_page.html">
+                                        Boxed Page </a>
+                                </li>
+                                <li>
+                                    <a href="layout_language_bar.html">
+                                        Language Switch Bar </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">
+                                Accordions <span class="arrow">
+							</span>
+                            </a>
+                            <ul class="sub-menu">
+                                <li>
+                                    <div id="accordion2" class="panel-group mega-menu-responsive-content">
+                                        <div class="panel panel-success">
+                                            <div class="panel-heading">
+                                                <h4 class="panel-title">
+                                                    <a data-toggle="collapse" data-parent="#accordion2"
+                                                       href="#collapseOne2" class="collapsed">
+                                                        Mega Menu Info #1 </a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapseOne2" class="panel-collapse in">
+                                                <div class="panel-body">
+                                                    Metronic Mega Menu Works for fixed and responsive layout and has the
+                                                    facility to include (almost) any Bootstrap elements.
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel panel-danger">
+                                            <div class="panel-heading">
+                                                <h4 class="panel-title">
+                                                    <a data-toggle="collapse" data-parent="#accordion2"
+                                                       href="#collapseTwo2" class="collapsed">
+                                                        Mega Menu Info #2 </a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapseTwo2" class="panel-collapse collapse">
+                                                <div class="panel-body">
+                                                    Metronic Mega Menu Works for fixed and responsive layout and has the
+                                                    facility to include (almost) any Bootstrap elements.
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel panel-info">
+                                            <div class="panel-heading">
+                                                <h4 class="panel-title">
+                                                    <a data-toggle="collapse" data-parent="#accordion2"
+                                                       href="#collapseThree2">
+                                                        Mega Menu Info #3 </a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapseThree2" class="panel-collapse collapse">
+                                                <div class="panel-body">
+                                                    Metronic Mega Menu Works for fixed and responsive layout and has the
+                                                    facility to include (almost) any Bootstrap elements.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a>
+                        Classic <span class="arrow">
+					</span>
+                    </a>
+                    <ul class="sub-menu">
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-bookmark-o"></i> Section 1 </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-user"></i> Section 2 </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-puzzle-piece"></i> Section 3 </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-gift"></i> Section 4 </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-table"></i> Section 5 </a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">
+                                <i class="fa fa-envelope-o"></i> More options <span class="arrow">
+							</span>
+                            </a>
+                            <ul class="sub-menu">
+                                <li>
+                                    <a href="#">
+                                        Second level link </a>
+                                </li>
+                                <li class="sub-menu">
+                                    <a href="javascript:;">
+                                        More options <span class="arrow">
+									</span>
+                                    </a>
+                                    <ul class="sub-menu">
+                                        <li>
+                                            <a href="index.html">
+                                                Third level link </a>
+                                        </li>
+                                        <li>
+                                            <a href="index.html">
+                                                Third level link </a>
+                                        </li>
+                                        <li>
+                                            <a href="index.html">
+                                                Third level link </a>
+                                        </li>
+                                        <li>
+                                            <a href="index.html">
+                                                Third level link </a>
+                                        </li>
+                                        <li>
+                                            <a href="index.html">
+                                                Third level link </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="index.html">
+                                        Second level link </a>
+                                </li>
+                                <li>
+                                    <a href="index.html">
+                                        Second level link </a>
+                                </li>
+                                <li>
+                                    <a href="index.html">
+                                        Second level link </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
             </ul>
-          </li>
-        </ul>
-      </li>
-      <li class="dropdown">
-        <a href="<?php echo $this->webroot;?>pages/elements" class="dropdown-toggle">ELEMENTS<b class="caret"></b></a>
-        <ul class="dropdown-menu">
-          <li><a href="<?php echo $this->webroot;?>pages/elements#headings">Headings</a></li>
-          <li><a href="<?php echo $this->webroot;?>pages/elements#banners">Banners</a></li>
-          <li><a href="<?php echo $this->webroot;?>pages/elements#alerts">Alerts</a></li>
-          <li><a href="<?php echo $this->webroot;?>pages/elements#tabs">Tabs</a></li>
-          <li><a href="<?php echo $this->webroot;?>pages/elements#buttons">Buttons</a></li>
-          <li><a href="<?php echo $this->webroot;?>pages/elements#tables">Tables</a></li>
-          <li><a href="<?php echo $this->webroot;?>pages/elements#maps">Maps</a></li>
-          <li><a href="<?php echo $this->webroot;?>pages/elements#bars">Bars</a></li>
-          <li><a href="<?php echo $this->webroot;?>pages/elements#columns">Columns</a></li>
-          <li><a href="<?php echo $this->webroot;?>pages/elements#gallerys">Gallerys</a></li>
-          <li><a href="<?php echo $this->webroot;?>pages/elements#code">Code</a></li>
-          <li><a href="<?php echo $this->webroot;?>pages/elements#toggles">Toggles</a></li>
-        </ul>
-      </li><?php */?>
-      <!--li class="hidden-xs  hidden-sm">
-        <a href="#" class="js--toggle-search-mode"><span class="glyphicon  glyphicon-search  glyphicon-search--nav" style="color:#000"></span></a>
-      </li-->
-    </ul>
-    <!-- search for mobile devices -->
-    <form action="<?php echo $this->webroot;?>restaurants/search" method="get" class="visible-xs  visible-sm  mobile-navbar-form" role="form">
-      <div class="input-group">
-        <input type="text" class="form-control" placeholder="Search">
-        <span class="input-group-addon">
-          <button type="submit" class="mobile-navbar-form__appended-btn"><span class="glyphicon  glyphicon-search  glyphicon-search--nav"></span></button>
-        </span>
-      </div>
-    </form>
-    <div class="mobile-cart  visible-xs  visible-sm  push-down-15">
-        <?php /*<span class="header-cart__text--price"><span class="header-cart__text">CART</span> $49.35</span>
-      <a href="cart.html" class="header-cart__items">
-        <span class="header-cart__items-num">3</span>
-      </a>*/?>
-    </div>
-  </div><!-- /.navbar-collapse -->
-</nav>
-      </div>
-      <div class="col-xs-12  col-md-2  hidden-sm  hidden-xs" style="display: none!important;">
-        <!-- Cart in header -->
-<div class="header-cart">
-  <span class="header-cart__text--price"><span class="header-cart__text">CART</span> $49.35</span>
-  <a href="#" class="header-cart__items">
-    <span class="header-cart__items-num">3</span>
-  </a>
-  <!-- Open cart panel -->
-  <div class="header-cart__open-cart">
-  
-    <div class="header-cart__product  clearfix  js--cart-remove-target">
-      <div class="header-cart__product-image">
-        <img alt="Product in the cart" src="<?php echo $this->webroot;?>images/dummy/product-cart.jpg" width="40" height="50">
-      </div>
-      <div class="header-cart__product-image--hover">
-        <a href="#" class="js--remove-item" data-target=".js--cart-remove-target"><span class="glyphicon  glyphicon-circle  glyphicon-remove"></span></a>
-      </div>
-      <div class="header-cart__product-title">
-        <a class="header-cart__link" href="single-product.html">Eatable Hemp</a>
-        <span class="header-cart__qty">Qty: 1</span>
-      </div>
-      <div class="header-cart__price">
-        $16.45
-      </div>
-    </div>
-  
-    <div class="header-cart__product  clearfix  js--cart-remove-target">
-      <div class="header-cart__product-image">
-        <img alt="Product in the cart" src="<?php echo $this->webroot;?>images/dummy/product-cart.jpg" width="40" height="50">
-      </div>
-      <div class="header-cart__product-image--hover">
-        <a href="#" class="js--remove-item" data-target=".js--cart-remove-target"><span class="glyphicon  glyphicon-circle  glyphicon-remove"></span></a>
-      </div>
-      <div class="header-cart__product-title">
-        <a class="header-cart__link" href="single-product.html">Eatable Hemp</a>
-        <span class="header-cart__qty">Qty: 1</span>
-      </div>
-      <div class="header-cart__price">
-        $16.45
-      </div>
-    </div>
-  
-    <div class="header-cart__product  clearfix  js--cart-remove-target">
-      <div class="header-cart__product-image">
-        <img alt="Product in the cart" src="<?php echo $this->webroot;?>images/dummy/product-cart.jpg" width="40" height="50">
-      </div>
-      <div class="header-cart__product-image--hover">
-        <a href="#" class="js--remove-item" data-target=".js--cart-remove-target"><span class="glyphicon  glyphicon-circle  glyphicon-remove"></span></a>
-      </div>
-      <div class="header-cart__product-title">
-        <a class="header-cart__link" href="single-product.html">Eatable Hemp</a>
-        <span class="header-cart__qty">Qty: 1</span>
-      </div>
-      <div class="header-cart__price">
-        $16.45
-      </div>
-    </div>
-  
-    <hr class="header-cart__divider">
-    <div class="header-cart__subtotal-box">
-      <span class="header-cart__subtotal">CART SUBTOTAL:</span>
-      <span class="header-cart__subtotal-price">$49.35</span>
-    </div>
-    <a class="btn btn-darker" href="cart.html">Procced to checkout</a>
-  </div>
-</div>
-      </div>
-    </div>
-  </div>
-
-  <!--Search open pannel-->
-  <div class="search-panel">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-11">
-          <form class="search-panel__form" action="<?php echo $this->webroot;?>restaurants/search">
-            <button type="submit"><span class="glyphicon  glyphicon-search"></span></button>
-            <input type="text" name="s" class="form-control" placeholder="Enter Search Term"/>
-          </form>
         </div>
-        <div class="col-sm-1">
-          <div class="search-panel__close  pull-right">
-            <a href="#" class="js--toggle-search-mode"><span class="glyphicon  glyphicon-circle  glyphicon-remove" style="color:#000"></span></a>
-          </div>
-        </div>
-      </div>
+        <!-- END HORIZONTAL RESPONSIVE MENU -->
     </div>
-  </div>
-</header>
+    <!-- END SIDEBAR -->
+    <!-- BEGIN CONTENT -->
+    <div class="page-content-wrapper">
+        <div class="page-content">
+            <!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+            <div class="modal fade" id="portlet-config" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                 aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                            <h4 class="modal-title">Modal title</h4>
+                        </div>
+                        <div class="modal-body">
+                            Widget settings form goes here
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn blue">Save changes</button>
+                            <button type="button" class="btn default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                    <!-- /.modal-content -->
+                </div>
+                <!-- /.modal-dialog -->
+            </div>
+            <!-- /.modal -->
+            <!-- END SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+            <!-- BEGIN STYLE CUSTOMIZER -->
+
+            <!-- END STYLE CUSTOMIZER -->
+            <!-- BEGIN PAGE HEADER-->
 
 
+            <!-- END PAGE HEADER-->
+            <!-- BEGIN DASHBOARD STATS -->
+
+            <!-- END DASHBOARD STATS -->
+            <div class="clearfix">
+            </div>
 
 
-
-
-			<?php
+            <?php
             $test = false;
             $test = $this->Session->flash();
             
@@ -435,178 +751,100 @@
             </div>
             <?php }
             ?>
-            
-            <?php
-                
-            if($displaybackground)
-            {
-            	
-            	?>
-<div style=" background-color: #fafafa;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#fafafa), to(#fff));
-  background-image: -webkit-linear-gradient(top, #fafafa, #fff);
-  background-image:    -moz-linear-gradient(top, #fafafa, #fff);
-  background-image:      -o-linear-gradient(top, #fafafa, #fff);
-  background-image:         linear-gradient(to bottom, #fafafa, #fff);">
-  
-  <?php
-}
-?>
-
-			<?php echo $this->fetch('content'); ?>
-			
-			            <?php
-                
-if($displaybackground)
-{
-?>
-</div>
-<?php
-}
-?>
+            <?php echo $this->fetch('content'); ?>
 
 
-<footer class="js--page-footer">
-    <div class="footer-widgets">
-      <div class="container">
-        <div class="row">
-
-		  
-          <div class="col-xs-12  col-sm-3">
-            <nav class="footer-widgets__navigation">
-              <div class="footer-wdgets__heading--line">
-                <h4 class="footer-widgets__heading">Connect with Us</h4>
-              </div>
-<p>Check out our social media page and support us. Stay in the loop for all the latest deals and promotions.</p><br>
-              <!--<p class="push-down-25">Coming soon. </p>-->
-
-              <a class="social-container" href="https://www.facebook.com/charlieschopsticks"><span class="zocial-facebook"></span></a>
-              <!--<a class="social-container" href="https://twitter.com/"><span class="zocial-twitter"></span></a>-->
-			                <a class="social-container" href="http://instagram.com/charlieschopsticks"><span class="zocial-instagram"></span></a>
-
-              <!--<a class="social-container" href="#"><span class="zocial-email"></span></a>-->
-            </nav>
-          </div>
-		  
-          <div class="col-xs-12  col-sm-3">
-            <nav class="footer-widgets__navigation">
-              <div class="footer-wdgets__heading--line">
-                <h4 class="footer-widgets__heading">Navigation</h4>
-              </div>
-              <ul class="nav nav-footer">
-                <li><a href="<?php echo $this->webroot;?>">Home</a></li>
-                <li><a href="<?php echo $this->webroot;?>restaurants/profile/Charlie-s-Chopsticks">View Menu</a></li>
-                <li><a href="<?php echo $this->webroot;?>pages/about">About Us</a></li>
-                <li><a href="<?php echo $this->webroot;?>pages/contact">Contact Us</a></li>
-                <li><a href="<?php echo $this->webroot;?>pages/term">Terms of use</a></li>
-                <li><a href="<?php echo $this->webroot;?>pages/privacy">Privacy policy</a></li>
-              </ul>
-            </nav>
-          </div>
-          <div class="col-xs-12  col-sm-3">
-            <div class="footer-widgets__navigation" style="line-height: 18px;">
-              <div class="footer-wdgets__heading--line">
-                <h4 class="footer-widgets__heading">Hours of Operation</h4>
-              </div>
-
-              <?php
-              $hours = $this->requestAction('/pages/getHours');
-              ?>
-              <p>Sunday : <strong><?php get_formated_date($hours['Restaurant']['sunday_from']);?> to <?php get_formated_date($hours['Restaurant']['sunday_to']);?></strong></p>
-			
-
-            <p>Monday : <strong><?php get_formated_date($hours['Restaurant']['monday_from']);?> to <?php get_formated_date($hours['Restaurant']['monday_to']);?></strong></p>
-			
-            
-            <p>Tuesday : <strong><?php get_formated_date($hours['Restaurant']['tuesday_from']);?> to <?php get_formated_date($hours['Restaurant']['tuesday_to']);?></strong></p>
-			
-            
-            <p>Wednesday : <strong><?php get_formated_date($hours['Restaurant']['wednesday_from']);?> to <?php get_formated_date($hours['Restaurant']['wednesday_to']);?></strong></p>
-			
-            <p>Thursday : <strong><?php get_formated_date($hours['Restaurant']['thursday_from']);?> to <?php get_formated_date($hours['Restaurant']['thursday_to']);?></strong></p>
-			
-            <p>Friday : <strong><?php get_formated_date($hours['Restaurant']['friday_from']);?> to <?php get_formated_date($hours['Restaurant']['friday_to']);?></strong></p>
-			
-            <p>Saturday : <strong><?php get_formated_date($hours['Restaurant']['saturday_from']);?> to <?php get_formated_date($hours['Restaurant']['saturday_to']);?></strong></p>
-			
+            <!-- END QUICK SIDEBAR -->
+        </div>
+        <!-- END CONTAINER -->
+        <!-- BEGIN FOOTER -->
+        <div class="page-footer">
+            <div class="page-footer-inner">
+                2015 &copy; Charlie's Chopsticks
             </div>
-          </div>
-          <div class="col-xs-12  col-sm-3">
-            <div class="footer-widgets__navigation">
-                <div class="footer-wdgets__heading--line">
-                  <h4 class="footer-widgets__heading">Contact Us</h4>
-                </div>
-                <strong>Charlie's Chopsticks</strong><br>
-
-				Unit 3, 970 Upper James Street<br>
-Hamilton, ON<br>
-L9C 3A5<br>
-                <a class="footer__link--small" href="pages/findus">View Google map <span class="glyphicon glyphicon-chevron-right glyphicon--footer-small"></span></a><br><br>
-                <a class="footer__link" href="#"><span class="glyphicon glyphicon-earphone glyphicon--footer"></span>  905-388-9888</a><br>
-                <a class="footer__link" href="#"><span class="glyphicon glyphicon-envelope glyphicon--footer"></span> contact@charlieschopstics.com</a>
-              </div>
+            <div class="scroll-to-top">
+                <i class="icon-arrow-up"></i>
             </div>
         </div>
-      </div>
-    </div>
-    <div class="footer">
-      <div class="container">
-        <div class="row">
-          <div class="col-xs-12  col-sm-6">
-            <div class="footer__text--link">
-              <a class="footer__link" href="<?php echo $this->webroot;?>">Charlies Chopsticks</a> © Copyright 2014
-            </div>
-          </div>
-          <div class="col-xs-12  col-sm-6">
-            <div class="footer__text">
-              Powered by </span> <a class="footer__link" href="http://www.trinoweb.com" target="_blank">Trino Web</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer>
-  <div class="search-mode__overlay"></div>
-    
-    
-    <script data-main="scripts/main" src="<?php echo $this->webroot;?>bower_components/requirejs/require.js"></script>    
-    <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css" />
-    
-
-    <!--<script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-      ga('create', 'UA-33538073-8', 'proteusthemes.com');
-      ga('send', 'pageview');
-
-    </script>-->
-  </body>
+        <!-- END FOOTER -->
+        <!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
+        <!-- BEGIN CORE PLUGINS -->
+        <!--[if lt IE 9]>
+        <script src="<?php echo $this->webroot; ?>profile/assets/global/plugins/respond.min.js"></script>
+        <script src="<?php echo $this->webroot; ?>profile/assets/global/plugins/excanvas.min.js"></script>
+        <![endif]-->
+        <script src="<?php echo $this->webroot; ?>profile/assets/global/plugins/jquery.min.js" type="text/javascript"></script>
+        <script src="<?php echo $this->webroot; ?>profile/assets/global/plugins/jquery-migrate.min.js" type="text/javascript"></script>
+        <!-- IMPORTANT! Load jquery-ui-1.10.3.custom.min.js before bootstrap.min.js to fix bootstrap tooltip conflict with jquery ui tooltip -->
+        <script src="<?php echo $this->webroot; ?>profile/assets/global/plugins/jquery-ui/jquery-ui-1.10.3.custom.min.js"
+                type="text/javascript"></script>
+        <script src="<?php echo $this->webroot; ?>profile/assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="<?php echo $this->webroot; ?>profile/assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js"
+                type="text/javascript"></script>
+        <script src="<?php echo $this->webroot; ?>profile/assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js"
+                type="text/javascript"></script>
+        <script src="<?php echo $this->webroot; ?>profile/assets/global/plugins/jquery.blockui.min.js" type="text/javascript"></script>
+        <script src="<?php echo $this->webroot; ?>profile/assets/global/plugins/jquery.cokie.min.js" type="text/javascript"></script>
+        <script src="<?php echo $this->webroot; ?>profile/assets/global/plugins/uniform/jquery.uniform.min.js" type="text/javascript"></script>
+        <script src="<?php echo $this->webroot; ?>profile/assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js"
+                type="text/javascript"></script>
+        <!-- END CORE PLUGINS -->
+        <!-- BEGIN PAGE LEVEL PLUGINS -->
+        <script src="<?php echo $this->webroot; ?>profile/assets/global/plugins/jqvmap/jqvmap/jquery.vmap.js" type="text/javascript"></script>
+        <script src="<?php echo $this->webroot; ?>profile/assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.russia.js"
+                type="text/javascript"></script>
+        <script src="<?php echo $this->webroot; ?>profile/assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.world.js"
+                type="text/javascript"></script>
+        <script src="<?php echo $this->webroot; ?>profile/assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.europe.js"
+                type="text/javascript"></script>
+        <script src="<?php echo $this->webroot; ?>profile/assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.germany.js"
+                type="text/javascript"></script>
+        <script src="<?php echo $this->webroot; ?>profile/assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.usa.js" type="text/javascript"></script>
+        <script src="<?php echo $this->webroot; ?>profile/assets/global/plugins/jqvmap/jqvmap/data/jquery.vmap.sampledata.js"
+                type="text/javascript"></script>
+        <script src="<?php echo $this->webroot; ?>profile/assets/global/plugins/flot/jquery.flot.min.js" type="text/javascript"></script>
+        <script src="<?php echo $this->webroot; ?>profile/assets/global/plugins/flot/jquery.flot.resize.min.js" type="text/javascript"></script>
+        <script src="<?php echo $this->webroot; ?>profile/assets/global/plugins/flot/jquery.flot.categories.min.js" type="text/javascript"></script>
+        <script src="<?php echo $this->webroot; ?>profile/assets/global/plugins/jquery.pulsate.min.js" type="text/javascript"></script>
+        <script src="<?php echo $this->webroot; ?>profile/assets/global/plugins/bootstrap-daterangepicker/moment.min.js"
+                type="text/javascript"></script>
+        <script src="<?php echo $this->webroot; ?>profile/assets/global/plugins/bootstrap-daterangepicker/daterangepicker.js"
+                type="text/javascript"></script>
+        <!-- IMPORTANT! fullcalendar depends on jquery-ui-1.10.3.custom.min.js for drag & drop support -->
+        <script src="<?php echo $this->webroot; ?>profile/assets/global/plugins/fullcalendar/fullcalendar.min.js" type="text/javascript"></script>
+        <script src="<?php echo $this->webroot; ?>profile/assets/global/plugins/jquery-easypiechart/jquery.easypiechart.js"
+                type="text/javascript"></script>
+        <script src="<?php echo $this->webroot; ?>profile/assets/global/plugins/jquery.sparkline.min.js" type="text/javascript"></script>
+        <!-- END PAGE LEVEL PLUGINS -->
+        <!-- BEGIN PAGE LEVEL SCRIPTS -->
+        <script src="<?php echo $this->webroot; ?>profile/assets/global/scripts/metronic.js" type="text/javascript"></script>
+        <script src="<?php echo $this->webroot; ?>profile/assets/admin/layout/scripts/layout.js" type="text/javascript"></script>
+        <script src="<?php echo $this->webroot; ?>profile/assets/admin/layout/scripts/quick-sidebar.js" type="text/javascript"></script>
+        <script src="<?php echo $this->webroot; ?>profile/assets/admin/layout/scripts/demo.js" type="text/javascript"></script>
+        <script src="<?php echo $this->webroot; ?>profile/assets/admin/pages/scripts/index.js" type="text/javascript"></script>
+        <script src="<?php echo $this->webroot; ?>profile/assets/admin/pages/scripts/tasks.js" type="text/javascript"></script>
+        <script src="<?php echo $this->webroot; ?>scripts/jqueryui/my_new.js" type="text/javascript"></script>
+        <script src="<?php echo $this->webroot; ?>scripts/jqueryui/my2_new.js" type="text/javascript"></script>
+        <script src="<?php echo $this->webroot; ?>scripts/upload.js" type="text/javascript"></script>
+        <script src="<?php echo $this->webroot; ?>scripts/timepicker.js" type="text/javascript"></script>
+        <!-- END PAGE LEVEL SCRIPTS -->
+        <script>
+            jQuery(document).ready(function () {
+                //Metronic.init(); // init metronic core components
+                //Layout.init(); // init current layout
+                //QuickSidebar.init(); // init quick sidebar
+                //Demo.init(); // init demo features // initlayout and core plugins
+                //Index.init();
+                //Index.initJQVMAP(); // init index page's custom scripts
+               // Index.initCalendar(); // init index page's custom scripts
+                //Index.initCharts(); // init index page's custom scripts
+                //Index.initChat();
+                //Index.initMiniCharts();
+                //Index.initDashboardDaterange();
+                //Tasks.initDashboardWidget();
+            });
+        </script>
+        <!-- END JAVASCRIPTS -->
+</body>
+<!-- END BODY -->
 </html>
-<?php
-function get_formated_date($to_format)
-{
-    $arr_hours = explode(':',$to_format);
-    if($arr_hours[0]>11)
-    {
-        if($arr_hours[0]==12)
-        {
-            echo $arr_hours[0].':'.$arr_hours[1].' PM';
-        }
-        else
-        echo ($arr_hours[0]-12).':'.$arr_hours[1].' PM';
-    }
-    else
-    {
-        if($arr_hours[0]==00)
-        {
-            echo '12'.':'.$arr_hours[1].' AM';
-        }
-        else
-        echo $arr_hours[0].':'.$arr_hours[1].' AM';
-    }
-}
-?>
-<?php echo $this->element('sql_dump'); ?>

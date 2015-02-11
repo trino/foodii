@@ -1,4 +1,4 @@
-
+<!--
 <div class="breadcrumbs">
   <div class="container">
     <div class="row">
@@ -15,7 +15,7 @@
       </div>
     </div>
   </div>
-</div>
+</div>-->
 <div id="overlay" class="ui-widget-overlay col-xs-12" style="z-index: 1001; display: none;"></div>
 <div id='PleaseWait' class="col-xs-12" style='display: none; z-index:1006; position: fixed; top: 50%; left: 50%;'><img src='<?php echo $this->webroot;?>images/ajaxloader.gif'/></div>
 
