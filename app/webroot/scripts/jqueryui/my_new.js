@@ -574,6 +574,7 @@ $('.order_now').change(function(){
 if(path.replace('test','')!=path){            
          //for google map
          path1 = path.substring(path.length-1, path.length);
+        
          
         if(isNaN(path1))
         {

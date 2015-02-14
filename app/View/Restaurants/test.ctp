@@ -1,3 +1,50 @@
+ <script>
+ $(function(){
+    $(".demo1").lightSlider({
+                loop:false,
+                keyPress:false,
+                item:1
+            });
+            
+    $('.nxt_button').click(function(){
+        var id = $(this).attr('id');
+        var l = $(this).parent().find('.banner'+id+' td').width();
+        //alert(l);
+        var leftPos = $('.banner'+id).scrollLeft();
+            $(".banner"+id).animate({scrollLeft: leftPos + l}, 800);
+        
+    
+    });
+    
+    $('.prv_button').click(function(){
+        var id = $(this).attr('id');
+        var l = $(this).parent().find('.banner'+id+' td').width();
+    
+        var leftPos = $('.banner'+id).scrollLeft();
+        $(".banner"+id).animate({scrollLeft: leftPos - l}, 800);
+    });
+ });
+ 
+ </script>
+ 
+ <style>
+    	ul{
+			list-style: none outside none;
+		    padding-left: 0;
+		}
+		.content-slider li{
+		    background-color: #ed3020;
+		    text-align: center;
+		    color: #FFF;
+		}
+		.content-slider h3 {
+		    margin: 0;
+		    padding: 70px 0;
+		}
+		.demo{
+			width: 800px;
+		}
+    </style>
 <div class="row">
 
 
@@ -123,6 +170,7 @@
                                         ?>
                                     
                                         <h2 style="margin-top:0;">Combos</h2>
+                                        
                                     <?php
                                     }
                             
@@ -261,13 +309,18 @@
                                                     ?>
                                             
                                                     <div class="modal-body">
-                                            
+                                                    
                                                 <?php
-                                                }
+                                                }?>
+                                                
+                                                <div class="banner<?php echo $me['Menu']['id'];?>" style="overflow: hidden;">
+                                                <table width="<?php echo 100*$qty[$me['Menu']['id']];?>%">
+                                                <tr>
+                                                <?php
                                                     for($ccd=0;$ccd<$qty[$me['Menu']['id']];$ccd++)
                                                     {
                                                         ?>
-                                            
+                                                        <td width="<?php echo 100/$qty[$me['Menu']['id']];?>%">
                                                         <div style="margin-bottom: 10px;border:1px solid #eee;border-bottom:5px solid #eee;">
                                                             <div class="col-sm-6" style="text-align: left;">
                                                                 <h3><?php echo $me['Menu']['menu_item'];?></h3>
@@ -292,7 +345,6 @@
                                             
                                                                     $ch++;?>
                                             
-                                                                    
                                                                     <div class="infolist col-xs-12" style="border-right: 5px solid #CCC;margin-bottom: 10px;" >
                                                                     <input type="hidden" class="extra_no_<?php echo $subm['MenuCategory']['id'];?>" value="<?php echo $subm['MenuCategory']['itemno'];?>" />
                                                                     <input type="hidden" class="required_<?php echo $subm['MenuCategory']['id'];?>" value="<?php echo $subm['MenuCategory']['is_required'];?>" />
@@ -375,6 +427,16 @@
                                                             </div>
                                                             <div class="clearfix"></div>
                                                         </div>
+                                                        </td>
+                                                    <?php
+                                                    }
+                                                    ?>
+                                                    </tr>
+                                                   </table>
+                                                    </div>
+                                                    <?php if($qty[$me['Menu']['id']]>1){?>
+                                                        <a href="javascript:void(0);" class="prv_button btn btn-primary" id="<?php echo $me['Menu']['id'];?>">Previous</a>
+                                                        <a href="javascript:void(0);" class="nxt_button btn btn-primary" id="<?php echo $me['Menu']['id'];?>">Next</a>
                                                     <?php
                                                     }
                                                 if($combo_counter == count($mmm))
@@ -415,27 +477,7 @@
                                                     }
                                                     ?>
                                             
-                                            
-                                            
-                                            
-                                            
-                                            
-                                            
-                                            
-                                            
-                                            
-                                            
-                                            
-                                            
-                                            
-                                            
-                                            
-                                            
-                                            
-                                            
-                                            
-                                            
-                                            
+              
                                                 <?php
                                             
                                                 }

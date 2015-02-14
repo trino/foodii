@@ -7,7 +7,7 @@
 *.php text
 *.default text
 *.ctp text
-*.sql text
+*.sql text 
 *.md text
 *.po text
 *.js text
