@@ -1,47 +1,27 @@
  <script>
  $(function(){
-
+    $(".demo1").lightSlider({
+                loop:false,
+                keyPress:false,
+                item:1
+            });
             
     $('.nxt_button').click(function(){
-        var td = Number($(this).attr('title'));
-        td++;
-        var id ='';
-        //var l = $(this).parent().find('.banner'+id+' td').width();
-        var banner = $(this).parent().parent().parent().find('.bannerz');
-        var l  = banner.width();
-        var main_width = banner.children('table').width();
+        var id = $(this).attr('id');
+        var l = $(this).parent().find('.banner'+id+' td').width();
+        //alert(l);
+        var leftPos = $('.banner'+id).scrollLeft();
+            $(".banner"+id).animate({scrollLeft: leftPos + l}, 800);
         
-        var leftPos = banner.scrollLeft();
-           banner.animate({scrollLeft: leftPos + l}, 800);
-        var total_td = banner.find('td').length;
-        $(this).attr('title',td)   
-        if(td==total_td)
-        {
-           
-            $(this).parent().parent().find('.add_combo_profile').show();
-            $(this).hide();
-        }
-        else
-        {
-             $(this).parent().parent().find('.add_combo_profile').hide();
-        }
     
     });
     
     $('.prv_button').click(function(){
-        var td = Number($(this).parent().find('.nxt_button').attr('title'));
-        if(td!=1)
-        td = td-1;
-        var id = ''
-        var banner = $(this).parent().parent().parent().find('.bannerz');
-        var l  = banner.width();
-        var leftPos = banner.scrollLeft();
-        var main_width = banner.children('table').width();       
-        banner.animate({scrollLeft: leftPos - l}, 800);
-        $(this).parent().find('.nxt_button').attr('title',td)   
-             $(this).parent().parent().find('.add_combo_profile').hide();
-         $(this).parent().parent().find('.nxt_button').show();
-       
+        var id = $(this).attr('id');
+        var l = $(this).parent().find('.banner'+id+' td').width();
+    
+        var leftPos = $('.banner'+id).scrollLeft();
+        $(".banner"+id).animate({scrollLeft: leftPos - l}, 800);
     });
  });
  
@@ -187,6 +167,11 @@
                                     $co_count = 0;
                                     if($res['Combo'])
                                     {
+                                        $menu_count= 0;
+                                        foreach($res['Combo'] as $c)
+                                        {
+                                            
+                                        }
                                         ?>
                                     
                                         <h2 style="margin-top:0;">Combos</h2>
@@ -259,16 +244,7 @@
                                                         echo $qty[$v] = 1;
                                                         echo "</h1>";}
                                                 }
-                                                  $menu_count= 0;
-                                                foreach($mmm as $kss=>$nme)
-                                                {
-                                                     
-                                                     for($ccd=0;$ccd<$qty[$nme['Menu']['id']];$ccd++)
-                                                     {
-                                                        $menu_count++;
-                                                     }
-                                                }
-                                                
+                                            
                                                 $cc=0;
                                                 foreach($mmm as $ks=>$me)
                                                 {
@@ -332,21 +308,20 @@
                                                 if($combo_counter==1)
                                                 {
                                                     ?>
-                                                    
+                                            
                                                     <div class="modal-body">
-                                                    <div class="banner bannerz" style="overflow: hidden;">
-                                                    <table width="<?php echo 100*$menu_count;?>%">
-                                                    <tr class="zxcx">
                                                     
                                                 <?php
                                                 }?>
                                                 
-                                                
+                                                <div class="banner<?php echo $me['Menu']['id'];?> bannerz" style="overflow: hidden;">
+                                                <table width="<?php echo 100*$qty[$me['Menu']['id']];?>%">
+                                                <tr>
                                                 <?php
                                                     for($ccd=0;$ccd<$qty[$me['Menu']['id']];$ccd++)
                                                     {
                                                         ?>
-                                                        <td width="<?php echo 100/$menu_count;?>%">
+                                                        <td width="<?php echo 100/$qty[$me['Menu']['id']];?>%">
                                                         <div style="margin-bottom: 10px;border:1px solid #eee;border-bottom:5px solid #eee;">
                                                             <div class="col-sm-6" style="text-align: left;">
                                                                 <h3><?php echo $me['Menu']['menu_item'];?></h3>
@@ -457,25 +432,21 @@
                                                     <?php
                                                     }
                                                     ?>
-                                                   <?php
-                                                    
+                                                    </tr>
+                                                   </table>
+                                                    </div>
+                                                    <?php if($qty[$me['Menu']['id']]>1){?>
+                                                        <a href="javascript:void(0);" class="prv_button btn btn-primary" id="<?php echo $me['Menu']['id'];?>">Previous</a>
+                                                        <a href="javascript:void(0);" class="nxt_button btn btn-primary" id="<?php echo $me['Menu']['id'];?>">Next</a>
+                                                    <?php
+                                                    }
                                                 if($combo_counter == count($mmm))
                                                 {
                                                     ?>
-                                                     </tr>
-                                                   </table>
-                                                    </div>
-                                                                                               
                                                     <div class="optionals" style="position: static;">
-                                                    <?php if($menu_count>1){?>
-                                                        <div class="col-xs-6 alignl">
-                                                        <a href="javascript:void(0);" class="prv_button btn btn-primary" title="1" id="<?php echo $me['Menu']['id'];?>">Previous</a>
-                                                        <a href="javascript:void(0);" class="nxt_button btn btn-primary" title="1" id="<?php echo $me['Menu']['id'];?>">Next</a>
-                                                        </div>
-                                                    <?php }?>         
-                                                        <div class="col-xs-6 alignr">
+                                                        <div class="col-xs-12 alignr">
                                             
-                                                            &nbsp;<a href="javascript:void(0);" class="btn btn-info--transition add_combo_profile" id="profilemenu<?php echo $cat['id'];?>" style="float: right;margin-left: 10px;display:none; " >Add</a>&nbsp;
+                                                            &nbsp;<a href="javascript:void(0);" class="btn btn-info--transition add_combo_profile" id="profilemenu<?php echo $cat['id'];?>" style="float: right;margin-left: 10px;" style="">Add</a>&nbsp;
                                                             <a href="javascript:void(0);" class="btn btn-primary--transition  clearall" id="clear_<?php echo $cat['id'];?>" style="float: right;margin-left:10px;" >Clear</a>&nbsp;
                                             
                                                             &nbsp;<button type="button" class="close" id="clear_<?php echo $cat['id'];?>" data-dismiss="modal" aria-hidden="false" style="opacity: 1; text-shadow:none;margin-left: 10px;" >
@@ -511,7 +482,7 @@
                                                 <?php
                                             
                                                 }
-                                                ?>
+?>
                                         </td>
                                         
                                     <?php if($co_count == count($res['Combo'])){?>
