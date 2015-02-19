@@ -5142,6 +5142,14 @@ background-color: #FFFFFF;
 .tohide{display:none;}
 .menu_item{margin-top:10px;}
 #ui-datepicker-div{z-index:100000!important;}
-
+.page-footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: #1f1f1f;
+}
+body{
+    background: #000!important;
+}
 
 

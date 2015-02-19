@@ -181,15 +181,15 @@ License: You must have a valid license purchased only from themeforest(the above
         <div class="hor-menu hidden-sm hidden-xs">
             <ul class="nav navbar-nav">
                 <!-- DOC: Remove data-hover="dropdown" and data-close-others="true" attributes below to disable the horizontal opening on mouse hover -->
-                <li class="classic-menu-dropdown <?php if($this->params['action']=="test")echo "active";?>">
-                    <a href="<?php echo $this->webroot;?>restaurants/test/Charlie-s-Chopsticks">
+                <li class="classic-menu-dropdown <?php if($this->here == $this->webroot)echo "active";?>">
+                    <a href="<?php echo $this->webroot;?>">
                         Order Online <span class="selected">
 					</span>
                     </a>
                 </li>
 
-                <li class="mega-menu-dropdown mega-menu-full <?php if($this->params['action']=="")echo "active";?>">
-                    <a data-toggle="dropdown" href="javascript:;" class="dropdown-toggle" data-hover="megamenu-dropdown"
+                <li class="mega-menu-dropdown mega-menu-full <?php if($this->params['action']=="menu")echo "active";?>">
+                    <a href="<?php echo $this->webroot;?>pages/menu" class="dropdown-toggle" data-hover="megamenu-dropdown"
                        data-close-others="true">
                         Flyer  <span class="selected">
 					</span>
@@ -247,7 +247,7 @@ License: You must have a valid license purchased only from themeforest(the above
                 if(!$this->Session->read('restaurant'))
                 {?>
                    
-                <li><a href="#registerModal" role="button" data-toggle="modal">Register</a></li>
+                <!--<li><a href="#registerModal" role="button" data-toggle="modal">Register</a></li>-->
                 <li class="dropdown dropdown-user"><a href="#loginModal" role="button" data-toggle="modal"><span class="username username-hide-on-mobile">Login</span></a></li>
                 <?php 
                 }
@@ -316,7 +316,7 @@ License: You must have a valid license purchased only from themeforest(the above
         <hr class="divider">
       </div>
       <div class="modal-body">
-        <form action="<?php echo $this->webroot;?>restaurants/login" id="loginform" class="push-down-15" method="post">
+        <form action="<?php echo $this->webroot;?>restaurants/login" id="loginform" class="push-down-15" method="post" >
           <div class="form-group">
             <input type="text" id="username" name="username" class="form-control  form-control--contact" placeholder="Email">
             <div id="usererror" style="display: none;"></div>
@@ -325,7 +325,7 @@ License: You must have a valid license purchased only from themeforest(the above
             <input type="password" id="password" name="password" class="form-control  form-control--contact" placeholder="Password">
             <div id="passerror" style="display: none;"></div>
           </div>
-          <a href="javascript:void(0)" class="btn  btn-primary loginbtn">SIGN IN</a>
+          <button type="button"  class="btn  btn-primary loginbtn">SIGN IN</button>
           
           <div id="formerror" style="display: none;"></div>
         </form>
@@ -333,6 +333,7 @@ License: You must have a valid license purchased only from themeforest(the above
     </div>
   </div>
 </div>
+
     <!-- END HEADER INNER -->
 </div>
 

@@ -313,7 +313,7 @@
                                                 <?php
                                                 }?>
                                                 
-                                                <div class="banner<?php echo $me['Menu']['id'];?>" style="overflow: hidden;">
+                                                <div class="banner<?php echo $me['Menu']['id'];?> bannerz" style="overflow: hidden;">
                                                 <table width="<?php echo 100*$qty[$me['Menu']['id']];?>%">
                                                 <tr>
                                                 <?php

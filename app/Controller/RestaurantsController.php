@@ -278,11 +278,17 @@ class RestaurantsController extends AppController
     {
         $user = $_POST['username'];
         $pass = $_POST['password'];
-        $q = $this->Restaurant->find('first', array('conditions' => array('email' => $user, 'password' => $pass)));
-        $this->Session->write('restaurant', $user);
-        $this->Session->write('name', $q['Restaurant']['name']);
-        $this->Session->write('id', $q['Restaurant']['id']);
-        $this->redirect('dashboard');
+        if($q = $this->Restaurant->find('first', array('conditions' => array('email' => $user, 'password' => $pass))))
+        {
+            $this->Session->write('restaurant', $user);
+            $this->Session->write('name', $q['Restaurant']['name']);
+            $this->Session->write('id', $q['Restaurant']['id']);
+            $this->redirect('dashboard');
+        }
+        else
+        {
+            
+        }
     }
 
     function checkSess()

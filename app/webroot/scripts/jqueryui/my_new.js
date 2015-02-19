@@ -518,6 +518,21 @@ if(path.replace('menuManager','')!=path)
             
             
 //Script for login
+$('#password').keyup(function(e){
+    if(e.keyCode == 13)
+    {
+        
+        $('.loginbtn').click();
+    }
+    
+});
+$('#username').keyup(function(e){
+    if(e.keyCode == 13)
+    {
+        
+        $('.loginbtn').click();
+    }
+});
 $('.loginbtn').click(function(){
 	     
 	   var username = $('#username').val();
@@ -525,7 +540,7 @@ $('.loginbtn').click(function(){
        if(!username||!password){
        if(username=='')
        {
-        $('#usererror').show();
+         $('#usererror').show();
          $('#usererror').text('Username can not be blank');
        }
        if(password=='')
@@ -554,7 +569,7 @@ $('.loginbtn').click(function(){
        }
        
        
-	});   
+	});  
     
 $('.order_now').change(function(){
     //alert('test');
@@ -571,7 +586,7 @@ $('.order_now').change(function(){
 });
                 
 //Script for profile page          
-if(path.replace('test','')!=path){            
+//if(path.replace('test','')!=path){            
          //for google map
          path1 = path.substring(path.length-1, path.length);
         
@@ -791,7 +806,11 @@ if(path.replace('test','')!=path){
             });
             //alert('Cat'+catarray);
             if(err>0)
+            {
+                alert('Options are mandatory!');
+                $(".bannerz").animate({scrollLeft: 0}, 800);
                 return false;
+            }
             else
             {
                 catarray.forEach(function(catid){
@@ -1153,8 +1172,11 @@ if(path.replace('test','')!=path){
             dbtitle = dbtitle.split("%%").join("");
             //alert(dbtitle);
             if(err>0)
+            {
+                alert('Options are mandatory!');
+                 
                 return false;
-            else
+            }else
             {
                 catarray.forEach(function(catid){
                     $('#error_'+catid).html("");
@@ -1363,7 +1385,7 @@ if(path.replace('test','')!=path){
             $('#list'+numid+' span.count').text(quant);           
             $('#list'+numid+' input.count').val(quant);          
 	   });       
-}
+//}
 if(path.replace('dashboard','')!=path){
             $('.removemore').live('click',function(){
                 $(this).parent().parent().remove();
