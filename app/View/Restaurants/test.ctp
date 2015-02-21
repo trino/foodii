@@ -325,10 +325,11 @@
                                                                 <?php if($cat['description']!='undefined')echo $cat['description'];?>
                                                             </div>
                                                             <div class="clearfix"></div>
+                                                             <hr class="divider" />
                                                         <?php
                                                         }
                                                         ?>
-                                                        <hr class="divider" />
+                                                       
                                                     </div>
                                                 <?php
                                                 }
