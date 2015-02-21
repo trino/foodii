@@ -2,7 +2,8 @@
  $(function(){
 
             
-    $('.nxt_button').click(function(){
+    $('.nxt_button').live('click',function(){
+        $(this).attr('disabled','disabled');
         var td = Number($(this).attr('title'));
         td++;
         var id ='';
@@ -12,9 +13,11 @@
         var main_width = banner.children('table').width();
         
         var leftPos = banner.scrollLeft();
-           banner.animate({scrollLeft: leftPos + l}, 800);
+           banner.animate({scrollLeft: leftPos + l}, 800, function(){ $('.nxt_button').removeAttr('disabled');});
+          
         var total_td = banner.find('td').length;
-        $(this).attr('title',td)   
+        $(this).attr('title',td)
+        /*   
         if(td==total_td)
         {
            
@@ -24,11 +27,12 @@
         else
         {
              $(this).parent().parent().find('.add_combo_profile').hide();
-        }
+        }*/
     
     });
     
     $('.prv_button').click(function(){
+        $(this).attr('disabled','disabled');
         var td = Number($(this).parent().find('.nxt_button').attr('title'));
         if(td!=1)
         td = td-1;
@@ -37,11 +41,12 @@
         var l  = banner.width();
         var leftPos = banner.scrollLeft();
         var main_width = banner.children('table').width();       
-        banner.animate({scrollLeft: leftPos - l}, 800);
-        $(this).parent().find('.nxt_button').attr('title',td)   
+        banner.animate({scrollLeft: leftPos - l}, 800, function(){ $('.prv_button').removeAttr('disabled');});
+        $(this).parent().find('.nxt_button').attr('title',td);
+        /*   
              $(this).parent().parent().find('.add_combo_profile').hide();
          $(this).parent().parent().find('.nxt_button').show();
-       
+       */
     });
  });
  
@@ -467,15 +472,15 @@
                                                     </div>
                                                                                                
                                                     <div class="optionals" style="position: static;">
-                                                    <?php if($menu_count>1){?>
-                                                        <div class="col-xs-6 alignl">
+                                                      
+                                                        <div class="col-xs-12 alignr">
+                                                            <?php if($menu_count>1){?>
+                                                        
                                                         <a href="javascript:void(0);" class="prv_button btn btn-primary" title="1" id="<?php echo $me['Menu']['id'];?>">Previous</a>
                                                         <a href="javascript:void(0);" class="nxt_button btn btn-primary" title="1" id="<?php echo $me['Menu']['id'];?>">Next</a>
-                                                        </div>
-                                                    <?php }?>         
-                                                        <div class="col-xs-6 alignr">
-                                            
-                                                            &nbsp;<a href="javascript:void(0);" class="btn btn-info--transition add_combo_profile" id="profilemenu<?php echo $cat['id'];?>" style="float: right;margin-left: 10px;display:none; " >Add</a>&nbsp;
+                                                       
+                                                    <?php }?>       
+                                                            &nbsp;<a href="javascript:void(0);" class="btn btn-info--transition add_combo_profile" id="profilemenu<?php echo $cat['id'];?>" style="float: right;margin-left: 10px;" >Add</a>&nbsp;
                                                             <a href="javascript:void(0);" class="btn btn-primary--transition  clearall" id="clear_<?php echo $cat['id'];?>" style="float: right;margin-left:10px;" >Clear</a>&nbsp;
                                             
                                                             &nbsp;<button type="button" class="close" id="clear_<?php echo $cat['id'];?>" data-dismiss="modal" aria-hidden="false" style="opacity: 1; text-shadow:none;margin-left: 10px;" >

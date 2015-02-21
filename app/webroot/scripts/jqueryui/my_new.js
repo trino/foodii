@@ -670,7 +670,8 @@ $('.order_now').change(function(){
             var dbtitle = "";
             var err = 0;
             var catarray = [];
-            
+            var td_index = 0;
+            var td_temp = 9999;
             $('.subitems_'+menu_id).find('input:checkbox, input:radio').each(function(index){
             if($(this).is(':checked') && $(this).attr('title')!="")
             {
@@ -723,13 +724,26 @@ $('.order_now').change(function(){
                             if(cnn == 0)
                             {   
                                 err++;
+                                td_index = $(this).parent().parent().parent().parent().find('.error_'+catid).parent().parent().parent().parent().index();
+                                
+                                if(td_temp >= td_index)
+                                    td_temp = td_index;
+                                else
+                                    td_temp = td_temp;
                                 $(this).parent().parent().parent().parent().find('.error_'+catid).html("Options are Mandatory");
+                                
                             }
                             else
                             if(multiples ==1 && cnn > extra_no)
                             {
     
                                 err++;
+                                td_index = $(this).parent().parent().parent().parent().find('.error_'+catid).parent().parent().parent().parent().index();
+                                 
+                                if(td_temp >= td_index)
+                                    td_temp = td_index;
+                                else
+                                    td_temp = td_temp;
                                 $(this).parent().parent().parent().parent().find('.error_'+catid).html("Select up to "+extra_no+" Options");
                             }
                             else
@@ -742,6 +756,12 @@ $('.order_now').change(function(){
                           if(cnn == 0)
                             {   
                                 err++;
+                                td_index = $(this).parent().parent().parent().parent().find('.error_'+catid).parent().parent().parent().parent().index();
+                                 
+                                if(td_temp >= td_index)
+                                    td_temp = td_index;
+                                else
+                                    td_temp = td_temp;
                                 $(this).parent().parent().parent().parent().find('.error_'+catid).html("Options are Mandatory");
                             }
                             else
@@ -749,6 +769,12 @@ $('.order_now').change(function(){
                             {
     
                                 err++;
+                                td_index = $(this).parent().parent().parent().parent().find('.error_'+catid).parent().parent().parent().parent().index();
+                                 
+                                if(td_temp >= td_index)
+                                    td_temp = td_index;
+                                else
+                                    td_temp = td_temp;
                                 $(this).parent().parent().parent().parent().find('.error_'+catid).html("Select "+extra_no+" Options");
                             }
                             else
@@ -764,6 +790,12 @@ $('.order_now').change(function(){
                             if(multiples ==1 && cnn >0 && cnn > extra_no)
                             {
                                 err++;
+                                td_index = $(this).parent().parent().parent().parent().find('.error_'+catid).parent().parent().parent().parent().index();
+                                 
+                                if(td_temp >= td_index)
+                                    td_temp = td_index;
+                                else
+                                    td_temp = td_temp;
                                 $(this).parent().parent().parent().parent().find('.error_'+catid).html("Select up to "+extra_no+" Options");
                             }
                             else
@@ -776,6 +808,12 @@ $('.order_now').change(function(){
                             if(multiples ==1 && cnn >0 && cnn!= extra_no)
                             {
                                 err++;
+                                td_index = $(this).parent().parent().parent().parent().find('.error_'+catid).parent().parent().parent().parent().index();
+                                 
+                                if(td_temp >= td_index)
+                                    td_temp = td_index;
+                                else
+                                    td_temp = td_temp;
                                 $(this).parent().parent().parent().parent().find('.error_'+catid).html("Select "+extra_no+" Options");
                             }
                             else
@@ -804,11 +842,29 @@ $('.order_now').change(function(){
                 
             }
             });
-            //alert('Cat'+catarray);
+            
             if(err>0)
             {
-                alert('Options are mandatory!');
-                $(".bannerz").animate({scrollLeft: 0}, 800);
+                //alert('Options are mandatory!');
+                var banner = $(this).parent().parent().parent().find('.bannerz');
+                var l  = banner.width();
+                var total_td = banner.find('td').length;
+                $(".bannerz").animate({scrollLeft: (l*td_temp)}, 800);
+                td_temp = td_temp+1;
+                $(this).parent().parent().find('.nxt_button').attr('title',td_temp);
+                /*
+                if(total_td != td_temp)
+                {
+                    $(this).parent().parent().find('.add_combo_profile').hide();
+                    $('.nxt_button').show();
+                }
+                else
+                {
+                    $(this).parent().parent().find('.add_combo_profile').show();
+                    $('.nxt_button').hide();
+                }*/
+                
+                
                 return false;
             }
             else
