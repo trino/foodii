@@ -270,7 +270,6 @@
                                                      
                                                      for($ccd=0;$ccd<$qty[$nme['Menu']['id']];$ccd++)
                                                      {
-                                                        
                                                         $menu_count++;
                                                      }
                                                 }
@@ -326,7 +325,7 @@
                                                                 <?php if($cat['description']!='undefined')echo $cat['description'];?>
                                                             </div>
                                                             <div class="clearfix"></div>
-                                                                                                                                                                                                                                                
+                                                             <hr class="divider" />                                                            
                                                         <?php
                                                         }
                                                         ?>
@@ -476,7 +475,7 @@
                                                     <div class="optionals" style="position: static;">
                                                       
                                                         <div class="col-xs-12 alignr">
-                                                      <?php if($menu_count>1){?>
+                                                            <?php if($menu_count>1){?>
                                                         
                                                         <a href="javascript:void(0);" class="prv_button btn btn-primary" title="1" id="<?php echo $me['Menu']['id'];?>">Previous</a>
                                                         <a href="javascript:void(0);" class="nxt_button btn btn-primary" title="1" id="<?php echo $me['Menu']['id'];?>">Next</a>
@@ -611,29 +610,19 @@
                                                                 <!--img width="150" src="<?php if($me['image']&& file_exists(APP."webroot/images/menus/".$me['image'])){echo $this->webroot;?>images/menus/<?php echo $me['image'];}else{echo $this->webroot.'images/default.png';}?>" /-->
                                                             </div>
                                                             <div class="clearfix"></div>
-                                                            <?php
-                                                                $menu_count =0;
-                                                                foreach($submenuscat as $key=>$subm)
-                                                                {
-                                                                    $menu_count++;
-                                                                }
-                                                                    ?>
-                                                            
                                                             <div class="subitems_<?php echo $me['id'];?> optionals" >
                                                                 <!--<span class="topright"><a href="javascript:void(0)" onclick="$('#Modal<?php echo $me['id'];?>').toggle();"><strong class="btn btn-danger">x</strong></a></span>-->
                                 
                                                                 <div class="clearfix space10"></div>
                                                                 <div style="display:none;"><input type="checkbox" class="chk" value="" title="<?php echo $me['id']."_".$me['menu_item']."-_".$me['price']."_"."";?>" checked="checked" style="display: none;" /></div>
-                                                                <div class="banner bannerz" style="overflow: hidden;">
-                                                                <table width="<?php echo 100*$menu_count;?>%">
-                                                                <tr class="zxcx">
+                                
                                                                 <?php
                                                                 //var_dump($submenuscat);
                                                                 $ch = 0;
                                                                 foreach($submenuscat as $key=>$subm)
                                                                 {
                                                                     $ch++;?>
-                                                                    <td width="<?php echo 100/$menu_count;?>%" id="td_<?php echo $subm['MenuCategory']['id'];?>">
+                                
                                                                     <input type="hidden" id="extra_no_<?php echo $subm['MenuCategory']['id'];?>" value="<?php echo $subm['MenuCategory']['itemno'];?>" />
                                                                     <input type="hidden" id="required_<?php echo $subm['MenuCategory']['id'];?>" value="<?php echo $subm['MenuCategory']['is_required'];?>" />
                                                                     <input type="hidden" id="multiple_<?php echo $subm['MenuCategory']['id'];?>" value="<?php echo $subm['MenuCategory']['is_multiple'];?>" />
@@ -641,7 +630,10 @@
                                                                     <div class="infolist col-xs-12" style="border-right: 5px solid #CCC;margin-bottom:10px" >
                                                                        <div style="display: none;"> <input type="checkbox" class="chk" checked="checked" style="display: none;" id="<?php echo $subm['MenuCategory']['id'];?>" title="___" value="<?php echo ($key!=0)?"| ".$subm['MenuCategory']['title']:$subm['MenuCategory']['title'];?>" /></div>
                                                                         <a href="javascript:void(0);" <?php /*onclick="$($(this).parent().children('div:eq(0)')).toggle('slow'); $('.extra-<?php echo $subm['MenuCategory']['id'];?>').each(function(){$(this).removeAttr('checked');}) "*/?> ><strong><?php echo $subm['MenuCategory']['title'];?></strong></a> <?php if($subm['MenuCategory']['description'] && $subm['MenuCategory']['description']!='undefined'){?>:<?php }?> <span><em> <?php echo $subm['MenuCategory']['description'];?></em></span>
-                                                                <br />
+                                
+                                
+                                
+                                                                        <br />
                                  
                                 							<span>
                                                             <?php
@@ -704,27 +696,18 @@
                                 
                                                                         </div>
                                                                     </div>
-                                                                    </td>
                                                                     <?php
-                                                                    /*if($ch%4==0)
+                                                                    if($ch%4==0)
                                                                     {
                                                                         ?>
                                                                         <div class="clearfix"></div>
                                                                     <?php
-                                                                    }*/
+                                                                    }
                                                                 }
                                                                 ?>
-                                                                 </tr>
-                                                            </table>
-                                                            </div>
                                                                 <div class="clearfix"></div>
                                                                 <div class="col-xs-12 alignr">
-                                                                    <?php if($menu_count>1){?>
-                                                        
-                                                                        <a href="javascript:void(0);" class="prv_button btn btn-primary" title="1" >Previous</a>
-                                                                        <a href="javascript:void(0);" class="nxt_button btn btn-primary" title="1" >Next</a>
-                                                                       
-                                                                    <?php }?>   
+                                
                                                                     &nbsp;<a href="javascript:void(0);" class="btn btn-info--transition add_menu_profile" id="profilemenu<?php echo $me['id'];?>" style="float: right;margin-left: 10px;" style="">Add</a>&nbsp;
                                                                     <?php if(count($submenuscat)>0){?>&nbsp;<a href="javascript:void(0);" class="btn btn-primary--transition  clearall" id="clear_<?php echo $me['id'];?>" style="float: right;margin-left:10px;" >Clear</a>&nbsp;<?php }?>
                                 
@@ -735,7 +718,6 @@
                                                                 </div>
                                                                 <div class="clearfix"></div>
                                                             </div>
-                                                           
                                                             <div class="clearfix"></div>
                                                         </div>
                                                     </div>
