@@ -313,7 +313,6 @@ License: You must have a valid license purchased only from themeforest(the above
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
         <h3><span class="light">Login</span> to Charlie's Chopsticks</h3>
-        <hr class="divider">
       </div>
       <div class="modal-body">
         <form action="<?php echo $this->webroot;?>restaurants/login" id="loginform" class="push-down-15" method="post" >
