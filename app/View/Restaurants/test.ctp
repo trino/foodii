@@ -48,7 +48,7 @@
          $(this).parent().parent().find('.nxt_button').show();
        
     });
-
+});
 </script>
 
 <style>
