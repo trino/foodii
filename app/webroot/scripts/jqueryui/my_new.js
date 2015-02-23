@@ -852,6 +852,7 @@ $('.order_now').change(function(){
                 $(".bannerz").animate({scrollLeft: (l*td_temp)}, 800);
                 td_temp = td_temp+1;
                 $(this).parent().parent().find('.nxt_button').attr('title',td_temp);
+                $(this).parent().parent().find('.nxt_button').show();
                 /*
                 if(total_td != td_temp)
                 {
@@ -1277,7 +1278,9 @@ $('.order_now').change(function(){
                 var total_td = banner.find('td').length;
                 $(".bannerz").animate({scrollLeft: (l*td_temp)}, 800);
                 td_temp = td_temp+1;
+                
                 $(this).parent().parent().find('.nxt_button').attr('title',td_temp);
+                $(this).parent().parent().find('.nxt_button').show();
                 return false;
             }else
             {
