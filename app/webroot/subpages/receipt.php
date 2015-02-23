@@ -1,6 +1,5 @@
 <?php
-if($this->
-params['action']=='view')
+if($this->params['action']=='view')
 {
 ?>
 <div class="noprint">
@@ -27,32 +26,14 @@ else
   <div class="test">
     <center>
       <img alt="Logo" src="
-<?php echo $this->
-webroot?>
-images/CharliesChopsticksLogo.png" style="padding:10px 0;width:100%;"/>
+<?php echo $this->webroot?>images/CharliesChopsticksLogo.png" style="padding:10px 0;width:100%;"/>
           </center>
           </div>
           <?php
-if($this->
-params['action']=='view')
+if($this->params['action']=='view')
 {
 ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-               
-                   
-                   <?php if($order['Reservation']['contact']!=""){ ?>
+       <?php if($order['Reservation']['contact']!=""){ ?>
                              <div class="infolist">
 
                    <table class="table table-hover">
@@ -114,21 +95,6 @@ params['action']=='view')
 <?php
 }
 ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
           <div class="infolist noprint">
             <strong>
@@ -249,8 +215,7 @@ requestAction('/restaurants/getContact/'.$order['Reservation']['res_id']);?>
                     <?php
 $date = new DateTime($order['Reservation']['order_time']);
 
-echo $date->
-format('l jS \of F Y h:i:s A');?>
+echo $date->format('l jS \of F Y h:i:s A');?>
                    </div>
                    <div class="col-xs-12">
                      <strong>
@@ -293,8 +258,7 @@ $arr_qty = explode(',',$order['Reservation']['qtys']);
 $arr_prs = explode(',',$order['Reservation']['prs']); 
 $arr_extras = explode(',',$order['Reservation']['extras']);
 
-foreach($arr_menu as $k=>
-$me)
+foreach($arr_menu as $k=>$me)
 {
 if($order['Reservation']['extras']!="")
 {
@@ -305,14 +269,12 @@ else
 $extz = "";
 if(is_numeric($me))
 {                        
-$m = $menu->
-findById($me);
+$m = $menu->findById($me);
 $tt = $m['Menu']['menu_item'];
 }
 else
 {
-$m = $combo->
-findById(str_replace("C_"," ",$me));
+$m = $combo->findById(str_replace("C_"," ",$me));
 $tt = $m['Combo']['title'];
 }
 ?>
@@ -467,5 +429,4 @@ $tt = $m['Combo']['title'];
 </div>
 
 
-<div class="clearfix  hidden-xs">
-</div>
+<div class="clearfix  hidden-xs"></div>

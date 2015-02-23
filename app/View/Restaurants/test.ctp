@@ -1,45 +1,52 @@
-<script>
-    $(function () {
+ <script>
+ $(function(){
 
-
-        $('.nxt_button').live('click', function () {
-            $(this).attr('disabled', 'disabled');
-            var td = Number($(this).attr('title'));
-            td++;
-            var id = '';
-            var banner = $(this).parent().parent().parent().find('.bannerz');
-            var l = banner.width();
-            var main_width = banner.children('table').width();
-
-            var leftPos = banner.scrollLeft();
-            banner.animate({scrollLeft: leftPos + l}, 800, function () {
-                $('.nxt_button').removeAttr('disabled');
-            });
-
-            var total_td = banner.find('td').length;
-            $(this).attr('title', td)
-
-        });
-
-        $('.prv_button').click(function () {
-            $(this).attr('disabled', 'disabled');
-            var td = Number($(this).parent().find('.nxt_button').attr('title'));
-            if (td != 1)
-                td = td - 1;
-            var id = ''
-            var banner = $(this).parent().parent().parent().find('.bannerz');
-            var l = banner.width();
-            var leftPos = banner.scrollLeft();
-            var main_width = banner.children('table').width();
-            banner.animate({scrollLeft: leftPos - l}, 800, function () {
-                $('.prv_button').removeAttr('disabled');
-            });
-            $(this).parent().find('.nxt_button').attr('title', td);
-            /*
+            
+    $('.nxt_button').live('click',function(){
+        $(this).attr('disabled','disabled');
+        var td = Number($(this).attr('title'));
+        td++;
+        var id ='';
+        //var l = $(this).parent().find('.banner'+id+' td').width();
+        var banner = $(this).parent().parent().parent().find('.bannerz');
+        var l  = banner.width();
+        var main_width = banner.children('table').width();
+        
+        var leftPos = banner.scrollLeft();
+           banner.animate({scrollLeft: leftPos + l}, 800, function(){ $('.nxt_button').removeAttr('disabled');});
+          
+        var total_td = banner.find('td').length;
+        $(this).attr('title',td)
+         
+        if(td==total_td)
+        {
+           
+            //$(this).parent().parent().find('.add_combo_profile').show();
+            $(this).hide();
+        }
+        /*else
+        {
              $(this).parent().parent().find('.add_combo_profile').hide();
-             $(this).parent().parent().find('.nxt_button').show();
-             */
-        });
+        }*/
+    
+    });
+    
+    $('.prv_button').click(function(){
+        $(this).attr('disabled','disabled');
+        var td = Number($(this).parent().find('.nxt_button').attr('title'));
+        if(td!=1)
+        td = td-1;
+        var id = ''
+        var banner = $(this).parent().parent().parent().find('.bannerz');
+        var l  = banner.width();
+        var leftPos = banner.scrollLeft();
+        var main_width = banner.children('table').width();       
+        banner.animate({scrollLeft: leftPos - l}, 800, function(){ $('.prv_button').removeAttr('disabled');});
+        $(this).parent().find('.nxt_button').attr('title',td);
+           
+            // $(this).parent().parent().find('.add_combo_profile').hide();
+         $(this).parent().parent().find('.nxt_button').show();
+       
     });
 
 </script>

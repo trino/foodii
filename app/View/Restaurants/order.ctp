@@ -37,13 +37,15 @@
   <div class="row" style="margin-bottom: 15px;">
 
           <div class="col-xs-12 col-sm-6">
-          <div class="toprint">
+          <div class="">
           <?php include('subpages/receipt.php');?>
           </div>
 
-          <div class="mybtns"><a href="<?php echo $this->webroot;?>restaurants/profile/<?php echo $res['Restaurant']['slug'];?>/<?php echo $order['Reservation']['id'];?>" class="btn btn-warning mybtns">Edit Order</a> <?php if($this->Session->read('restaurant') && $order['Reservation']['order_type']!='delivery'){?><a href="javascript:void(0);" class="btn btn-primary mybtns" onclick="window.print();$.ajax({url:'<?php echo $this->webroot;?>restaurants/instore/<?php echo $order['Reservation']['id'];?>',success:function(){window.location = '<?php echo $this->webroot;?>restaurants/success_order/<?php echo $order['Reservation']['id'];?>?success';}});">Print Receipt</a><?php }else{?><a href="javascript:void(0);" class="btn btn-primary mybtns" onclick="window.print();">Print Receipt</a><?php }?></div>
+          <div class="mybtns">
+            <a href="<?php echo $this->webroot;?>restaurants/profile/<?php echo $res['Restaurant']['slug'];?>/<?php echo $order['Reservation']['id'];?>" class="btn btn-warning mybtns">Edit Order</a> 
+            <?php if($this->Session->read('restaurant') && $order['Reservation']['order_type']!='delivery'){?><a href="javascript:void(0);" class="btn btn-primary mybtns" onclick="window.print();$.ajax({url:'<?php echo $this->webroot;?>restaurants/instore/<?php echo $order['Reservation']['id'];?>',success:function(){window.location = '<?php echo $this->webroot;?>restaurants/success_order/<?php echo $order['Reservation']['id'];?>?success';}});">Print Receipt</a><?php }else{?><a href="javascript:void(0);" class="btn btn-primary mybtns" onclick="window.print();">Print Receipt</a><?php }?></div>
           </div>
-          <div class="col-xs-12 col-sm-6">
+          <div class="col-xs-12 col-sm-6 ">
           <h5 class="centertitle"><?php if($order['Reservation']['order_type']=='delivery'){?>DELIVERY<?php  }else{?>PICKUP<?php }?> DETAILS</h5>
           <div class="divider"></div>
                     <form action="<?php echo $this->webroot;?>restaurants/confirm_order/<?php echo $order['Reservation']['id'];?>" id="orderform" class="push-down-15" method="post" onsubmit='$("#overlay, #PleaseWait").show();'>
@@ -164,8 +166,8 @@
                         </div> 
                         <div class="clearfix"></div>                       
                       </div>
-                      <div class="col-xs-12">
-                      <input type="submit" value="Submit Order" class="btn btn-success noprint"  />
+                      <div class="col-xs-12 noprint">
+                      <input type="submit" value="Submit Order" class="btn btn-success"  />
                       </div>
                     </form>
             
