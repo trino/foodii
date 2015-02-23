@@ -4936,9 +4936,8 @@ border-bottom: 1px solid #e4e4e4;
 /*.shop-filter img{width:100%!important;}*/
 .profilepic img{width:100%!important;}
 .profilepic a{margin-top:10px;}
-li.parentinfo2,.infolist{		box-shadow: 0 4px 0 rgba(0, 0, 0, 0.04);
+li.parentinfo2,.infolist{
 border: 1px solid #e4e4e4;
-border-bottom: 1px solid #F0F0F0;
 padding:10px;
 margin-bottom:8px;
 }

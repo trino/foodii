@@ -26,7 +26,7 @@ $(document).ready(function() {
 @media only screen and (max-device-width: 800px), screen and (max-width: 800px) {
   .demo_wrapper {
     width: 80%;
-  }  
+  }
 }
 .demo_block {
 	width: 100%;
@@ -40,22 +40,22 @@ $(document).ready(function() {
 		<section class="demo_wrapper">
 			<article class="demo_block">
 				<!--h1>Simple demo with default setups</h1>
-				<a href="#glob" class='prev'>Prev</a> / <a href="#glob" class='next'>Next</a> 
+				<a href="#glob" class='prev'>Prev</a> / <a href="#glob" class='next'>Next</a>
 		|| <a href="#glob" class='init'>Init</a> | <a href="#glob" class='reset'>Destroy</a> | <a href="#glob" class='reload'>Reload</a>
 		|| <a href="#glob" class='stop'>Stop</a> | <a href="#glob" class='start'>Start</a-->
 			<ul id="demo1">
 				<li><a><img src="<?php echo $this->webroot;?>images/ShopLocally.jpg"  alt="<a href='<?php echo $this->webroot;?>pages/about'>We Shop Locally</a>" ></a></li>
-				
-				
+
+
 				<li><a><img src="<?php echo $this->webroot;?>images/FreshEating.jpg"  alt="<a href='<?php echo $this->webroot;?>pages/about'>Fresh Eating</a>"></a></li>
-				
-				
+
+
 				<li><a><img src="<?php echo $this->webroot;?>images/BowlForBowl.jpg" alt="<a href='<?php echo $this->webroot;?>pages/about'>Bowl For Bowl</a>"></a>
-				
+
 				</li>
 			</ul>
 			</article>
-		</section>		
+		</section>
 
 		<script>
 			$(function() {
@@ -105,7 +105,7 @@ $(document).ready(function() {
 
 
   <div class="container ">
-  
+
 <!--div class="banners--big  banners--big-left">
 <div class="row">
 <div class="col-xs-12  col-md-7">
@@ -130,7 +130,7 @@ $(document).ready(function() {
 
 </div>
 </div-->
-	  
+
 	  <div class="row centerall">
 <div class="col-xs-12">
  <div style="transform:skew(-20deg); background:#007FC5;padding:15px 45px;display: inline-block;">
@@ -164,15 +164,15 @@ $(document).ready(function() {
           <br />
           <a href="<?php echo $this->webroot;?>restaurants/profile/Charlie-s-Chopsticks"><div class="banners--medium">DRINKS</div></a>
         </div>
-        
+
       </div>
-      
+
     </div>
   </div>
 </div>
 <div class="container">
   <!-- Navigation for products -->
-<?php /*  
+<?php /*
 <div class="products-navigation  push-down-15">
   <div class="row">
     <div class="col-xs-12  col-sm-8">
@@ -188,17 +188,17 @@ $(document).ready(function() {
     </div>
   </div>
 </div>
-<?php 
+<?php
 <!-- Products -->
 <div id="js--latest-products-carousel" class="carousel slide" data-ride="carousel" data-interval="5000">
   <!-- Wrapper for slides -->
   <div class="carousel-inner">
     <div class="item active">
       <div class="row">
-        
-          
-          
-          
+
+
+
+
             <div class="col-xs-6 col-sm-3  js--isotope-target  js--cat-5" data-price="2.73" data-rating="5">
   <div class="products__single">
     <figure class="products__image">
@@ -234,11 +234,11 @@ $(document).ready(function() {
     </div>
   </div>
 </div>
-          
-        
-          
-          
-          
+
+
+
+
+
             <div class="col-xs-6 col-sm-3  js--isotope-target  js--cat-7" data-price="6.9" data-rating="3">
   <div class="products__single">
     <figure class="products__image">
@@ -274,11 +274,11 @@ $(document).ready(function() {
     </div>
   </div>
 </div>
-          
-        
-           <div class="clearfix visible-xs"></div> 
-          
-          
+
+
+           <div class="clearfix visible-xs"></div>
+
+
             <div class="col-xs-6 col-sm-3  js--isotope-target  js--cat-7" data-price="14.95" data-rating="4">
   <div class="products__single">
     <figure class="products__image">
@@ -314,11 +314,11 @@ $(document).ready(function() {
     </div>
   </div>
 </div>
-          
-        
-          
-          
-          
+
+
+
+
+
             <div class="col-xs-6 col-sm-3  js--isotope-target  js--cat-5" data-price="2.98" data-rating="3">
   <div class="products__single">
     <figure class="products__image">
@@ -354,16 +354,16 @@ $(document).ready(function() {
     </div>
   </div>
 </div>
-          
-        
-           <div class="clearfix visible-xs"></div> 
-          
+
+
+           <div class="clearfix visible-xs"></div>
+
       </div>
     </div>
     <div class="item">
       <div class="row">
-          
-          
+
+
             <div class="col-xs-6 col-sm-3  js--isotope-target  js--cat-6" data-price="16.88" data-rating="4">
   <div class="products__single">
     <figure class="products__image">
@@ -399,11 +399,11 @@ $(document).ready(function() {
     </div>
   </div>
 </div>
-          
-        
-          
-          
-          
+
+
+
+
+
             <div class="col-xs-6 col-sm-3  js--isotope-target  js--cat-3" data-price="6.18" data-rating="4">
   <div class="products__single">
     <figure class="products__image">
@@ -439,11 +439,11 @@ $(document).ready(function() {
     </div>
   </div>
 </div>
-          
-        
-           <div class="clearfix visible-xs"></div> 
-          
-          
+
+
+           <div class="clearfix visible-xs"></div>
+
+
             <div class="col-xs-6 col-sm-3  js--isotope-target  js--cat-2" data-price="13.71" data-rating="5">
   <div class="products__single">
     <figure class="products__image">
@@ -479,11 +479,11 @@ $(document).ready(function() {
     </div>
   </div>
 </div>
-          
-        
-          
-          
-          
+
+
+
+
+
             <div class="col-xs-6 col-sm-3  js--isotope-target  js--cat-4" data-price="7.47" data-rating="5">
   <div class="products__single">
     <figure class="products__image">
@@ -519,8 +519,8 @@ $(document).ready(function() {
     </div>
   </div>
 </div>
-          
-        
+
+
       </div>
     </div>
   </div>
@@ -533,7 +533,7 @@ $(document).ready(function() {
 
 
 
-<?php 
+<?php
 /*  <!-- Navigation -->
 <div class="products-navigation  push-down-15">
   <div class="products-navigation__title">
@@ -543,9 +543,9 @@ $(document).ready(function() {
 
 <!-- Products -->
 <div class="row homerest">
-  
-    
-    
+
+
+
     <?php
     $i=0;
     foreach($res as $r)
@@ -556,7 +556,7 @@ $(document).ready(function() {
   <div class="products__single">
     <figure class="products__image">
       <a href="<?php echo $this->webroot?>restaurants/profile/<?php echo $r['Restaurant']['slug'];?>">
-      
+
         <img alt="#" class="product__image" src="<?php echo $this->webroot;?>images/restaurants/<?php echo $r['Restaurant']['picture'];?>">
       </a>
       <div class="product-overlay">
@@ -590,16 +590,16 @@ $(document).ready(function() {
             <?php
         }
     }
-    
+
     ?>
-    
+
 </div>
 
 
   <!-- Banners big -->
-<?php 
+<?php
 /*
-  
+
 <div class="banners--big  banners--big-left">
   <div class="row">
     <div class="col-xs-12  col-md-7">
@@ -628,7 +628,7 @@ $(document).ready(function() {
       <div class="widgets__heading--line">
         <h4 class="widgets__heading">Featured Menu Item</h4>
       </div>
-  
+
   <?php
   $i=0;
   foreach($menu as $m)
@@ -638,7 +638,7 @@ $(document).ready(function() {
     {
         ?>
         <div class="col-xs-12 col-sm-6">
-        <?php      
+        <?php
     }
     ?>
     <div class="push-down-20 menuall  clearfix">
@@ -651,37 +651,37 @@ $(document).ready(function() {
     <span class="products__price--widgets"><?php echo $m['Menu']['price'];?></span>
     <br><br>
 
-    
+
     <span class="glyphicon glyphicon-star  star-on"></span>
-    
+
     <span class="glyphicon glyphicon-star  star-on"></span>
-    
+
     <span class="glyphicon glyphicon-star  star-on"></span>
-    
+
     <span class="glyphicon glyphicon-star  star-on"></span>
-    
+
     <span class="glyphicon glyphicon-star  star-on"></span>
-    
+
   </div>
     <?php
     if($i%3==0)
     {
         ?>
         </div>
-        <?php      
+        <?php
     }
   }
   if($i%3!=0)
   {
     echo "</div>";
-    
+
   }
   ?>
-      
-  
+
+
     </div>
   </div>
-  
+
   <div class="col-xs-12 col-sm-4">
     <div class="widgets__navigation">
       <div class="widgets__heading--line">

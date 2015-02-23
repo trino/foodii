@@ -86,7 +86,7 @@ class RestaurantsController extends AppController
                 $from1= $date_format_from->format('h:i A');
                 $date_format_to = new DateTime($to1);
                 $to1= $date_format_to->format('h:i A');
-                $this->set('back','tomorrow during '.$from1.' - '.$to1); 
+                $this->set('back','tomorrow during '.$from1.' - '.$to1);
             }
         }*/
         $this->loadModel('MenuCategory');
@@ -109,7 +109,7 @@ class RestaurantsController extends AppController
         $this->set('rescat', $q2);
         $this->set('displaybackground', '1');
     }
-    
+
     function profile($slug, $order = 0)
     {
         // 	date_default_timezone_set('Canada/Eastern');
@@ -193,7 +193,7 @@ class RestaurantsController extends AppController
                 $from1= $date_format_from->format('h:i A');
                 $date_format_to = new DateTime($to1);
                 $to1= $date_format_to->format('h:i A');
-                $this->set('back','tomorrow during '.$from1.' - '.$to1); 
+                $this->set('back','tomorrow during '.$from1.' - '.$to1);
             }
         }*/
         $this->loadModel('MenuCategory');
@@ -287,7 +287,7 @@ class RestaurantsController extends AppController
         }
         else
         {
-            
+
         }
     }
 

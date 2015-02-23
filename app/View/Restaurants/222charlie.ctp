@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- 
+<!--
 Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 3.3.1
 Version: 3.6.1
 Author: KeenThemes
@@ -61,7 +61,7 @@ License: You must have a valid license purchased only from themeforest(the above
 
 <div class="page-container">
 	<!-- BEGIN SIDEBAR -->
-	
+
 	<!-- END SIDEBAR -->
 	<!-- BEGIN CONTENT -->
 	<div class="page-content-wrapper">
@@ -86,8 +86,8 @@ License: You must have a valid license purchased only from themeforest(the above
 				</div>
 				<!-- /.modal-dialog -->
 			</div>
-			
-			
+
+
 			<!-- END PAGE HEADER-->
 			<!-- BEGIN PAGE CONTENT-->
 			<div class="row margin-top-20">
@@ -101,7 +101,7 @@ License: You must have a valid license purchased only from themeforest(the above
 								<ul class="nav">
 									<li class="active">
 										<a href="extra_profile.html">
-										
+
 										Combos </a>
 									</li>
 									<li>
@@ -134,7 +134,7 @@ License: You must have a valid license purchased only from themeforest(the above
 						</div>
 						<!-- END PORTLET MAIN -->
 						<!-- PORTLET MAIN -->
-						
+
 						<!-- END PORTLET MAIN -->
 					</div>
 					<!-- END BEGIN PROFILE SIDEBAR -->
@@ -360,7 +360,7 @@ License: You must have a valid license purchased only from themeforest(the above
 							<div class="col-md-3">
 								<!-- BEGIN PORTLET -->
 								<div class="portlet light">
-                                
+
 									<form onsubmit="if($('input.subtotal').val()=='0.00'){$('.error_order').show(function(){$('.error_order').fadeOut(5000);});return false;}else if( (Number($('input.subtotal').val()) < Number(15) ) && $('input[name=order_type]:checked').val()== 'delivery' ){ $('.error_delivery').show(function(){$('.error_delivery').fadeOut(5000);});return false;}" method="post" action="/ordering_system/restaurants/order/1">
 <h5 class="sidebar__subtitle">Order Receipt</h5>
 <div class="tab-content">
@@ -386,7 +386,7 @@ For Delivery
 																$ 12
 															</div>
 														</li>
-														
+
 														<li>
 															<div class="col1">
 																kllk
@@ -395,7 +395,7 @@ For Delivery
 																$ 12
 															</div>
 														</li>
-                                                        
+
 														<li>
 															<div class="col1">
 																bnbm
@@ -404,7 +404,7 @@ For Delivery
 																$ 12
 															</div>
 														</li>
-                                                        
+
 														<li>
 															<div class="col1">
 																jklj
@@ -413,7 +413,7 @@ For Delivery
 																$ 12
 															</div>
 														</li>
-                                                        
+
 														<li>
 															<div class="col1">
 															jhgkhjk
@@ -422,7 +422,7 @@ For Delivery
 																$ 12
 															</div>
 														</li>
-                                                        
+
 														<li>
 															<div class="col1">
 																jkljl
@@ -431,7 +431,7 @@ For Delivery
 																$ 12
 															</div>
 														</li>
-                                                        
+
 														<li>
 															<div class="col1">
 																ghjghj
@@ -506,7 +506,7 @@ For Delivery
 								<!-- END PORTLET -->
 							</div>
 						</div>
-						
+
 					</div>
 					<!-- END PROFILE CONTENT -->
 				</div>
@@ -1182,7 +1182,7 @@ For Delivery
 <!-- BEGIN CORE PLUGINS -->
 <!--[if lt IE 9]>
 <script src="<?php echo $this->request->webroot;?>assets/global/plugins/respond.min.js"></script>
-<script src="<?php echo $this->request->webroot;?>assets/global/plugins/excanvas.min.js"></script> 
+<script src="<?php echo $this->request->webroot;?>assets/global/plugins/excanvas.min.js"></script>
 <![endif]-->
 <script src="<?php echo $this->request->webroot;?>assets/global/plugins/jquery.min.js" type="text/javascript"></script>
 <script src="<?php echo $this->request->webroot;?>assets/global/plugins/jquery-migrate.min.js" type="text/javascript"></script>
@@ -1208,7 +1208,7 @@ For Delivery
 <script src="<?php echo $this->request->webroot;?>assets/admin/pages/scripts/profile.js" type="text/javascript"></script>
 <!-- END PAGE LEVEL SCRIPTS -->
 <script>
-jQuery(document).ready(function() {       
+jQuery(document).ready(function() {
    // initiate layout and plugins
    Metronic.init(); // init metronic core components
 //Layout.init(); // init current layout
