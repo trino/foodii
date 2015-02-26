@@ -13,9 +13,10 @@
 </div>
 
 
-<div class="container">
+<div class="container" style="padding: 20px 30px;  opacity: 0.9;
+    filter: alpha(opacity=9);">
 
-    <div class="text-shrink">
+    <div class="">
         <p class="text-highlight">At Charlie's, we focus on three things: fresh ingredients, healthy eating, and
             giving back.</p>
     </div>
@@ -91,11 +92,8 @@
 
     </div>
 
-    <div class="push-down-35"></div>
 
-
-
-    <div class="row" style="">
+    <div class="row" style="padding:0px;">
 <p></p>
         </div>
     <div class="container" style="display: none;">

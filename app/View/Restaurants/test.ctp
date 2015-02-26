@@ -27,11 +27,7 @@
             //$(this).parent().parent().find('.add_combo_profile').show();
             $(this).hide();
         }
-        /*else
-        {
-             $(this).parent().parent().find('.add_combo_profile').hide();
-        }*/
-    
+
     });
     
     $('.prv_button').click(function(){
@@ -46,8 +42,6 @@
         var main_width = banner.children('table').width();       
         banner.animate({scrollLeft: leftPos - l}, 800, function(){ $('.prv_button').removeAttr('disabled');});
         $(this).parent().find('.nxt_button').attr('title',td);
-           
-            // $(this).parent().parent().find('.add_combo_profile').hide();
          $(this).parent().parent().find('.nxt_button').show();
        
     });

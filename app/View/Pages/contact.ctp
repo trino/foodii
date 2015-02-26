@@ -7,7 +7,8 @@
     </div>
 </div>
 
-<div class="container  push-down-30">
+<div class="container  push-down-30" style=" padding:20px; opacity: 0.9;
+    filter: alpha(opacity=9);">
     <div class="row">
         <div class="col-xs-12">
 
