@@ -520,7 +520,7 @@
 
                                     <div class="optionals" style="position: static;">
 
-                                        <div class="col-xs-12">
+                                        <div class="col-xs-12" style="line-height:45px;">
                                             <a href="javascript:void(0);"
                                                      class="btn btn-info--transition add_combo_profile"
                                                      id="profilemenu<?php echo $cat['id'];?>"
@@ -855,7 +855,7 @@
                                                                         </table>
                                                                     </div>
                                                                     <div class="clearfix"></div>
-                                                                    <div class="col-xs-12">
+                                                                    <div class="col-xs-12" style="line-height:45px;">
 
 
                                                                         <a href="javascript:void(0);"
