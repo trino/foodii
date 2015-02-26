@@ -870,6 +870,8 @@ $('.order_now').change(function(){
             }
             else
             {
+                var banner = $(this).parent().parent().parent().find('.bannerz');
+                $(".bannerz").animate({scrollLeft: 0}, 200);
                 catarray.forEach(function(catid){
                     $('#error_'+catid).html("");
                 })
@@ -1284,6 +1286,9 @@ $('.order_now').change(function(){
                 return false;
             }else
             {
+                var banner = $(this).parent().parent().parent().find('.bannerz');
+                banner.animate({scrollLeft: 0}, 800);
+                
                 catarray.forEach(function(catid){
                     $('#error_'+catid).html("");
                 })

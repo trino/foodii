@@ -1,7 +1,10 @@
  <script>
  $(function(){
 
-            
+     $('.resetslider').live('click', function(){
+        var banner = $(this).parent().parent().parent().find('.bannerz');
+        banner.animate({scrollLeft: 0},200);
+     })      
     $('.nxt_button').live('click',function(){
         $(this).attr('disabled','disabled');
         var td = Number($(this).attr('title'));
@@ -126,7 +129,7 @@
                 <div class="row">
 
                     <div class="col-md-4">
-                        <img style="max-width: 140%;margin-top:-10%;margin-left:-10%;"
+                        <img style="max-width: 140%;"
                              src="http://charlieschopsticks.com/assets/admin/layout/img/logo-big.png"/>
 
                     </div>
@@ -168,13 +171,14 @@
 
     <div class="col-md-7">
         <!-- BEGIN SAMPLE TABLE PORTLET-->
-        <div class="portlet box red">
-            <div class="portlet-title">
-                <div class="caption">
+        <div class="portlet box">
+        
+            <div class="portlet-title" style="background-color: #D84A38;">
+                <div class="caption" >
                     <!--i class="fa fa-cogs"--></i>Charlie's Online Ordering System
                 </div>
             </div>
-            <div class="portlet-body">
+            <div class="portlet-body" style="background: url('<?php echo $this->webroot;?>img/mtwhite.png') repeat;background-color:none!important">
                 <?php
                     if ($closed) {
                         ?>
@@ -459,9 +463,9 @@
                                                                                                 id="remspan_<?php echo $m['id']; ?>"
                                                                                                 style="padding:0 8px;padding-bottom:3px;text-decoration: none; color: #fff;"
                                                                                                 onclick=""><b>-</b></a>
-<span
-    class="span_<?php echo $m['id']; ?> allspan"
-    id="sprice_<?php echo $m['price']; ?>">&nbsp;1&nbsp;</span>
+                                                                                    <span
+                                                                                        class="span_<?php echo $m['id']; ?> allspan"
+                                                                                        id="sprice_<?php echo $m['price']; ?>">&nbsp;1&nbsp;</span>
                                                                                             <a href="javascript:;"
                                                                                                class="addspan btn btn-small btn-info"
                                                                                                id="addspan_<?php echo $m['id']; ?>"
@@ -523,30 +527,33 @@
                                     <div class="optionals" style="position: static;">
 
                                         <div class="col-xs-12">
-                                            <?php if ($menu_count > 1) { ?>
-
-                                                <a href="javascript:void(0);" class="prv_button btn btn-primary"
-                                                   title="1" id="<?php echo $me['Menu']['id']; ?>">Previous</a>
-
-                                                <a href="javascript:void(0);" class="nxt_button btn btn-primary"
-                                                   title="1" id="<?php echo $me['Menu']['id']; ?>">Next</a>
-
-                                            <?php }?>
-                                            &nbsp;<a href="javascript:void(0);"
+                                            <a href="javascript:void(0);"
                                                      class="btn btn-info--transition add_combo_profile"
                                                      id="profilemenu<?php echo $cat['id'];?>"
                                                      style="float: right;margin-left: 10px;">Add</a>&nbsp;
+                                            &nbsp;
                                             <a href="javascript:void(0);" class="btn btn-primary--transition  clearall"
                                                id="clear_<?php echo $cat['id'];?>"
                                                style="float: right;margin-left:10px;">Clear</a>&nbsp;
-
-                                            &nbsp;
-                                            <button type="button" class="close" id="clear_<?php echo $cat['id'];?>"
-                                                    data-dismiss="modal" aria-hidden="false"
-                                                    style="opacity: 1; text-shadow:none;margin-left: 10px;">
-                                                <a href="javascript:void(0)" class="btn btn-danger">Close</a>
+                                             &nbsp;
+                                            <button type="button" class="btn btn-danger resetslider" id="clear_<?php echo $cat['id'];?>"
+                                                    data-dismiss="modal" 
+                                                    style="opacity: 1; text-shadow:none;margin-left: 10px;float: right;margin-left: 10px;">
+                                                Close
                                             </button>
                                             &nbsp;
+
+                                            <?php if ($menu_count > 1) { ?>
+                                                <a href="javascript:void(0);" class="nxt_button btn btn-primary"
+                                                   title="1" id="<?php echo $me['Menu']['id']; ?>" style="float: right;margin-left: 10px;">Next</a>
+
+                                                <a href="javascript:void(0);" class="prv_button btn btn-primary"
+                                                   title="1" id="<?php echo $me['Menu']['id']; ?>" style="float: right;margin-left: 10px;">Previous</a>
+
+                                                
+                                            <?php }?>
+                                            
+                                           
                                             <div class="clearfix"></div>
                                         </div>
                                         <div class="clearfix"></div>
@@ -858,7 +865,7 @@
 
 
                                                                         <a href="javascript:void(0);"
-                                                                           class="btn btn-danger add_menu_profile"
+                                                                           class="btn btn-primary add_menu_profile"
                                                                            id="profilemenu<?php echo $me['id']; ?>"
                                                                            style="float: right;margin-left: 10px;"
                                                                            style="">Add</a>
@@ -868,7 +875,13 @@
                                                                             class="btn btn-warning  clearall"
                                                                             id="clear_<?php echo $me['id']; ?>"
                                                                             style="float: right;margin-left:10px;">Clear</a>&nbsp;<?php } ?>
-
+                                                                            &nbsp;
+                                                                            <button type="button" class="btn btn-danger resetslider" 
+                                                                                    data-dismiss="modal" 
+                                                                                    style="opacity: 1; text-shadow:none;margin-left: 10px;float: right;margin-left: 10px;">
+                                                                                Close
+                                                                            </button>
+                                                                            &nbsp;
 
 
 

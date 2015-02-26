@@ -1,3 +1,4 @@
+
 <!--<div class="breadcrumbs">
   <div class="container">
     <div class="row">
@@ -51,10 +52,12 @@
           </select>
         </div>
         <?php */?>
-        <div class="toprint">
+        <div class="">
         <?php include('subpages/receipt.php');?>
         </div>
+        
         </div>
+        <div class="noprint">
         <?php
               if($this->params['action']=='view')
               {
@@ -86,6 +89,7 @@
               <?php
               }
               ?>
+        </div>
         <hr class="shop__divider">
         <?php /*<div class="shop__pagination">
           <ul class="pagination">
@@ -101,4 +105,3 @@
       </div>
     </div>
   </div>
-</div>

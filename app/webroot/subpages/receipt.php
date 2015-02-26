@@ -25,8 +25,7 @@ else
 <div class="dashboard toprint">
   <div class="test">
     <center>
-      <img alt="Logo" src="
-<?php echo $this->webroot?>images/CharliesChopsticksLogo.png" style="padding:10px 0;width:100%;"/>
+      <img alt="Logo" src="<?php echo $this->webroot?>images/CharliesChopsticksLogo.png" style="padding:10px 0;width:100%;"/>
           </center>
           </div>
           <?php
@@ -34,7 +33,7 @@ if($this->params['action']=='view')
 {
 ?>
        <?php if($order['Reservation']['contact']!=""){ ?>
-                             <div class="infolist">
+        <div class="infolist noprint">
 
                    <table class="table table-hover">
                      <thead>
@@ -95,7 +94,7 @@ if($this->params['action']=='view')
 <?php
 }
 ?>
-
+        
           <div class="infolist noprint">
             <strong>
               RESTAURANT NAME: 
@@ -178,12 +177,11 @@ if($this->params['action']=='view')
                 
                 <?php }?>
                 <?php
-if($this->
-params['action']!='order')
+if($this->params['action']!='order')
 {
 /*
 ?>
-                <div class="infolist">
+                <div class="infolist noprint">
                   <strong>
                     RESTAURANT NAME: 
                   </strong>
