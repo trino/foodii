@@ -853,6 +853,10 @@ $('.order_now').change(function(){
                 td_temp = td_temp+1;
                 $(this).parent().parent().find('.nxt_button').attr('title',td_temp);
                 $(this).parent().parent().find('.nxt_button').show();
+                if(td_temp ==1)
+                    $(this).parent().parent().find('.prv_button').hide();
+                else
+                    $(this).parent().parent().find('.prv_button').show();
                 /*
                 if(total_td != td_temp)
                 {
@@ -873,6 +877,7 @@ $('.order_now').change(function(){
                 var banner = $(this).parent().parent().parent().find('.bannerz');
                 $(this).parent().parent().find('.nxt_button').attr('title','1');
                 $(this).parent().parent().find('.nxt_button').show();
+                $(this).parent().parent().find('.prv_button').hide();
                banner.animate({scrollLeft: 0}, 10);
                 catarray.forEach(function(catid){
                     $('#error_'+catid).html("");
@@ -1285,11 +1290,16 @@ $('.order_now').change(function(){
                 
                 $(this).parent().parent().find('.nxt_button').attr('title',td_temp);
                 $(this).parent().parent().find('.nxt_button').show();
+                if(td_temp ==1)
+                    $(this).parent().parent().find('.prv_button').hide();
+                else
+                    $(this).parent().parent().find('.prv_button').show();
                 return false;
             }else
             {
                 var banner = $(this).parent().parent().parent().find('.bannerz');
                 $(this).parent().parent().find('.nxt_button').attr('title','1');
+                $(this).parent().parent().find('.prv_button').hide();
                 banner.animate({scrollLeft: 0}, 10);
                 $(this).parent().parent().find('.nxt_button').show();
                 catarray.forEach(function(catid){

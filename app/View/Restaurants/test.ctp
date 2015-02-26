@@ -1,10 +1,10 @@
  <script>
  $(function(){
-
+        $('.prv_button').hide();
      $('.resetslider').live('click', function(){
         $(this).parent().parent().find('.nxt_button').show();
         $(this).parent().parent().find('.nxt_button').attr('title','1');
-        
+        $(this).parent().parent().find('.prv_button').hide();
         var banner = $(this).parent().parent().parent().find('.bannerz');
         banner.animate({scrollLeft: 0},1);
      })      
@@ -23,7 +23,7 @@
           
         var total_td = banner.find('td').length;
         $(this).attr('title',td)
-         
+         $(this).parent().parent().find('.prv_button').show();
         if(td==total_td)
         {
            
@@ -45,6 +45,8 @@
         var main_width = banner.children('table').width();       
         banner.animate({scrollLeft: leftPos - l}, 800, function(){ $('.prv_button').removeAttr('disabled');});
         $(this).parent().find('.nxt_button').attr('title',td);
+        if(td == '1')
+            $(this).hide();
          $(this).parent().parent().find('.nxt_button').show();
        
     });
