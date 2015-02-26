@@ -2,8 +2,11 @@
  $(function(){
 
      $('.resetslider').live('click', function(){
+        $(this).parent().parent().find('.nxt_button').show();
+        $(this).parent().parent().find('.nxt_button').attr('title','1');
+        
         var banner = $(this).parent().parent().parent().find('.bannerz');
-        banner.animate({scrollLeft: 0},200);
+        banner.animate({scrollLeft: 0},1);
      })      
     $('.nxt_button').live('click',function(){
         $(this).attr('disabled','disabled');

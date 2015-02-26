@@ -871,7 +871,9 @@ $('.order_now').change(function(){
             else
             {
                 var banner = $(this).parent().parent().parent().find('.bannerz');
-                $(".bannerz").animate({scrollLeft: 0}, 200);
+                $(this).parent().parent().find('.nxt_button').attr('title','1');
+                $(this).parent().parent().find('.nxt_button').show();
+               banner.animate({scrollLeft: 0}, 10);
                 catarray.forEach(function(catid){
                     $('#error_'+catid).html("");
                 })
@@ -1287,8 +1289,9 @@ $('.order_now').change(function(){
             }else
             {
                 var banner = $(this).parent().parent().parent().find('.bannerz');
-                banner.animate({scrollLeft: 0}, 800);
-                
+                $(this).parent().parent().find('.nxt_button').attr('title','1');
+                banner.animate({scrollLeft: 0}, 10);
+                $(this).parent().parent().find('.nxt_button').show();
                 catarray.forEach(function(catid){
                     $('#error_'+catid).html("");
                 })
