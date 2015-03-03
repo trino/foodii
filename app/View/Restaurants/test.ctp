@@ -129,26 +129,26 @@
             </div>
             <div class="portlet-body">
                 <div class="row">
+                    <center>
 
-                    <div class="col-md-3">
-                        <img style="max-width: 140%;"
+                        <img style="max-width: 40%;"
                              src="<?php echo $this->webroot; ?>images/CharliesChopsticks_whoweare.png"/>
 
-                    </div>
-
-                    <div class="col-md-8">
-
+                        <br> <br>
                         <address>
-                            <strong>Charlie's Chopsticks</strong><br>
+                            <strong>Charlie's Chopsticks Hamilton</strong><br>
                             970 Upper James Street<br>
                             Hamilton, ON L9C 3A5<br>
-                            <abbr title="Phone">P:</abbr> (905) 388-9888 to
+                            P: (905) 388-9888
                         </address>
 
-                    </div>
+                        <address>
+                            <strong>Charlie's Chopsticks Welland</strong><br>
+                            20 Thorold Road<br>
+                            Welland, ON L3C 3T3<br>
+                            (905) 735-9888
+                        </address>
 
-
-                    <div class="col-md-12">
 
 
                         <address>
@@ -156,10 +156,7 @@
                             <a href="mailto:#">
                                 order@charlieschopsticks.com</a>
                         </address>
-
-
-                    </div>
-
+                    </center>
 
                 </div>
 
@@ -1004,8 +1001,8 @@
                                                    class="decrease small btn btn-danger" href="javascript:void(0);"
                                                    style="padding: 6px;height: 20px;line-height: 6px">
                                                     <strong>-</strong></a><span class="count"><?php echo $arr_qty[$k]; ?></span><a id="inc<?php echo $list_ids[$k]; ?>"
-                                                   class="increase btn btn-success small " href="javascript:void(0);"
-                                                   style="padding: 6px;height: 20px;line-height: 6px"><strong>+</strong></a>
+                                                                                                                                   class="increase btn btn-success small " href="javascript:void(0);"
+                                                                                                                                   style="padding: 6px;height: 20px;line-height: 6px"><strong>+</strong></a>
 
 
 
@@ -1102,9 +1099,9 @@
                         </div>
                         <div class="submits">
                             <input <?php if ($closed){ ?>disabled="disabled"<?php } ?> type="submit"
-                                   value="Submit Order" class="btn btn-lg blue hidden-print margin-bottom-5"/>
+                                   value="Submit Order" class="btn btn-md blue hidden-print margin-bottom-5"/>
 
-                            <a class="btn btn-lg grey hidden-print margin-bottom-5"
+                            <a class="btn btn-md grey hidden-print margin-bottom-5"
                                href="">
                                 Restart <i class="fa fa-refresh"></i>
                             </a>
