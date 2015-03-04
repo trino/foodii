@@ -1,56 +1,59 @@
- <script>
- $(function(){
+<script>
+    $(function () {
         $('.prv_button').hide();
-     $('.resetslider').live('click', function(){
-        $(this).parent().parent().find('.nxt_button').show();
-        $(this).parent().parent().find('.nxt_button').attr('title','1');
-        $(this).parent().parent().find('.prv_button').hide();
-        var banner = $(this).parent().parent().parent().find('.bannerz');
-        banner.animate({scrollLeft: 0},1);
-     })      
-    $('.nxt_button').live('click',function(){
-        $(this).attr('disabled','disabled');
-        var td = Number($(this).attr('title'));
-        td++;
-        var id ='';
-        //var l = $(this).parent().find('.banner'+id+' td').width();
-        var banner = $(this).parent().parent().parent().find('.bannerz');
-        var l  = banner.width();
-        var main_width = banner.children('table').width();
-        
-        var leftPos = banner.scrollLeft();
-           banner.animate({scrollLeft: leftPos + l}, 800, function(){ $('.nxt_button').removeAttr('disabled');});
-          
-        var total_td = banner.find('td').length;
-        $(this).attr('title',td)
-         $(this).parent().parent().find('.prv_button').show();
-        if(td==total_td)
-        {
-           
-            //$(this).parent().parent().find('.add_combo_profile').show();
-            $(this).hide();
-        }
+        $('.resetslider').live('click', function () {
+            $(this).parent().parent().find('.nxt_button').show();
+            $(this).parent().parent().find('.nxt_button').attr('title', '1');
+            $(this).parent().parent().find('.prv_button').hide();
+            var banner = $(this).parent().parent().parent().find('.bannerz');
+            banner.animate({scrollLeft: 0}, 1);
+        })
+        $('.nxt_button').live('click', function () {
+            $(this).attr('disabled', 'disabled');
+            var td = Number($(this).attr('title'));
+            td++;
+            var id = '';
+            //var l = $(this).parent().find('.banner'+id+' td').width();
+            var banner = $(this).parent().parent().parent().find('.bannerz');
+            var l = banner.width();
+            var main_width = banner.children('table').width();
 
+            var leftPos = banner.scrollLeft();
+            banner.animate({scrollLeft: leftPos + l}, 800, function () {
+                $('.nxt_button').removeAttr('disabled');
+            });
+
+            var total_td = banner.find('td').length;
+            $(this).attr('title', td)
+            $(this).parent().parent().find('.prv_button').show();
+            if (td == total_td) {
+
+                //$(this).parent().parent().find('.add_combo_profile').show();
+                $(this).hide();
+            }
+
+        });
+
+        $('.prv_button').click(function () {
+            $(this).attr('disabled', 'disabled');
+            var td = Number($(this).parent().find('.nxt_button').attr('title'));
+            if (td != 1)
+                td = td - 1;
+            var id = ''
+            var banner = $(this).parent().parent().parent().find('.bannerz');
+            var l = banner.width();
+            var leftPos = banner.scrollLeft();
+            var main_width = banner.children('table').width();
+            banner.animate({scrollLeft: leftPos - l}, 800, function () {
+                $('.prv_button').removeAttr('disabled');
+            });
+            $(this).parent().find('.nxt_button').attr('title', td);
+            if (td == '1')
+                $(this).hide();
+            $(this).parent().parent().find('.nxt_button').show();
+
+        });
     });
-    
-    $('.prv_button').click(function(){
-        $(this).attr('disabled','disabled');
-        var td = Number($(this).parent().find('.nxt_button').attr('title'));
-        if(td!=1)
-        td = td-1;
-        var id = ''
-        var banner = $(this).parent().parent().parent().find('.bannerz');
-        var l  = banner.width();
-        var leftPos = banner.scrollLeft();
-        var main_width = banner.children('table').width();       
-        banner.animate({scrollLeft: leftPos - l}, 800, function(){ $('.prv_button').removeAttr('disabled');});
-        $(this).parent().find('.nxt_button').attr('title',td);
-        if(td == '1')
-            $(this).hide();
-         $(this).parent().parent().find('.nxt_button').show();
-       
-    });
-});
 </script>
 
 <style>
@@ -126,26 +129,26 @@
             </div>
             <div class="portlet-body">
                 <div class="row">
+                    <center>
 
-                    <div class="col-md-4">
-                        <img style="max-width: 140%;"
-                             src="http://charlieschopsticks.com/assets/admin/layout/img/logo-big.png"/>
+                        <img style="max-width: 40%;"
+                             src="<?php echo $this->webroot; ?>images/CharliesChopsticks_whoweare.png"/>
 
-                    </div>
-
-                    <div class="col-md-8">
-
+                        <br> <br>
                         <address>
-                            <strong>Charlie's Chopsticks</strong><br>
+                            <strong>Charlie's Chopsticks Hamilton</strong><br>
                             970 Upper James Street<br>
                             Hamilton, ON L9C 3A5<br>
-                            <abbr title="Phone">P:</abbr> (905) 388-9888 to
+                            P: (905) 388-9888
                         </address>
 
-                    </div>
+                        <address>
+                            <strong>Charlie's Chopsticks Welland</strong><br>
+                            20 Thorold Road<br>
+                            Welland, ON L3C 3T3<br>
+                            (905) 735-9888
+                        </address>
 
-
-                    <div class="col-md-12">
 
 
                         <address>
@@ -153,10 +156,7 @@
                             <a href="mailto:#">
                                 order@charlieschopsticks.com</a>
                         </address>
-
-
-                    </div>
-
+                    </center>
 
                 </div>
 
@@ -171,13 +171,13 @@
     <div class="col-md-7">
         <!-- BEGIN SAMPLE TABLE PORTLET-->
         <div class="portlet box">
-        
+
             <div class="portlet-title" style="background-color: #D84A38;">
-                <div class="caption" >
-                    <!--i class="fa fa-cogs"--></i>Charlie's Online Ordering System
+                <div class="caption">
+                    <i class="fa fa-spoon" style="color:white;"></i>Charlie's Online Ordering System
                 </div>
             </div>
-            <div class="portlet-body" style="background: url('<?php echo $this->webroot;?>img/mtwhite.png') repeat;background-color:none!important">
+            <div class="portlet-body" style="background-color:rgba(0,0,0,0.5);">
                 <?php
                     if ($closed) {
                         ?>
@@ -204,7 +204,7 @@
                         $cntr = 0;
                         if ($co_count == 1) {
                             ?>
-                            <div class="table-scrollable">
+                            <div class="table-scrollable" style="border:0;">
                             <table class="">
                             <tbody>
 
@@ -527,16 +527,17 @@
 
                                         <div class="col-xs-12" style="line-height:45px;">
                                             <a href="javascript:void(0);"
-                                                     class="btn btn-info--transition add_combo_profile"
-                                                     id="profilemenu<?php echo $cat['id'];?>"
-                                                     style="float: right;margin-left: 10px;">Add</a>&nbsp;
+                                               class="btn btn-info--transition add_combo_profile"
+                                               id="profilemenu<?php echo $cat['id'];?>"
+                                               style="float: right;margin-left: 10px;">Add</a>&nbsp;
                                             &nbsp;
                                             <a href="javascript:void(0);" class="btn btn-primary--transition  clearall"
                                                id="clear_<?php echo $cat['id'];?>"
                                                style="float: right;margin-left:10px;">Clear</a>&nbsp;
-                                             &nbsp;
-                                            <button type="button" class="btn btn-danger resetslider" id="clear_<?php echo $cat['id'];?>"
-                                                    data-dismiss="modal" 
+                                            &nbsp;
+                                            <button type="button" class="btn btn-danger resetslider"
+                                                    id="clear_<?php echo $cat['id'];?>"
+                                                    data-dismiss="modal"
                                                     style="opacity: 1; text-shadow:none;margin-left: 10px;float: right;margin-left: 10px;">
                                                 Close
                                             </button>
@@ -544,15 +545,17 @@
 
                                             <?php if ($menu_count > 1) { ?>
                                                 <a href="javascript:void(0);" class="nxt_button btn btn-primary"
-                                                   title="1" id="<?php echo $me['Menu']['id']; ?>" style="float: right;margin-left: 10px;">Next</a>
+                                                   title="1" id="<?php echo $me['Menu']['id']; ?>"
+                                                   style="float: right;margin-left: 10px;">Next</a>
 
                                                 <a href="javascript:void(0);" class="prv_button btn btn-primary"
-                                                   title="1" id="<?php echo $me['Menu']['id']; ?>" style="float: right;margin-left: 10px;">Previous</a>
+                                                   title="1" id="<?php echo $me['Menu']['id']; ?>"
+                                                   style="float: right;margin-left: 10px;">Previous</a>
 
-                                                
+
                                             <?php }?>
-                                            
-                                           
+
+
                                             <div class="clearfix"></div>
                                         </div>
                                         <div class="clearfix"></div>
@@ -599,9 +602,10 @@
                     foreach ($rescat as $cat) {
 
                         ?>
-                        <h2 id="category<?php echo $cat['MenuCategory']['id']; ?>"><?php echo $cat['MenuCategory']['title']; ?></h2>
+                        <h1 style="color:white;"
+                            id="category<?php echo $cat['MenuCategory']['id']; ?>"><?php echo $cat['MenuCategory']['title']; ?></h1>
 
-                        <div class="table-scrollable">
+                        <div class="table-scrollable" style="border:0;">
                             <table class="">
                                 <tbody>
                                 <tr>
@@ -680,13 +684,12 @@
                                                                         data-dismiss="modal" aria-hidden="true"
                                                                         id="clear_<?php echo $me['id']; ?>">x
                                                                 </button>
-                                                                <div class="clearfix"></div>
 
                                                             </div>
-                                                            <div class="modal-body">
+                                                            <div class="modal-body" style="background:#D84A38;">
                                                                 <div class="col-sm-6"
                                                                      style="text-align: left;padding:0px;">
-                                                                    <h3><?php echo $me['menu_item'] . " : $ " . $pr; ?></h3>
+                                                                    <h2 style="color:white;"><?php echo $me['menu_item'] . " : $ " . $pr; ?></h2>
 
                                                                     <p><?php if ($me['description'] != 'undefined') echo $me['description']; ?></p>
                                                                 </div>
@@ -874,13 +877,14 @@
                                                                             class="btn btn-warning  clearall"
                                                                             id="clear_<?php echo $me['id']; ?>"
                                                                             style="float: right;margin-left:10px;">Clear</a>&nbsp;<?php } ?>
-                                                                            &nbsp;
-                                                                            <button type="button" class="btn btn-danger resetslider" 
-                                                                                    data-dismiss="modal" 
-                                                                                    style="opacity: 1; text-shadow:none;margin-left: 10px;float: right;margin-left: 10px;">
-                                                                                Close
-                                                                            </button>
-                                                                            &nbsp;
+                                                                        &nbsp;
+                                                                        <button type="button"
+                                                                                class="btn btn-danger resetslider"
+                                                                                data-dismiss="modal"
+                                                                                style="opacity: 1; text-shadow:none;margin-left: 10px;float: right;margin-left: 10px;">
+                                                                            Close
+                                                                        </button>
+                                                                        &nbsp;
 
 
 
@@ -953,7 +957,7 @@
                         //var_dump($list_ids);
                     ?>
 
-                    <div class="table-scrollable">
+                    <div class="table-scrollable" style="border:0;">
 
                         <table class="table">
                             <thead>
@@ -990,18 +994,18 @@
                                             <td><strong
                                                     class="namemenu"><?php echo str_replace(":", ": ", $tt) . " " . $x; ?></strong>
                                             </td>
-                                            <td >
+                                            <td>
+
+
                                                 <a id="dec<?php echo $list_ids[$k]; ?>"
                                                    class="decrease small btn btn-danger" href="javascript:void(0);"
                                                    style="padding: 6px;height: 20px;line-height: 6px">
-                                                    <strong>-</strong> &nbsp;
-                                                </a>
+                                                    <strong>-</strong></a><span class="count"><?php echo $arr_qty[$k]; ?></span><a id="inc<?php echo $list_ids[$k]; ?>"
+                                                                                                                                   class="increase btn btn-success small " href="javascript:void(0);"
+                                                                                                                                   style="padding: 6px;height: 20px;line-height: 6px"><strong>+</strong></a>
 
-                                                <span class="count"><?php echo $arr_qty[$k]; ?></span> &nbsp;
-                                                <a id="inc<?php echo $list_ids[$k]; ?>"
-                                                   class="increase btn btn-success small " href="javascript:void(0);"
-                                                   style="padding: 6px;height: 20px;line-height: 6px">
-                                                    <strong>+</strong></a> &nbsp;
+
+
                                                 <input type="hidden" class="count" name="qtys[]"
                                                        value="<?php echo $arr_qty[$k]; ?>"/>
                                                 <input type="hidden" class="menu_ids" name="menu_ids[]"
@@ -1012,7 +1016,7 @@
                                                        value="<?php echo $list_ids[$k]; ?>"/>
                                                 <input type="hidden" class="prs" name="prs[]"
                                                        value="<?php echo str_replace('$', '', $prices[$k]); ?>"/>
-                                                X $<span
+                                                x $<span
                                                     class="amount"><?php echo number_format(str_replace('$', '', $prices[$k]), 2); ?></span>
                                             </td>
                                             <td>
@@ -1095,9 +1099,9 @@
                         </div>
                         <div class="submits">
                             <input <?php if ($closed){ ?>disabled="disabled"<?php } ?> type="submit"
-                                   value="Submit Order" class="btn btn-lg blue hidden-print margin-bottom-5"/>
+                                   value="Submit Order" class="btn btn-md blue hidden-print margin-bottom-5"/>
 
-                            <a class="btn btn-lg grey hidden-print margin-bottom-5"
+                            <a class="btn btn-md grey hidden-print margin-bottom-5"
                                href="">
                                 Restart <i class="fa fa-refresh"></i>
                             </a>
@@ -1125,8 +1129,19 @@
 
             </div>
             <div class="portlet-body">
-                <img style="max-width: 100%;"
-                     src="https://static.addtoany.com/images/blog/addtoany-svg-sharing-icons.png"/>
+
+
+                <span class='st_whatsapp_large' displayText='WhatsApp'></span>
+                <span class='st_facebook_large' displayText='Facebook'></span>
+                <span class='st_twitter_large' displayText='Tweet'></span>
+                <span class='st_print_large' displayText='Print'></span>
+                <span class='st_linkedin_large' displayText='LinkedIn'></span>
+                <span class='st_blogger_large' displayText='Blogger'></span>
+                <span class='st_delicious_large' displayText='Delicious'></span>
+                <span class='st_pinterest_large' displayText='Pinterest'></span>
+                <span class='st_email_large' displayText='Email'></span>
+
+
             </div>
         </div>
 

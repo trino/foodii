@@ -1,15 +1,5 @@
 <!DOCTYPE html>
-<!--
-Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 3.3.1
-Version: 3.6.1
-Author: KeenThemes
-Website: http://www.keenthemes.com/
-Contact: support@keenthemes.com
-Follow: www.twitter.com/keenthemes
-Like: www.facebook.com/keenthemes
-Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes
-License: You must have a valid license purchased only from themeforest(the above link) in order to legally use the theme for your project.
--->
+
 <!--[if IE 8]>
 <html lang="en" class="ie8 no-js"> <![endif]-->
 <!--[if IE 9]>
@@ -70,6 +60,13 @@ License: You must have a valid license purchased only from themeforest(the above
     <link href="<?php echo $this->webroot;?>css/timepicker.css" rel="stylesheet">
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css" />
     <link rel="stylesheet"  href="<?php echo $this->webroot;?>lightSlider/css/lightSlider.css"/>
+
+
+
+    <link rel="stylesheet"  href="<?php echo $this->webroot;?>css/styles.css"/>
+
+
+
     <!-- END THEME STYLES -->
     <link rel="shortcut icon" href="favicon.ico"/>
     <!--[if lt IE 9]>
@@ -132,6 +129,23 @@ License: You must have a valid license purchased only from themeforest(the above
         <script src="<?php echo $this->webroot; ?>scripts/timepicker.js" type="text/javascript"></script>
         
         <script src="<?php echo $this->webroot;?>lightSlider/js/jquery.lightSlider.js"></script>
+
+
+
+
+
+
+
+    <script type="text/javascript">var switchTo5x=true;</script>
+    <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+    <script type="text/javascript">stLight.options({publisher: "d062983e-e7fe-4c6c-a80c-c04d91d98519", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
+
+
+
+
+
+
+
         <!-- END PAGE LEVEL SCRIPTS -->
         <script>
             jQuery(document).ready(function () {
@@ -152,26 +166,18 @@ License: You must have a valid license purchased only from themeforest(the above
         <!-- END JAVASCRIPTS -->
     
 </head>
-<!-- END HEAD -->
-<!-- BEGIN BODY -->
-<!-- DOC: Apply "page-header-fixed-mobile" and "page-footer-fixed-mobile" class to body element to force fixed header or footer in mobile devices -->
-<!-- DOC: Apply "page-sidebar-closed" class to the body and "page-sidebar-menu-closed" class to the sidebar menu element to hide the sidebar by default -->
-<!-- DOC: Apply "page-sidebar-hide" class to the body to make the sidebar completely hidden on toggle -->
-<!-- DOC: Apply "page-sidebar-closed-hide-logo" class to the body element to make the logo hidden on sidebar toggle -->
-<!-- DOC: Apply "page-sidebar-hide" class to body element to completely hide the sidebar on sidebar toggle -->
-<!-- DOC: Apply "page-sidebar-fixed" class to have fixed sidebar -->
-<!-- DOC: Apply "page-footer-fixed" class to the body element to have fixed footer -->
-<!-- DOC: Apply "page-sidebar-reversed" class to put the sidebar on the right side -->
-<!-- DOC: Apply "page-full-width" class to the body element to have full width page without the sidebar menu -->
+
 <body class="page-header-fixed page-quick-sidebar-over-content page-full-width">
+
+
 <!-- BEGIN HEADER -->
 <div class="page-header navbar navbar-fixed-top">
     <!-- BEGIN HEADER INNER -->
     <div class="page-header-inner">
         <!-- BEGIN LOGO -->
         <div class="page-logo">
-            <a href="">
-                <h4 style="font-weight:bold;color:white;padding-top:2px;">Charlie's Chopsticks</h4>
+            <a href="<?php echo $this->webroot;?>">
+                <h4 style="color:white;padding-top:7px;">Charlie's Chopsticks</h4>
             </a>
         </div>
         <!-- END LOGO -->
@@ -280,7 +286,7 @@ License: You must have a valid license purchased only from themeforest(the above
         <h3><span class="light">Register</span> to Charlie's Chopsticks</h3>
         <hr class="divider">
       </div>
-      <div class="modal-body">
+      <div class="modal-body" >
         <form action="<?php echo $this->webroot;?>restaurants/register" method="post" class="push-down-15" id="registerform">
         
           <div class="form-group">
@@ -833,11 +839,18 @@ License: You must have a valid license purchased only from themeforest(the above
             <?php echo $this->fetch('content'); ?>
 
 
+
+
+
             <!-- END QUICK SIDEBAR -->
         </div>
+
+
+
+
         <!-- END CONTAINER -->
         <!-- BEGIN FOOTER -->
-        <div class="page-footer">
+        <div class="page-footer" style="height: 40px;background:#333;border-top:6px solid #007FC5;">
             <div class="page-footer-inner">
                 2015 &copy; Charlie's Chopsticks
             </div>
@@ -845,6 +858,9 @@ License: You must have a valid license purchased only from themeforest(the above
                 <i class="icon-arrow-up"></i>
             </div>
         </div>
+
+
+
         <!-- END FOOTER -->
         <!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
         <!-- BEGIN CORE PLUGINS -->

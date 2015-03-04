@@ -1,4 +1,5 @@
 <?php
+
 if($this->params['action']=='view')
 {
 ?>
@@ -13,9 +14,9 @@ if($this->params['action']=='view')
 else
 {
 ?>
-<h5 class="centertitle">
+<h3 class="centertitle">
   ORDER SUMMARY
-</h5>
+</h3>
 <div class="divider">
 </div>
 <?php
@@ -203,7 +204,7 @@ requestAction('/restaurants/getEmail/'.$order['Reservation']['res_id']);?>
 requestAction('/restaurants/getContact/'.$order['Reservation']['res_id']);?>
                 </div>
                 <?php */}?>
-                <div class="infolist">
+                <div class="infolist" >
                   
                   <div class="col-xs-12">
                     <br />
@@ -256,6 +257,7 @@ $arr_qty = explode(',',$order['Reservation']['qtys']);
 $arr_prs = explode(',',$order['Reservation']['prs']); 
 $arr_extras = explode(',',$order['Reservation']['extras']);
 
+
 foreach($arr_menu as $k=>$me)
 {
 if($order['Reservation']['extras']!="")
@@ -266,7 +268,8 @@ $extz = str_replace("%",",",$extz);
 else
 $extz = "";
 if(is_numeric($me))
-{                        
+{
+
 $m = $menu->findById($me);
 $tt = $m['Menu']['menu_item'];
 }
