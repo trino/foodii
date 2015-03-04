@@ -1085,6 +1085,7 @@ $('.order_now').change(function(){
                 
                 var title = tit.split("_");
                 if(index!=0){
+                    
                     extratitle =extratitle+","+title[1];
                 }
                 var su = "";
@@ -1277,6 +1278,7 @@ $('.order_now').change(function(){
             var last1 = extratitle.substring(extratitle.length, extratitle.length-1);
             if(last1 == "-")
                 extratitle = extratitle.substring(0, extratitle.length-1);
+                
             dbtitle = extratitle.split(",").join("%");
             dbtitle = dbtitle.split("%%").join("");
             //alert(dbtitle);
@@ -1330,7 +1332,7 @@ $('.order_now').change(function(){
             '<td><a style="padding: 6px;height: 20px;line-height: 6px" id="dec'+ids+'" class="decrease small btn btn-danger" href="javascript:void(0);">'+
             '<strong>-</strong></a> &nbsp;<span class="count">'+pre_cnt+'</span><input type="hidden" class="count" name="qtys[]" value="'+pre_cnt+'" />'+ '&nbsp;<a id="inc'+ids+'" class="increase btn btn-success small " href="javascript:void(0);" style="padding: 6px;height: 20px;line-height: 6px">'+
             '<strong>+</strong></a> &nbsp; '+
-            '<input type="hidden" class="menu_ids" name="menu_ids[]" value="C_'+menu_id+'" />'+
+            '<input type="hidden" class="menu_ids" name="menu_ids[]" value="'+menu_id+'" />'+
             '<input type="hidden" name="extras[]" value="'+dbtitle+'"/><input type="hidden" name="listid[]" value="'+ids+'" />'+
             '<input type="hidden" class="prs" name="prs[]" value="'+price.toFixed(2)+'" />X $'+
             '<span class="amount">'+price.toFixed(2)+'</span></td>'+

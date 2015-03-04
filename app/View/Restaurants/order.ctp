@@ -42,7 +42,7 @@
           </div>
 
           <div class="mybtns">
-            <a href="<?php echo $this->webroot;?>restaurants/profile/<?php echo $res['Restaurant']['slug'];?>/<?php echo $order['Reservation']['id'];?>" class="btn btn-warning mybtns">Edit Order</a> 
+            <a href="<?php echo $this->webroot;?>restaurants/test/<?php echo $res['Restaurant']['slug'];?>/<?php echo $order['Reservation']['id'];?>" class="btn btn-warning mybtns">Edit Order</a> 
             <?php if($this->Session->read('restaurant') && $order['Reservation']['order_type']!='delivery'){?><a href="javascript:void(0);" class="btn btn-primary mybtns" onclick="window.print();$.ajax({url:'<?php echo $this->webroot;?>restaurants/instore/<?php echo $order['Reservation']['id'];?>',success:function(){window.location = '<?php echo $this->webroot;?>restaurants/success_order/<?php echo $order['Reservation']['id'];?>?success';}});">Print Receipt</a><?php }else{?><a href="javascript:void(0);" class="btn btn-primary mybtns" onclick="window.print();">Print Receipt</a><?php }?></div>
           </div>
           <div class="col-xs-12 col-sm-6 ">
