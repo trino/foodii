@@ -854,7 +854,11 @@
             <div class="page-footer-inner">
                 2015 &copy; Charlie's Chopsticks
             </div>
+            <div style="float: right;">
+            <a class="footer__link--small" href="pages/findus">View Google map</a>
+            </div>
             <div class="scroll-to-top">
+            
                 <i class="icon-arrow-up"></i>
             </div>
         </div>
