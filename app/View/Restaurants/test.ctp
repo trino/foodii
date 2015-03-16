@@ -80,7 +80,7 @@
 <div class="row">
 
 
-    <div class="col-md-2">
+    <div class="col-md-2 sidehide">
 
 
         <div class="portlet box blue">

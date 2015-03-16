@@ -134,8 +134,51 @@
                         <div class="col-xs-6" style="display:none;">                            
                             <input type="number" name="donation" placeholder="Amount($)" class="form-control  form-control--contact" />
                         </div> 
-                        <div class="col-xs-12">                            
-                            <select name="country" class="form-control  form-control--contact">
+                        <div class="col-xs-12">
+                            <script src="http://cdn.amcharts.com/lib/3/ammap.js" type="text/javascript"></script>
+                            <script src="http://cdn.amcharts.com/lib/3/maps/js/worldHigh.js" type="text/javascript"></script>
+                            <script src="http://cdn.amcharts.com/lib/3/themes/dark.js" type="text/javascript"></script>
+                            <div id="mapdiv" style="width: 100%; height: 450px;"></div>
+                            <!--<div style="width: 100%; font-size: 70%; padding: 5px 0; text-align: center; background-color: #535364; margin-top: 1px; color: #B4B4B7;"></div>-->
+                            <script type="text/javascript">
+                            var map = AmCharts.makeChart("mapdiv",{
+                            type: "map",
+                            theme: "dark",
+                            pathToImages : "http://cdn.amcharts.com/lib/3/images/",
+                            panEventsEnabled : true,
+                            backgroundColor : "#535364",
+                            backgroundAlpha : 1,
+                            zoomControl: {
+                            panControlEnabled : true,
+                            zoomControlEnabled : true
+                            },
+                            dataProvider : {
+                            map : "worldHigh",
+                            getAreasFromMap : true,
+                            areas :
+                            []
+                            },
+                            areasSettings : {
+                            autoZoom : true,
+                            color : "#B4B4B7",
+                            colorSolid : "#84ADE9",
+                            selectedColor : "#84ADE9",
+                            outlineColor : "#666666",
+                            rollOverColor : "#9EC2F7",
+                            rollOverOutlineColor : "#000000"
+                            }
+                            });
+                            map.addListener("clickMapObject", handleClick)
+
+                            function handleClick(event){
+                                var country = event.mapObject.title;
+                                $('.contry').val(country);
+                                
+                            }
+
+                            </script>
+                            <input type="hidden" name="country" value="" class="contry"/>
+                            <!--<select name="country" class="form-control  form-control-contact">
                                 <option value="">Select country</option>
                                 
                                 <?php
@@ -148,7 +191,7 @@
                                     <?php
                                 }
                                 ?>
-                            </select>
+                            </select>-->
                         </div> 
                         <div class="clearfix"></div>                       
                       </div>
