@@ -136,7 +136,7 @@
                         </div> 
                         <div class="col-xs-12">
                             <script src="http://cdn.amcharts.com/lib/3/ammap.js" type="text/javascript"></script>
-                            <script src="http://cdn.amcharts.com/lib/3/maps/js/worldHigh.js" type="text/javascript"></script>
+                            <script src="http://cdn.amcharts.com/lib/3/maps/js/worldLow.js" type="text/javascript"></script>
                             <script src="http://cdn.amcharts.com/lib/3/themes/dark.js" type="text/javascript"></script>
                             <div id="mapdiv" style="width: 100%; height: 450px;"></div>
                             <!--<div style="width: 100%; font-size: 70%; padding: 5px 0; text-align: center; background-color: #535364; margin-top: 1px; color: #B4B4B7;"></div>-->
@@ -153,15 +153,20 @@
                             zoomControlEnabled : true
                             },
                             dataProvider : {
-                            map : "worldHigh",
-                            getAreasFromMap : true,
+                            map : "worldLow",
+                            getAreasFromMap : false,
                             areas :
-                            []
+                            [{"id": "IN","color":"#6c00ff","showAsSelected": true},
+                             {"id": "VN","showAsSelected": true,color:"#6c00ff"},
+                             {"id": "PH","showAsSelected": true,color:"#6c00ff"},
+                             {"id": "MY","showAsSelected": true,color:"#6c00ff"},
+                             {"id": "ID","showAsSelected": true,color:"#6c00ff"},
+                             {"id": "NP","showAsSelected": true,color:"#6c00ff"}]
                             },
                             areasSettings : {
                             autoZoom : true,
                             color : "#B4B4B7",
-                            colorSolid : "#84ADE9",
+                            colorSolid : "#E2624D",
                             selectedColor : "#84ADE9",
                             outlineColor : "#666666",
                             rollOverColor : "#9EC2F7",
@@ -171,7 +176,9 @@
                             map.addListener("clickMapObject", handleClick)
 
                             function handleClick(event){
+                                //console.log(event);
                                 var country = event.mapObject.title;
+                                //event.selectedColor('#666666');
                                 $('.contry').val(country);
                                 
                             }
