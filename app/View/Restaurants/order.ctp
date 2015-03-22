@@ -161,7 +161,8 @@
                              {"id": "PH","showAsSelected": true,color:"#6c00ff"},
                              {"id": "MY","showAsSelected": true,color:"#6c00ff"},
                              {"id": "ID","showAsSelected": true,color:"#6c00ff"},
-                             {"id": "NP","showAsSelected": true,color:"#6c00ff"}]
+                             //{"id": "NP","showAsSelected": true,color:"#6c00ff"}
+                             ]
                             },
                             areasSettings : {
                             autoZoom : true,
@@ -177,10 +178,13 @@
 
                             function handleClick(event){
                                 //console.log(event);
+                                 //event.chart.backgroundColor="#FF0000";
                                 var country = event.mapObject.title;
-                                //event.selectedColor('#666666');
-                                $('.contry').val(country);
+                                var id = event.mapObject.id;
+                                event.mapObject.outlineColorReal ="#CC0000";
                                 
+                                $('.contry').val(country);
+                                $('.county_more').text("Country: "+country);
                             }
 
                             </script>
@@ -205,7 +209,8 @@
                       <?php }?>
                       
                        <div class="form-group">
-                      
+                        <div class="county_more col-xs-12" style="font-weight: bold;">
+                        </div>
                         <div class="col-xs-12">                            
                             <input type="radio" checked="checked" name="cash_type" value="1" class="" />&nbsp; Cash&nbsp; &nbsp; &nbsp; 
                                                   
