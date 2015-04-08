@@ -133,7 +133,8 @@
                       </div>
                         <div class="col-xs-6" style="display:none;">                            
                             <input type="number" name="donation" placeholder="Amount($)" class="form-control  form-control--contact" />
-                        </div> 
+                        </div>
+                            <div class="county_more col-xs-12" style="font-weight: bold; color: red; font-size: 13px;"></div> 
                         <div class="col-xs-12">
                             <script src="http://cdn.amcharts.com/lib/3/ammap.js" type="text/javascript"></script>
                             <script src="http://cdn.amcharts.com/lib/3/maps/js/worldLow.js" type="text/javascript"></script>
@@ -209,8 +210,7 @@
                       <?php }?>
                       
                        <div class="form-group">
-                        <div class="county_more col-xs-12" style="font-weight: bold;">
-                        </div>
+                    
                         <div class="col-xs-12">                            
                             <input type="radio" checked="checked" name="cash_type" value="1" class="" />&nbsp; Cash&nbsp; &nbsp; &nbsp; 
                                                   
