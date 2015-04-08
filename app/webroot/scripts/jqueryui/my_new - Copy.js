@@ -1,10 +1,3 @@
-function inArray(needle, haystack) {
-    var length = haystack.length;
-    for(var i = 0; i < length; i++) {
-        if(haystack[i] == needle) return true;
-    }
-    return false;
-}
 $(function(){
 var path = window.location.pathname;
 if(path.replace('charlies','')!=path)
@@ -591,133 +584,6 @@ $('.order_now').change(function(){
    } 
     
 });
-//new buttons scripts
-      $('.buttons').click(function(){
-            
-              var tit = $(this).attr('title');
-              var box =   $(this).parent().parent().parent().parent().find('.inp');             
-              var id =$(this).attr('id').replace('buttons_','');
-              var mn = box.val();
-              var max = box.attr('maxlength');
-              var cnt =0;
-              var qty = Number($(this).parent().find('.span_'+id).text());
-              var price  = Number($('.span_'+id).attr('id').replace('sprice_',""));
-              var tit1 = $(this).parent().parent().find('#extra_'+id).attr('title');
-              //var title = tit1.split("_");
-               // title[1]= title[1].replace(' x('+qty+")","");
-              
-              
-              if(mn.length >= max)
-              {
-                alert('Cannot select more than '+max);
-              }
-              else
-              {
-                $(this).parent().find('#extra_'+id).attr('checked','checked');
-                var tis = $(this);
-                mtit = mn+tit;
-                box.val(mtit);
-                var mnt = mtit.split('');
-                mnt.forEach(function(t,i){
-                   if(t==tit)
-                    cnt++;
-                    
-                });
-                
-                var title = tit1.split("_");
-                var qty = Number(tis.parent().find('.span_'+id).text());
-                tnn= title[1].split(' x(');
-                title[1] = tnn[0];
-                
-                tis.parent().children().find('.span_'+id).text(cnt);
-                
-                var price  = Number($('.span_'+id).attr('id').replace('sprice_',""));
-                
-                
-                newtitle= title[1]+" x("+cnt+")";
-                newprice= Number(price)*Number(cnt);
-            
-     
-        
-                newtitle = title[0]+"_"+newtitle+"_"+newprice+"_"+title[3];
-                newtitle = newtitle.replace(" x(1)","");
-                //alert(newtitle);
-                tis.parent().parent().find('.spanextra_'+id).attr('title',newtitle)
-                
-                
-              }
-              
-                
-        });
-        
-        $('.inp').keyup(function(){
-            var thi = $(this);
-            var id = $(this).attr('id').replace('boxes_','');
-           
-            var chr = $('.chars_'+id).val();
-            
-            var txt = $(this).val().toUpperCase();
-            tx = txt.split("");
-            ch = chr.split(",");
-            nt = txt;
-           
-            tx.forEach(function(t,i)
-            {
-                
-                if(inArray(t,ch))
-                {
-                    
-                }
-                else
-                {
-                    
-                    alert('invalid character '+t);
-                    nt = nt.replace(t,'');
-                    $('#boxes_'+id).val(nt);
-                   
-                }    
-            });
-            thi.parent().parent().find('.buttons').each(function(){
-               var tis = $(this);
-               
-                var ids= $(this).attr('id').replace('buttons_','');
-                var tit = tis.parent().parent().find('#extra_'+ids).attr('title');
-                 $(this).parent().children().find('.span_'+ids).text('1');
-                 $(this).parent().find('#extra_'+ids).removeAttr('checked');
-                 var cnt =0;
-           
-               tx.forEach(function(t,i)
-                {
-                    if(tis.attr('title')==t)
-                    {
-                        tis.parent().find('#extra_'+ids).attr('checked','checked');
-                        var title = tit.split("_");
-                        var qty = Number(tis.parent().find('.span_'+ids).text());
-                        tnn= title[1].split(' x(');
-                        title[1] = tnn[0];
-                        cnt++;
-                        tis.parent().children().find('.span_'+ids).text(cnt);
-                        
-                        var price  = Number($('.span_'+ids).attr('id').replace('sprice_',""));
-                        
-                        
-                        newtitle= title[1]+" x("+cnt+")";
-                        newprice= Number(price)*Number(cnt);
-                        
-                 
-                    
-                    newtitle = title[0]+"_"+newtitle+"_"+newprice+"_"+title[3];
-                    newtitle = newtitle.replace(" x(1)","");
-                    //alert(newtitle);
-                    tis.parent().parent().find('.spanextra_'+ids).attr('title',newtitle)
-                        
-                    }
-                });
-                
-                
-            });
-            
-        });
                 
 //Script for profile page          
 //if(path.replace('test','')!=path){            
@@ -1540,9 +1406,8 @@ $('.order_now').change(function(){
             if(!$(this).hasClass('chk'))
                 $(this).removeAttr("checked");
             $('.allspan').html('&nbsp;&nbsp;1&nbsp;&nbsp;');
-            
       });
-        $('.inp').val("");
+        
     });
     $('.decrease').live('click',function(){
 	       //alert('test');

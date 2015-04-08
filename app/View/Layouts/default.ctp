@@ -6,7 +6,7 @@
 <html lang="en" class="ie9 no-js"> <![endif]-->
 <!--[if !IE]><!-->
 <html lang="en">
-<!--<![endif]-->
+<!--<![endif]--> 
 <!-- BEGIN HEAD -->
 <head>
     <meta charset="utf-8"/>

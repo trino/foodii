@@ -181,7 +181,7 @@
                                  //event.chart.backgroundColor="#FF0000";
                                 var country = event.mapObject.title;
                                 var id = event.mapObject.id;
-                                event.mapObject.outlineColorReal ="#CC0000";
+                                //event.mapObject.outlineColorReal ="#CC0000";
                                 
                                 $('.contry').val(country);
                                 $('.county_more').text("Country: "+country);
