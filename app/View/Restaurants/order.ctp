@@ -156,6 +156,9 @@
                             dataProvider : {
                             map : "worldLow",
                             getAreasFromMap : false,
+                            zoomLevel: 4.57688, // insert the values...
+                            zoomLongitude: 102.209896, // from the alert box...
+                            zoomLatitude: 14.189021, // here
                             areas :
                             [{"id": "IN","color":"#6c00ff","showAsSelected": true},
                              {"id": "VN","showAsSelected": true,color:"#6c00ff"},
@@ -175,7 +178,13 @@
                             rollOverOutlineColor : "#000000"
                             }
                             });
-                            map.addListener("clickMapObject", handleClick)
+                            map.addListener("clickMapObject", handleClick);
+                         
+
+                            /*map.developerMode = true;
+                            map.addListener("writeDevInfo", function (event) {
+                             alert('zoomLevel:'+event.zoomLevel+'\nzoomLatitude:'+event.zoomLatitude+'\nzoomLongitude:'+event.zoomLongitude);
+                            });*/
 
                             function handleClick(event){
                                 //console.log(event);

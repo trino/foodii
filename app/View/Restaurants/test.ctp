@@ -44,6 +44,7 @@
             banner.animate({scrollLeft: 0}, 1);
         })
         $('.nxt_button').live('click', function () {
+            
             $(this).attr('disabled', 'disabled');
             var td = Number($(this).attr('title'));
             td++;
@@ -56,9 +57,12 @@
             var leftPos = banner.scrollLeft();
             banner.animate({scrollLeft: leftPos + l}, 800, function () {
                 $('.nxt_button').removeAttr('disabled');
+                
             });
 
             var total_td = banner.find('td').length;
+            var id = banner.find('td:nth-child('+td+')').attr('id').replace('td_','');
+            $('#boxes_'+id).focus();
             $(this).attr('title', td)
             $(this).parent().parent().find('.prv_button').show();
             if (td == total_td) {
@@ -66,11 +70,13 @@
                 $(this).parent().parent().find('.add_end').show();
                 $(this).hide();
             }
-
+            
         });
 
         $('.prv_button').click(function () {
+            
             $(this).attr('disabled', 'disabled');
+            var thi = $(this);
             var td = Number($(this).parent().find('.nxt_button').attr('title'));
             if (td != 1)
                 td = td - 1;
@@ -81,12 +87,16 @@
             var main_width = banner.children('table').width();
             banner.animate({scrollLeft: leftPos - l}, 800, function () {
                 $('.prv_button').removeAttr('disabled');
+                
             });
+            var id = banner.find('td:nth-child('+td+')').attr('id').replace('td_','');
+            
+            $('#boxes_'+id).focus();
             $(this).parent().find('.nxt_button').attr('title', td);
             if (td == '1')
                 $(this).hide();
             $(this).parent().parent().find('.nxt_button').show();
-
+            
         });
     });
 </script>
@@ -765,7 +775,7 @@
                                                                                             <input type="hidden" id="upto_<?php echo $subm['MenuCategory']['id']; ?>" value="<?php echo $subm['MenuCategory']['up_to']; ?>"/>
 
                                                                                             <div class="infolist col-xs-12" style="">
-                                                                                                <input type="text" value="" class="inp" id="boxes_<?php echo $subm['MenuCategory']['id']; ?>" maxlength="<?php echo ($subm['MenuCategory']['itemno'])?$subm['MenuCategory']['itemno']:'1';?>" style="text-transform: uppercase;" /><br />
+                                                                                                <input type="text" value="" class="inp form-control" id="boxes_<?php echo $subm['MenuCategory']['id']; ?>" maxlength="<?php echo ($subm['MenuCategory']['itemno'])?$subm['MenuCategory']['itemno']:'1';?>" style="text-transform: uppercase; width:250px" /><br />
                                                                                                 
                                                                                                 <div style="display: none;">
                                                                                                     <input type="checkbox" class="chk" checked="checked" style="display: none;" id="<?php echo $subm['MenuCategory']['id']; ?>"
@@ -806,13 +816,13 @@
                                                                                                                 $char.=$alpha[$k].",";
 //if($k%3 == 0 ){                                                                                               
                                                                                                             ?>
-                                                                                                            <div class="subin btn default blue-stripe btnxx">
+                                                                                                            <div class="subin btn default blue-stripe btnxx" style="padding: 0px;">
                                                                                                                 <?php //}
                                                                                                                 ?>
                                                                                                                 <?php if ($subm['MenuCategory']['is_multiple'] == '1') { ?>
-                                                                                                                    <div class="col-xs-12 " style="padding-left:0px;">
+                                                                                                                    <div class="col-xs-12 " style="padding:0px;">
                                                                                                                        
-                                                                                                                       <a href="javascript:void(0);" class="buttons" id="buttons_<?php echo $m['id'];?>" title="<?php echo $alpha[$k];?>" style="text-decoration: none;">
+                                                                                                                       <a href="javascript:void(0);" class="buttons" id="buttons_<?php echo $m['id'];?>" title="<?php echo $alpha[$k];?>" style="text-decoration: none; display:inline-block; padding-right: 15px;">
                                                                                                                        <button class="btn btn-primary"><?php echo $alpha[$k];?></button>
                                                                                                                         <input type="checkbox" value="" name="extra" style="display:none;" class="extra-<?php echo $subm['MenuCategory']['id']; ?> spanextra_<?php echo $m['id']; ?>"
                                                                                                                             title="<?php echo $m['id'] . "_" . $m['menu_item'] . "_" . $m['price'] . "_" . $subm['MenuCategory']['title']; ?>" id="extra_<?php echo $m['id']; ?>"/>
@@ -826,8 +836,8 @@
                                                                                                                     </div>
                                                                                                                 <?php } else {
                                                                                                                     ?>
-                                                                                                                    <div class="col-xs-12 " style="padding-left:0px;">
-                                                                                                                        <a href="javascript:void(0);" class="buttons " id="buttons_<?php echo $m['id'];?>" title="<?php echo $alpha[$k];?>" style="text-decoration: none;">
+                                                                                                                    <div class="col-xs-12 " style="padding:0px;">
+                                                                                                                        <a href="javascript:void(0);" class="buttons " id="buttons_<?php echo $m['id'];?>" title="<?php echo $alpha[$k];?>" style="text-decoration: none;display:inline-block; padding-right: 15px;">
                                                                                                                         <button class="btn btn-primary"><?php echo $alpha[$k];?></button>
                                                                                                                         <input type="radio" style="display: none;" value="" name="extra_<?php echo $subm['MenuCategory']['id']; ?>" class="extra-<?php echo $subm['MenuCategory']['id']; ?>" title="<?php echo $m['id'] . "_" . $m['menu_item'] . "_" . $m['price'] . "_" . $subm['MenuCategory']['title']; ?>" id="extra_<?php echo $m['id']; ?>"/>
                                                                                                                         &nbsp;&nbsp;<?php if ($m['price']) echo $m['menu_item'] . "  (+ $" . number_format(str_replace('$', '', $m['price']), 2) . ")"; else { echo $m['menu_item'];} ?>

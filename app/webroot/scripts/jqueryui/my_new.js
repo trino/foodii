@@ -610,6 +610,7 @@ $('.order_now').change(function(){
               if(mn.length >= max)
               {
                 alert('Cannot select more than '+max);
+                
               }
               else
               {
@@ -646,12 +647,28 @@ $('.order_now').change(function(){
                 
                 
               }
+              $(this).parent().parent().parent().parent().find('.inp').focus();
               
                 
         });
         
-        $('.inp').keyup(function(){
+        $('.inp').keyup(function(e){
+            
             var thi = $(this);
+            var banner = thi.parent().parent().parent().find('zxcx');
+            var nxt = thi.parent().parent().parent().parent().parent().parent().parent().find('.nxt_button');
+            var total_td = thi.parent().parent().parent().find('td').length;
+            var td = Number(nxt.attr('title'));
+            if(e.keyCode == 13)
+            {
+                //alert();
+                 
+                 
+                 if (td == total_td)
+                    thi.parent().parent().parent().parent().parent().parent().parent().find('.add_end').click();
+                 else
+                    nxt.click();
+            }
             var id = $(this).attr('id').replace('boxes_','');
            
             var chr = $('.chars_'+id).val();
@@ -672,8 +689,10 @@ $('.order_now').change(function(){
                 {
                     
                     alert('invalid character '+t);
+                    
                     nt = nt.replace(t,'');
                     $('#boxes_'+id).val(nt);
+                    $('#boxes_'+id).focus();
                    
                 }    
             });
@@ -991,6 +1010,10 @@ $('.order_now').change(function(){
                     $(this).parent().parent().find('.prv_button').hide();
                 else
                     $(this).parent().parent().find('.prv_button').show();
+                
+                var id = banner.find('td:nth-child('+td_temp+')').attr('id').replace('td_','');
+                //alert(id);
+                $('#boxes_'+id).focus();
                 /*
                 if(total_td != td_temp)
                 {
@@ -1426,6 +1449,9 @@ $('.order_now').change(function(){
                 
                 $(this).parent().parent().find('.nxt_button').attr('title',td_temp);
                 $(this).parent().parent().find('.nxt_button').show();
+                var id = banner.find('td:nth-child('+td_temp+')').attr('id').replace('td_','');
+                //alert(id);
+                $('#boxes_'+id).focus();
                 if(td_temp ==1)
                     $(this).parent().parent().find('.prv_button').hide();
                 else
