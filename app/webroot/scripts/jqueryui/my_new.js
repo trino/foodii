@@ -605,10 +605,11 @@ $('.order_now').change(function(){
               var tit1 = $(this).parent().parent().find('#extra_'+id).attr('title');
               //var title = tit1.split("_");
                // title[1]= title[1].replace(' x('+qty+")","");
-              
-              
+               var nxt = box.parent().parent().parent().parent().parent().parent().parent().find('.nxt_button');
+               
               if(mn.length >= max)
               {
+                
                 alert('Cannot select more than '+max);
                 
               }
@@ -643,11 +644,19 @@ $('.order_now').change(function(){
                 newtitle = title[0]+"_"+newtitle+"_"+newprice+"_"+title[3];
                 newtitle = newtitle.replace(" x(1)","");
                 //alert(newtitle);
-                tis.parent().parent().find('.spanextra_'+id).attr('title',newtitle)
+                tis.parent().parent().find('.spanextra_'+id).attr('title',newtitle);
                 
                 
               }
+              var total_td = box.parent().parent().parent().find('td').length;
+              var td = Number(nxt.attr('title'));
+              if(mn.length+1== max)
+                  if (td == total_td)
+                    box.parent().parent().parent().parent().parent().parent().parent().find('.add_end').click();
+                 else
+                    nxt.click();
               $(this).parent().parent().parent().parent().find('.inp').focus();
+              
               
                 
         });
@@ -661,14 +670,15 @@ $('.order_now').change(function(){
             var td = Number(nxt.attr('title'));
             if(e.keyCode == 13)
             {
-                //alert();
-                 
-                 
+               
                  if (td == total_td)
                     thi.parent().parent().parent().parent().parent().parent().parent().find('.add_end').click();
                  else
                     nxt.click();
             }
+            var max = $(this).attr('maxlength');
+            var l = $(this).val().length;
+   
             var id = $(this).attr('id').replace('boxes_','');
            
             var chr = $('.chars_'+id).val();
@@ -735,6 +745,11 @@ $('.order_now').change(function(){
                 
                 
             });
+            if(l==max)
+                 if (td == total_td)
+                    thi.parent().parent().parent().parent().parent().parent().parent().find('.add_end').click();
+                 else
+                    nxt.click();
             
         });
                 

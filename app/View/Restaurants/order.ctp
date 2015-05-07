@@ -134,20 +134,20 @@
                         <div class="col-xs-6" style="display:none;">                            
                             <input type="number" name="donation" placeholder="Amount($)" class="form-control  form-control--contact" />
                         </div>
-                            <div class="county_more col-xs-12" style="font-weight: bold; color: red; font-size: 13px;"></div> 
+                            <div class="county_more col-xs-12" style="font-weight: bold; color: red; font-size: 16px; font-family:Open Sans,sans-serif;"></div> 
                         <div class="col-xs-12">
                             <script src="http://cdn.amcharts.com/lib/3/ammap.js" type="text/javascript"></script>
                             <script src="http://cdn.amcharts.com/lib/3/maps/js/worldLow.js" type="text/javascript"></script>
-                            <script src="http://cdn.amcharts.com/lib/3/themes/dark.js" type="text/javascript"></script>
+                            <script src="http://cdn.amcharts.com/lib/3/themes/none.js" type="text/javascript"></script>
                             <div id="mapdiv" style="width: 100%; height: 450px;"></div>
                             <!--<div style="width: 100%; font-size: 70%; padding: 5px 0; text-align: center; background-color: #535364; margin-top: 1px; color: #B4B4B7;"></div>-->
                             <script type="text/javascript">
                             var map = AmCharts.makeChart("mapdiv",{
                             type: "map",
-                            theme: "dark",
+                            theme: "none",
                             pathToImages : "http://cdn.amcharts.com/lib/3/images/",
                             panEventsEnabled : true,
-                            backgroundColor : "#535364",
+                            backgroundColor : "#fff",
                             backgroundAlpha : 1,
                             zoomControl: {
                             panControlEnabled : true,
@@ -156,22 +156,22 @@
                             dataProvider : {
                             map : "worldLow",
                             getAreasFromMap : false,
-                            zoomLevel: 4.57688, // insert the values...
-                            zoomLongitude: 102.209896, // from the alert box...
-                            zoomLatitude: 14.189021, // here
+                            zoomLevel: 11.52477, // insert the values...
+                            zoomLongitude: 101.199239, // from the alert box...
+                            zoomLatitude: 17.07002, // here
                             areas :
-                            [{"id": "IN","color":"#6c00ff","showAsSelected": true},
+                            [{"id": "TH","color":"#6c00ff","showAsSelected": true},
                              {"id": "VN","showAsSelected": true,color:"#6c00ff"},
-                             {"id": "PH","showAsSelected": true,color:"#6c00ff"},
-                             {"id": "MY","showAsSelected": true,color:"#6c00ff"},
-                             {"id": "ID","showAsSelected": true,color:"#6c00ff"},
+                             {"id": "KH","showAsSelected": true,color:"#6c00ff"},
+                             {"id": "MM","showAsSelected": true,color:"#6c00ff"},
+                             {"id": "LA","showAsSelected": true,color:"#6c00ff"},
                              //{"id": "NP","showAsSelected": true,color:"#6c00ff"}
                              ]
                             },
                             areasSettings : {
                             autoZoom : true,
-                            color : "#B4B4B7",
-                            colorSolid : "#E2624D",
+                            color : "#007BBF",
+                            colorSolid : "#D84A38",
                             selectedColor : "#84ADE9",
                             outlineColor : "#666666",
                             rollOverColor : "#9EC2F7",

@@ -2,6 +2,9 @@
 
 
     $(function () {
+      $('.modal').on('shown.bs.modal', function () {
+        $('input:text:visible:first', this).focus();
+})
         /*
         $('.btnxx').click(function(){ 
            
@@ -825,7 +828,7 @@
                                                                                                                        <a href="javascript:void(0);" class="buttons" id="buttons_<?php echo $m['id'];?>" title="<?php echo $alpha[$k];?>" style="text-decoration: none; display:inline-block; padding-right: 15px;">
                                                                                                                        <button class="btn btn-primary"><?php echo $alpha[$k];?></button>
                                                                                                                         <input type="checkbox" value="" name="extra" style="display:none;" class="extra-<?php echo $subm['MenuCategory']['id']; ?> spanextra_<?php echo $m['id']; ?>"
-                                                                                                                            title="<?php echo $m['id'] . "_" . $m['menu_item'] . "_" . $m['price'] . "_" . $subm['MenuCategory']['title']; ?>" id="extra_<?php echo $m['id']; ?>"/>
+                                                                                                                            title="<?php echo $m['id'] . "_" . $m['menu_item']."(".$alpha[$k].")_" . $m['price'] . "_" . $subm['MenuCategory']['title']; ?>" id="extra_<?php echo $m['id']; ?>"/>
                                                                                                                             &nbsp;&nbsp;<?php if ($m['price']) echo $m['menu_item'] . "  (+ $" . number_format(str_replace('$', '', $m['price']), 2) . ")"; else { echo $m['menu_item'];} ?>
                                                                                                                   
                                                                                                                         <b style="display:none;">
@@ -839,7 +842,7 @@
                                                                                                                     <div class="col-xs-12 " style="padding:0px;">
                                                                                                                         <a href="javascript:void(0);" class="buttons " id="buttons_<?php echo $m['id'];?>" title="<?php echo $alpha[$k];?>" style="text-decoration: none;display:inline-block; padding-right: 15px;">
                                                                                                                         <button class="btn btn-primary"><?php echo $alpha[$k];?></button>
-                                                                                                                        <input type="radio" style="display: none;" value="" name="extra_<?php echo $subm['MenuCategory']['id']; ?>" class="extra-<?php echo $subm['MenuCategory']['id']; ?>" title="<?php echo $m['id'] . "_" . $m['menu_item'] . "_" . $m['price'] . "_" . $subm['MenuCategory']['title']; ?>" id="extra_<?php echo $m['id']; ?>"/>
+                                                                                                                        <input type="radio" style="display: none;" value="" name="extra_<?php echo $subm['MenuCategory']['id']; ?>" class="extra-<?php echo $subm['MenuCategory']['id']; ?>" title="<?php echo $m['id'] . "_" . $m['menu_item'] ."(".$alpha[$k].")_". $m['price'] . "_" . $subm['MenuCategory']['title']; ?>" id="extra_<?php echo $m['id']; ?>"/>
                                                                                                                         &nbsp;&nbsp;<?php if ($m['price']) echo $m['menu_item'] . "  (+ $" . number_format(str_replace('$', '', $m['price']), 2) . ")"; else { echo $m['menu_item'];} ?>
                                                                                                                         <b style="display:none;">
                                                                                                                             <a href="javascript:;" class="remspan" id="remspan_<?php echo $m['id']; ?>" style="text-decoration: none; color: #000;" onclick=""><b>&nbsp;&nbsp;-&nbsp;&nbsp;</b></a>
