@@ -2,42 +2,42 @@
 
 
     $(function () {
-      $('.modal').on('shown.bs.modal', function () {
-        $('input:text:visible:first', this).focus();
-})
+        $('.modal').on('shown.bs.modal', function () {
+            $('input:text:visible:first', this).focus();
+        })
         /*
-        $('.btnxx').click(function(){ 
-           
-            var id = $(this).children().find('.buttons').attr('id');
-            $('#'+id).click();
-        });
-        
-        $('.inp').change(function(){
-            var id = $(this).attr('id').replace('boxes_','');
-           
-            var chr = $('.chars_'+id).val();
-            
-            var txt = $(this).val().toUpperCase();
-            tx = txt.split("");
-            ch = chr.split(",");
-            nt = txt;
-            tx.forEach(function(t)
-            {
-                
-                if(inArray(t,ch))
-                {
-                    
-                }
-                else
-                {
-                    alert('invalid character '+t);
-                    nt = nt.replace(t,'');
-                    $('#boxes_'+id).val(nt);
-                    
-                }    
-            });
-            
-        });*/
+         $('.btnxx').click(function(){
+
+         var id = $(this).children().find('.buttons').attr('id');
+         $('#'+id).click();
+         });
+
+         $('.inp').change(function(){
+         var id = $(this).attr('id').replace('boxes_','');
+
+         var chr = $('.chars_'+id).val();
+
+         var txt = $(this).val().toUpperCase();
+         tx = txt.split("");
+         ch = chr.split(",");
+         nt = txt;
+         tx.forEach(function(t)
+         {
+
+         if(inArray(t,ch))
+         {
+
+         }
+         else
+         {
+         alert('invalid character '+t);
+         nt = nt.replace(t,'');
+         $('#boxes_'+id).val(nt);
+
+         }
+         });
+
+         });*/
         $('.prv_button').hide();
         $('.resetslider').live('click', function () {
             $(this).parent().parent().find('.nxt_button').show();
@@ -47,7 +47,7 @@
             banner.animate({scrollLeft: 0}, 1);
         })
         $('.nxt_button').live('click', function () {
-            
+
             $(this).attr('disabled', 'disabled');
             var td = Number($(this).attr('title'));
             td++;
@@ -60,12 +60,12 @@
             var leftPos = banner.scrollLeft();
             banner.animate({scrollLeft: leftPos + l}, 800, function () {
                 $('.nxt_button').removeAttr('disabled');
-                
+
             });
 
             var total_td = banner.find('td').length;
-            var id = banner.find('td:nth-child('+td+')').attr('id').replace('td_','');
-            $('#boxes_'+id).focus();
+            var id = banner.find('td:nth-child(' + td + ')').attr('id').replace('td_', '');
+            $('#boxes_' + id).focus();
             $(this).attr('title', td)
             $(this).parent().parent().find('.prv_button').show();
             if (td == total_td) {
@@ -73,11 +73,11 @@
                 $(this).parent().parent().find('.add_end').show();
                 $(this).hide();
             }
-            
+
         });
 
         $('.prv_button').click(function () {
-            
+
             $(this).attr('disabled', 'disabled');
             var thi = $(this);
             var td = Number($(this).parent().find('.nxt_button').attr('title'));
@@ -90,16 +90,16 @@
             var main_width = banner.children('table').width();
             banner.animate({scrollLeft: leftPos - l}, 800, function () {
                 $('.prv_button').removeAttr('disabled');
-                
+
             });
-            var id = banner.find('td:nth-child('+td+')').attr('id').replace('td_','');
-            
-            $('#boxes_'+id).focus();
+            var id = banner.find('td:nth-child(' + td + ')').attr('id').replace('td_', '');
+
+            $('#boxes_' + id).focus();
             $(this).parent().find('.nxt_button').attr('title', td);
             if (td == '1')
                 $(this).hide();
             $(this).parent().parent().find('.nxt_button').show();
-            
+
         });
     });
 </script>
@@ -169,14 +169,14 @@
         </div>
 
 
-        <div class="portlet box blue-steel">
+        <div class="portlet box blue">
             <div class="portlet-title">
                 <div class="caption">
                     <!--i class="fa fa-cogs"--></i>Drop by
                 </div>
             </div>
             <div class="portlet-body">
-                <div class="row">
+                <div class="row" style=" text-wrap: break-word;padding:10px;">
                     <center>
 
                         <img style="max-width: 40%;"
@@ -198,11 +198,10 @@
                         </address>
 
 
-
                         <address>
                             <strong>Email</strong><br>
                             <a href="mailto:#">
-                                order@charlieschopsticks.com</a>
+                                charlieschopsticks@gmail.com</a>
                         </address>
                     </center>
 
@@ -483,68 +482,71 @@
     }
 ?></span>
                                                                 <br/>
-<span style="color: red; font-weight: bold;"  class="error_<?php echo $subm['MenuCategory']['id']; ?>"></span>
+                                                                <span style="color: red; font-weight: bold;"
+                                                                      class="error_<?php echo $subm['MenuCategory']['id']; ?>"></span>
 
-                        <div>
-                            <?php
-                                $k = 0;
-                                
-                                foreach ($subm['Menu'] as $k => $m) {
-                                    ?>
-                                    <div class="subin">
+                                                                <div>
+                                                                    <?php
+                                                                        $k = 0;
 
-                                        <?php if ($subm['MenuCategory']['is_multiple'] == '1') { ?>
-                                            <div class="col-xs-12 " style="padding-left:0px;">
-                                                <input type="checkbox" value=""
-                                                       name="extra"
-                                                       class="extra-<?php echo $subm['MenuCategory']['id']; ?> spanextra_<?php echo $m['id']; ?>"
-                                                       title="<?php echo $m['id'] . "_" . $m['menu_item'] . "_" . $m['price'] . "_" . $subm['MenuCategory']['title']; ?>"
-                                                       id="extra_<?php echo $m['id']; ?>"/>&nbsp;&nbsp;<?php if ($m['price']) echo $m['menu_item'] . "  (+ $" . number_format(str_replace('$', '', $m['price']), 2) . ")"; else {
-                                                    echo $m['menu_item'];
-                                                } ?>
-                                                
-                                                <b>
-                                                <a href="javascript:void(0);" class="btn btn-primary"><?php echo $alpha[$k];?></a>
-                                                    &nbsp;&nbsp;&nbsp;&nbsp;<a
-                                                        href="javascript:;"
-                                                        class="remspan btn btn-small btn-danger"
-                                                        id="remspan_<?php echo $m['id']; ?>"
-                                                        style="padding:0 8px;padding-bottom:3px;text-decoration: none; color: #fff;"
-                                                        onclick=""><b>-</b></a>
+                                                                        foreach ($subm['Menu'] as $k => $m) {
+                                                                            ?>
+                                                                            <div class="subin">
+
+                                                                                <?php if ($subm['MenuCategory']['is_multiple'] == '1') { ?>
+                                                                                    <div class="col-xs-12 "
+                                                                                         style="padding-left:0px;">
+                                                                                        <input type="checkbox" value=""
+                                                                                               name="extra"
+                                                                                               class="extra-<?php echo $subm['MenuCategory']['id']; ?> spanextra_<?php echo $m['id']; ?>"
+                                                                                               title="<?php echo $m['id'] . "_" . $m['menu_item'] . "_" . $m['price'] . "_" . $subm['MenuCategory']['title']; ?>"
+                                                                                               id="extra_<?php echo $m['id']; ?>"/>&nbsp;&nbsp;<?php if ($m['price']) echo $m['menu_item'] . "  (+ $" . number_format(str_replace('$', '', $m['price']), 2) . ")"; else {
+                                                                                            echo $m['menu_item'];
+                                                                                        } ?>
+
+                                                                                        <b>
+                                                                                            <a href="javascript:void(0);"
+                                                                                               class="btn btn-primary"><?php echo $alpha[$k]; ?></a>
+                                                                                            &nbsp;&nbsp;&nbsp;&nbsp;<a
+                                                                                                href="javascript:;"
+                                                                                                class="remspan btn btn-small btn-danger"
+                                                                                                id="remspan_<?php echo $m['id']; ?>"
+                                                                                                style="padding:0 8px;padding-bottom:3px;text-decoration: none; color: #fff;"
+                                                                                                onclick=""><b>-</b></a>
                                             <span
                                                 class="span_<?php echo $m['id']; ?> allspan"
                                                 id="sprice_<?php echo $m['price']; ?>">&nbsp;1&nbsp;</span>
-                                                    <a href="javascript:;"
-                                                       class="addspan btn btn-small btn-info"
-                                                       id="addspan_<?php echo $m['id']; ?>"
-                                                       onclick=""
-                                                       style="padding:0 8px;padding-bottom:3px;text-decoration: none; color: #fff;"><b>+</b></a></b>
-                                            </div>
-                                        <?php } else {
-                                            ?>
-                                            <div class="col-xs-12 "
-                                                 style="padding-left:0px;">
-                                                <input type="radio" value=""
-                                                       name="extra_<?php echo $subm['MenuCategory']['id'] . $ccd; ?>"
-                                                       class="extra-<?php echo $subm['MenuCategory']['id']; ?>"
-                                                       title="<?php echo $m['id'] . "_" . $m['menu_item'] . "_" . $m['price'] . "_" . $subm['MenuCategory']['title']; ?>"
-                                                       id="extra_<?php echo $m['id']; ?>"/>&nbsp;&nbsp;<?php if ($m['price']) echo $m['menu_item'] . "  (+ $" . number_format(str_replace('$', '', $m['price']), 2) . ")"; else {
-                                                    echo $m['menu_item'];
-                                                } ?>
-                                            </div>
-                                        <?php
-                                        } ?>
+                                                                                            <a href="javascript:;"
+                                                                                               class="addspan btn btn-small btn-info"
+                                                                                               id="addspan_<?php echo $m['id']; ?>"
+                                                                                               onclick=""
+                                                                                               style="padding:0 8px;padding-bottom:3px;text-decoration: none; color: #fff;"><b>+</b></a></b>
+                                                                                    </div>
+                                                                                <?php } else {
+                                                                                    ?>
+                                                                                    <div class="col-xs-12 "
+                                                                                         style="padding-left:0px;">
+                                                                                        <input type="radio" value=""
+                                                                                               name="extra_<?php echo $subm['MenuCategory']['id'] . $ccd; ?>"
+                                                                                               class="extra-<?php echo $subm['MenuCategory']['id']; ?>"
+                                                                                               title="<?php echo $m['id'] . "_" . $m['menu_item'] . "_" . $m['price'] . "_" . $subm['MenuCategory']['title']; ?>"
+                                                                                               id="extra_<?php echo $m['id']; ?>"/>&nbsp;&nbsp;<?php if ($m['price']) echo $m['menu_item'] . "  (+ $" . number_format(str_replace('$', '', $m['price']), 2) . ")"; else {
+                                                                                            echo $m['menu_item'];
+                                                                                        } ?>
+                                                                                    </div>
+                                                                                <?php
+                                                                                } ?>
 
 
-                                        <div class="clearfix"></div>
-                                    </div>
-                                <?php
+                                                                                <div class="clearfix"></div>
+                                                                            </div>
+                                                                        <?php
 
-                                }
+                                                                        }
 
-                            ?>
+                                                                    ?>
 
-                        </div>
+                                                                </div>
                                                             </div>
                                                             <?php
                                                             if ($ch % 4 == 0) {
@@ -738,7 +740,7 @@
                                                             <div class="modal-body" style="background:#D84A38;">
                                                                 <div class="col-sm-6"
                                                                      style="text-align: left;padding:0px;">
-                                                                    <h2 style="color:white;"><?php echo $me['menu_item'] . " : $ " . $pr; ?></h2>
+                                                                    <h2 style="color:white;"><?php echo $me['menu_item'] . ": $ " . $pr; ?></h2>
 
                                                                     <p><?php if ($me['description'] != 'undefined') echo $me['description']; ?></p>
                                                                 </div>
@@ -757,39 +759,74 @@
                                                                     }
                                                                 ?>
 
-                                                                <div class="subitems_<?php echo $me['id']; ?> optionals">
+                                                                <div
+                                                                    class="subitems_<?php echo $me['id']; ?> optionals">
                                                                     <!--<span class="topright"><a href="javascript:void(0)" onclick="$('#Modal<?php echo $me['id']; ?>').toggle();"><strong class="btn btn-danger">x</strong></a></span>-->
 
                                                                     <div class="clearfix space10"></div>
-                                                                    <div style="display:none;"><input type="checkbox" class="chk" value="" title="<?php echo $me['id'] . "_" . $me['menu_item'] . "-_" . $me['price'] . "_" . ""; ?>" checked="checked" style="display: none;"/>
+                                                                    <div style="display:none;"><input type="checkbox"
+                                                                                                      class="chk"
+                                                                                                      value=""
+                                                                                                      title="<?php echo $me['id'] . "_" . $me['menu_item'] . "-_" . $me['price'] . "_" . ""; ?>"
+                                                                                                      checked="checked"
+                                                                                                      style="display: none;"/>
                                                                     </div>
-                                                                    <div class="banner bannerz" style="overflow: hidden;">
-                                                                        <table width="<?php echo 100 * $menu_count; ?>%">
+                                                                    <div class="banner bannerz"
+                                                                         style="overflow: hidden;">
+                                                                        <table
+                                                                            width="<?php echo 100 * $menu_count; ?>%">
                                                                             <tr class="zxcx">
                                                                                 <?php
                                                                                     //var_dump($submenuscat);
                                                                                     $ch = 0;
                                                                                     foreach ($submenuscat as $key => $subm) {
                                                                                         $ch++; ?>
-                                                                                        <td width="<?php echo 100 / $menu_count; ?>%" id="td_<?php echo $subm['MenuCategory']['id']; ?>">
-                                                                                            <input type="hidden" id="extra_no_<?php echo $subm['MenuCategory']['id']; ?>" value="<?php echo $subm['MenuCategory']['itemno']; ?>"/>
-                                                                                            <input type="hidden" id="required_<?php echo $subm['MenuCategory']['id']; ?>" value="<?php echo $subm['MenuCategory']['is_required']; ?>"/>
-                                                                                            <input type="hidden" id="multiple_<?php echo $subm['MenuCategory']['id']; ?>" value="<?php echo $subm['MenuCategory']['is_multiple']; ?>"/>
-                                                                                            <input type="hidden" id="upto_<?php echo $subm['MenuCategory']['id']; ?>" value="<?php echo $subm['MenuCategory']['up_to']; ?>"/>
+                                                                                        <td width="<?php echo 100 / $menu_count; ?>%"
+                                                                                            id="td_<?php echo $subm['MenuCategory']['id']; ?>">
+                                                                                            <input type="hidden"
+                                                                                                   id="extra_no_<?php echo $subm['MenuCategory']['id']; ?>"
+                                                                                                   value="<?php echo $subm['MenuCategory']['itemno']; ?>"/>
+                                                                                            <input type="hidden"
+                                                                                                   id="required_<?php echo $subm['MenuCategory']['id']; ?>"
+                                                                                                   value="<?php echo $subm['MenuCategory']['is_required']; ?>"/>
+                                                                                            <input type="hidden"
+                                                                                                   id="multiple_<?php echo $subm['MenuCategory']['id']; ?>"
+                                                                                                   value="<?php echo $subm['MenuCategory']['is_multiple']; ?>"/>
+                                                                                            <input type="hidden"
+                                                                                                   id="upto_<?php echo $subm['MenuCategory']['id']; ?>"
+                                                                                                   value="<?php echo $subm['MenuCategory']['up_to']; ?>"/>
 
-                                                                                            <div class="infolist col-xs-12" style="">
-                                                                                                <input type="text" value="" class="inp form-control" id="boxes_<?php echo $subm['MenuCategory']['id']; ?>" maxlength="<?php echo ($subm['MenuCategory']['itemno'])?$subm['MenuCategory']['itemno']:'1';?>" style="text-transform: uppercase; width:250px" /><br />
-                                                                                                
-                                                                                                <div style="display: none;">
-                                                                                                    <input type="checkbox" class="chk" checked="checked" style="display: none;" id="<?php echo $subm['MenuCategory']['id']; ?>"
-                                                                                                        title="___" value="<?php echo ($key != 0) ? "| " . $subm['MenuCategory']['title'] : $subm['MenuCategory']['title']; ?>"/>
+                                                                                            <div
+                                                                                                class="infolist col-xs-12"
+                                                                                                style="">
+                                                                                                <h5>Enter the Letter of
+                                                                                                    the Item you Wish to
+                                                                                                    Order.</h5>
+                                                                                                <input type="text"
+                                                                                                       value=""
+                                                                                                       class="inp"
+                                                                                                       id="boxes_<?php echo $subm['MenuCategory']['id']; ?>"
+                                                                                                       maxlength="<?php echo ($subm['MenuCategory']['itemno']) ? $subm['MenuCategory']['itemno'] : '1'; ?>"
+                                                                                                       style="text-transform: uppercase; width:200px;PADDING:20PX;font-size: 18px;FONT-WEIGHT:BOLD;border:1px solid #dadada;"/><br/>
+
+                                                                                                <div
+                                                                                                    style="display: none;">
+                                                                                                    <input
+                                                                                                        type="checkbox"
+                                                                                                        class="chk"
+                                                                                                        checked="checked"
+                                                                                                        style="display: none;"
+                                                                                                        id="<?php echo $subm['MenuCategory']['id']; ?>"
+                                                                                                        title="___"
+                                                                                                        value="<?php echo ($key != 0) ? "| " . $subm['MenuCategory']['title'] : $subm['MenuCategory']['title']; ?>"/>
                                                                                                 </div>
                                                                                                 <a href="javascript:void(0);" <?php /*onclick="$($(this).parent().children('div:eq(0)')).toggle('slow'); $('.extra-<?php echo $subm['MenuCategory']['id'];?>').each(function(){$(this).removeAttr('checked');}) "*/
                                                                                                 ?> ><strong><?php echo $subm['MenuCategory']['title']; ?></strong></a> <?php if ($subm['MenuCategory']['description'] && $subm['MenuCategory']['description'] != 'undefined') { ?>:<?php } ?>
                                                                                                 <span><em> <?php echo $subm['MenuCategory']['description']; ?></em></span>
 
                                                                                                 <br/>
-                                                                                                <span style="float: left;">
+                                                                                                <span
+                                                                                                    style="float: left;">
                                                                                                 <?php
                                                                                                     if ($subm['MenuCategory']['up_to'] == 1)
                                                                                                         $upto = "up to ";
@@ -799,66 +836,130 @@
                                                                                                         if ($subm['MenuCategory']['itemno'] > 0 && $subm['MenuCategory']['is_multiple'] == '1')
                                                                                                             echo "Select " . $upto . $subm['MenuCategory']['itemno'] . " Items ";
                                                                                                         echo "(Optional)";
-                                                                                                
+
                                                                                                     } elseif ($subm['MenuCategory']['is_required'] == '1') {
                                                                                                         if ($subm['MenuCategory']['itemno'] > 0 && $subm['MenuCategory']['is_multiple'] == '1')
                                                                                                             echo "Select " . $upto . $subm['MenuCategory']['itemno'] . " Items ";
-                                                                                                
+
                                                                                                         echo "(Mandatory)";
                                                                                                     }
                                                                                                 ?></span>
-                                                                                                <div class="clearfix"></div>
-                                                                                                <span style="color: red; font-weight: bold;" class="error_<?php echo $subm['MenuCategory']['id']; ?>"></span>
+
+                                                                                                <div
+                                                                                                    class="clearfix"></div>
+                                                                                                <span
+                                                                                                    style="color: red; font-weight: bold;"
+                                                                                                    class="error_<?php echo $subm['MenuCategory']['id']; ?>"></span>
 
                                                                                                 <div>
-                                                                                                <?php
+                                                                                                    <?php
                                                                                                         $k = 0;
                                                                                                         $char = "";
-                                                                                                        $alpha = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
+                                                                                                        $alpha = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
                                                                                                         foreach ($subm['Menu'] as $k => $m) {
-                                                                                                                $char.=$alpha[$k].",";
+                                                                                                            $char .= $alpha[$k] . ",";
 //if($k%3 == 0 ){                                                                                               
                                                                                                             ?>
-                                                                                                            <div class="subin btn default blue-stripe btnxx" style="padding: 0px;">
+                                                                                                            <div
+                                                                                                                class="subin btn default blue-stripe btnxx"
+                                                                                                                style="padding: 0px;">
                                                                                                                 <?php //}
                                                                                                                 ?>
                                                                                                                 <?php if ($subm['MenuCategory']['is_multiple'] == '1') { ?>
-                                                                                                                    <div class="col-xs-12 " style="padding:0px;">
-                                                                                                                       
-                                                                                                                       <a href="javascript:void(0);" class="buttons" id="buttons_<?php echo $m['id'];?>" title="<?php echo $alpha[$k];?>" style="text-decoration: none; display:inline-block; padding-right: 15px;">
-                                                                                                                       <button class="btn btn-primary"><?php echo $alpha[$k];?></button>
-                                                                                                                        <input type="checkbox" value="" name="extra" style="display:none;" class="extra-<?php echo $subm['MenuCategory']['id']; ?> spanextra_<?php echo $m['id']; ?>"
-                                                                                                                            title="<?php echo $m['id'] . "_" . $m['menu_item']."(".$alpha[$k].")_" . $m['price'] . "_" . $subm['MenuCategory']['title']; ?>" id="extra_<?php echo $m['id']; ?>"/>
-                                                                                                                            &nbsp;&nbsp;<?php if ($m['price']) echo $m['menu_item'] . "  (+ $" . number_format(str_replace('$', '', $m['price']), 2) . ")"; else { echo $m['menu_item'];} ?>
-                                                                                                                  
-                                                                                                                        <b style="display:none;">
-                                                                                                                            <a href="javascript:;" class="remspan" id="remspan_<?php echo $m['id']; ?>" style="text-decoration: none; color: #000;" onclick=""><b>&nbsp;&nbsp;-&nbsp;&nbsp;</b></a>
-                                                                                                            				<span class="span_<?php echo $m['id']; ?> allspan" id="sprice_<?php echo $m['price']; ?>">&nbsp;&nbsp;1&nbsp;&nbsp;</span>
-                                                                                                                            <a href="javascript:;" class="addspan" id="addspan_<?php echo $m['id']; ?>" onclick="" style="text-decoration: none; color: #000;"><b>&nbsp;&nbsp;+&nbsp;&nbsp;</b></a>
-                                                                                                                        </b></a>
+                                                                                                                    <div
+                                                                                                                        class="col-xs-12 "
+                                                                                                                        style="padding:0px;">
+
+                                                                                                                        <a href="javascript:void(0);"
+                                                                                                                           class="buttons"
+                                                                                                                           id="buttons_<?php echo $m['id']; ?>"
+                                                                                                                           title="<?php echo $alpha[$k]; ?>"
+                                                                                                                           style="text-decoration: none; display:inline-block; padding-right: 15px;">
+                                                                                                                            <button
+                                                                                                                                class="btn btn-primary"><?php echo $alpha[$k]; ?></button>
+                                                                                                                            <input
+                                                                                                                                type="checkbox"
+                                                                                                                                value=""
+                                                                                                                                name="extra"
+                                                                                                                                style="display:none;"
+                                                                                                                                class="extra-<?php echo $subm['MenuCategory']['id']; ?> spanextra_<?php echo $m['id']; ?>"
+                                                                                                                                title="<?php echo $m['id'] . "_" . $m['menu_item'] . "(" . $alpha[$k] . ")_" . $m['price'] . "_" . $subm['MenuCategory']['title']; ?>"
+                                                                                                                                id="extra_<?php echo $m['id']; ?>"/>
+                                                                                                                            &nbsp;&nbsp;<?php if ($m['price']) echo $m['menu_item'] . "  (+ $" . number_format(str_replace('$', '', $m['price']), 2) . ")"; else {
+                                                                                                                                echo $m['menu_item'];
+                                                                                                                            } ?>
+
+                                                                                                                            <b style="display:none;">
+                                                                                                                                <a href="javascript:;"
+                                                                                                                                   class="remspan"
+                                                                                                                                   id="remspan_<?php echo $m['id']; ?>"
+                                                                                                                                   style="text-decoration: none; color: #000;"
+                                                                                                                                   onclick=""><b>
+                                                                                                                                        &nbsp;&nbsp;-&nbsp;&nbsp;</b></a>
+                                                                                                                                <span
+                                                                                                                                    class="span_<?php echo $m['id']; ?> allspan"
+                                                                                                                                    id="sprice_<?php echo $m['price']; ?>">&nbsp;&nbsp;1&nbsp;&nbsp;</span>
+                                                                                                                                <a href="javascript:;"
+                                                                                                                                   class="addspan"
+                                                                                                                                   id="addspan_<?php echo $m['id']; ?>"
+                                                                                                                                   onclick=""
+                                                                                                                                   style="text-decoration: none; color: #000;"><b>
+                                                                                                                                        &nbsp;&nbsp;+&nbsp;&nbsp;</b></a>
+                                                                                                                            </b></a>
                                                                                                                     </div>
                                                                                                                 <?php } else {
                                                                                                                     ?>
-                                                                                                                    <div class="col-xs-12 " style="padding:0px;">
-                                                                                                                        <a href="javascript:void(0);" class="buttons " id="buttons_<?php echo $m['id'];?>" title="<?php echo $alpha[$k];?>" style="text-decoration: none;display:inline-block; padding-right: 15px;">
-                                                                                                                        <button class="btn btn-primary"><?php echo $alpha[$k];?></button>
-                                                                                                                        <input type="radio" style="display: none;" value="" name="extra_<?php echo $subm['MenuCategory']['id']; ?>" class="extra-<?php echo $subm['MenuCategory']['id']; ?>" title="<?php echo $m['id'] . "_" . $m['menu_item'] ."(".$alpha[$k].")_". $m['price'] . "_" . $subm['MenuCategory']['title']; ?>" id="extra_<?php echo $m['id']; ?>"/>
-                                                                                                                        &nbsp;&nbsp;<?php if ($m['price']) echo $m['menu_item'] . "  (+ $" . number_format(str_replace('$', '', $m['price']), 2) . ")"; else { echo $m['menu_item'];} ?>
-                                                                                                                        <b style="display:none;">
-                                                                                                                            <a href="javascript:;" class="remspan" id="remspan_<?php echo $m['id']; ?>" style="text-decoration: none; color: #000;" onclick=""><b>&nbsp;&nbsp;-&nbsp;&nbsp;</b></a>
-                                                                                                            				<span class="span_<?php echo $m['id']; ?> allspan" id="sprice_<?php echo $m['price']; ?>">&nbsp;&nbsp;1&nbsp;&nbsp;</span>
-                                                                                                                            <a href="javascript:;" class="addspan" id="addspan_<?php echo $m['id']; ?>" onclick="" style="text-decoration: none; color: #000;"><b>&nbsp;&nbsp;+&nbsp;&nbsp;</b></a>
-                                                                                                                        </b>
+                                                                                                                    <div
+                                                                                                                        class="col-xs-12 "
+                                                                                                                        style="padding:0px;">
+                                                                                                                        <a href="javascript:void(0);"
+                                                                                                                           class="buttons "
+                                                                                                                           id="buttons_<?php echo $m['id']; ?>"
+                                                                                                                           title="<?php echo $alpha[$k]; ?>"
+                                                                                                                           style="text-decoration: none;display:inline-block; padding-right: 15px;">
+                                                                                                                            <button
+                                                                                                                                class="btn btn-primary"><?php echo $alpha[$k]; ?></button>
+                                                                                                                            <input
+                                                                                                                                type="radio"
+                                                                                                                                style="display: none;"
+                                                                                                                                value=""
+                                                                                                                                name="extra_<?php echo $subm['MenuCategory']['id']; ?>"
+                                                                                                                                class="extra-<?php echo $subm['MenuCategory']['id']; ?>"
+                                                                                                                                title="<?php echo $m['id'] . "_" . $m['menu_item'] . "(" . $alpha[$k] . ")_" . $m['price'] . "_" . $subm['MenuCategory']['title']; ?>"
+                                                                                                                                id="extra_<?php echo $m['id']; ?>"/>
+                                                                                                                            &nbsp;&nbsp;<?php if ($m['price']) echo $m['menu_item'] . "  (+ $" . number_format(str_replace('$', '', $m['price']), 2) . ")"; else {
+                                                                                                                                echo $m['menu_item'];
+                                                                                                                            } ?>
+                                                                                                                            <b style="display:none;">
+                                                                                                                                <a href="javascript:;"
+                                                                                                                                   class="remspan"
+                                                                                                                                   id="remspan_<?php echo $m['id']; ?>"
+                                                                                                                                   style="text-decoration: none; color: #000;"
+                                                                                                                                   onclick=""><b>
+                                                                                                                                        &nbsp;&nbsp;-&nbsp;&nbsp;</b></a>
+                                                                                                                                <span
+                                                                                                                                    class="span_<?php echo $m['id']; ?> allspan"
+                                                                                                                                    id="sprice_<?php echo $m['price']; ?>">&nbsp;&nbsp;1&nbsp;&nbsp;</span>
+                                                                                                                                <a href="javascript:;"
+                                                                                                                                   class="addspan"
+                                                                                                                                   id="addspan_<?php echo $m['id']; ?>"
+                                                                                                                                   onclick=""
+                                                                                                                                   style="text-decoration: none; color: #000;"><b>
+                                                                                                                                        &nbsp;&nbsp;+&nbsp;&nbsp;</b></a>
+                                                                                                                            </b>
                                                                                                                         </a>
                                                                                                                     </div>
                                                                                                                 <?php
                                                                                                                 } ?>
-                                                                                                                <div class="clearfix"></div>
+                                                                                                                <div
+                                                                                                                    class="clearfix"></div>
                                                                                                             </div>
                                                                                                         <?php
                                                                                                         }
                                                                                                     ?>
-                                                                                                        <input type="hidden" class="chars_<?php echo $subm['MenuCategory']['id'];?>" value="<?php echo $char;?>"/>
+                                                                                                    <input type="hidden"
+                                                                                                           class="chars_<?php echo $subm['MenuCategory']['id']; ?>"
+                                                                                                           value="<?php echo $char; ?>"/>
                                                                                                 </div>
                                                                                             </div>
                                                                                         </td>
@@ -873,10 +974,21 @@
                                                                     <div class="col-xs-12" style="line-height:45px;">
 
 
-                                                                        <a href="javascript:void(0);" class="btn btn-primary add_menu_profile add_end" id="profilemenu<?php echo $me['id']; ?>" style="float: right;margin-left: 10px; <?php if($menu_count > 1)echo "display:none";?>" >End</a>
+                                                                        <a href="javascript:void(0);"
+                                                                           class="btn btn-primary add_menu_profile add_end"
+                                                                           id="profilemenu<?php echo $me['id']; ?>"
+                                                                           style="float: right;margin-left: 10px; <?php if ($menu_count > 1) echo "display:none"; ?>">SUBMIT</a>
 
-                                                                        <?php if (count($submenuscat) > 0) { ?>&nbsp;<a href="javascript:void(0);" class="btn btn-warning  clearall" id="clear_<?php echo $me['id']; ?>" style="float: right;margin-left:10px;">Clear</a>&nbsp;<?php } ?>
-                                                                        &nbsp; <button type="button" class="btn btn-danger resetslider" data-dismiss="modal" style="opacity: 1; text-shadow:none;margin-left: 10px;float: right;margin-left: 10px;">
+                                                                        <?php if (count($submenuscat) > 0) { ?>&nbsp;<a
+                                                                            href="javascript:void(0);"
+                                                                            class="btn btn-warning  clearall"
+                                                                            id="clear_<?php echo $me['id']; ?>"
+                                                                            style="float: right;margin-left:10px;">Clear</a>&nbsp;<?php } ?>
+                                                                        &nbsp;
+                                                                        <button type="button"
+                                                                                class="btn btn-danger resetslider"
+                                                                                data-dismiss="modal"
+                                                                                style="opacity: 1; text-shadow:none;margin-left: 10px;float: right;margin-left: 10px;">
                                                                             Close
                                                                         </button>
                                                                         &nbsp;
@@ -885,8 +997,14 @@
 
                                                                         <?php if ($menu_count > 1) { ?>
 
-                                                                            <a style="float: right;" href="javascript:void(0);" class="nxt_button btn btn-primary" title="1">Next</a>
-                                                                            <a style="float: right;margin-right:10px;" href="javascript:void(0);" class="prv_button btn btn-primary" title="1">Previous</a>
+                                                                            <a style="float: right;"
+                                                                               href="javascript:void(0);"
+                                                                               class="nxt_button btn btn-primary"
+                                                                               title="1">Next</a>
+                                                                            <a style="float: right;margin-right:10px;"
+                                                                               href="javascript:void(0);"
+                                                                               class="prv_button btn btn-primary"
+                                                                               title="1">Previous</a>
                                                                         <?php } ?>
                                                                         <div class="clearfix"></div>
                                                                     </div>
@@ -984,10 +1102,11 @@
                                                 <a id="dec<?php echo $list_ids[$k]; ?>"
                                                    class="decrease small btn btn-danger" href="javascript:void(0);"
                                                    style="padding: 6px;height: 20px;line-height: 6px">
-                                                    <strong>-</strong></a><span class="count"><?php echo $arr_qty[$k]; ?></span><a id="inc<?php echo $list_ids[$k]; ?>"
-                                                                                                                                   class="increase btn btn-success small " href="javascript:void(0);"
-                                                                                                                                   style="padding: 6px;height: 20px;line-height: 6px"><strong>+</strong></a>
-
+                                                    <strong>-</strong></a><span
+                                                    class="count"><?php echo $arr_qty[$k]; ?></span><a
+                                                    id="inc<?php echo $list_ids[$k]; ?>"
+                                                    class="increase btn btn-blue small " href="javascript:void(0);"
+                                                    style="padding: 6px;height: 20px;line-height: 6px"><strong>+</strong></a>
 
 
                                                 <input type="hidden" class="count" name="qtys[]"
@@ -1082,13 +1201,16 @@
 
                         </div>
                         <div class="submits">
-                            <input <?php if ($closed){ ?>disabled="disabled"<?php } ?> type="submit"
-                                   value="Submit Order" class="btn btn-md blue hidden-print margin-bottom-5"/>
 
-                            <a class="btn btn-md grey hidden-print margin-bottom-5"
+
+                            <input <?php if ($closed){ ?>disabled="disabled"<?php } ?> type="submit"
+                                   value="Order" class="btn btn-lg red  hidden-print margin-bottom-5"/>
+
+                            <a style="" class="btn btn-sm grey hidden-print margin-bottom-5"
                                href="">
-                                Restart <i class="fa fa-refresh"></i>
+                                Restart
                             </a>
+
 
                         </div>
                         <div class="clearfix"></div>
@@ -1105,7 +1227,7 @@
 
 
         <!-- BEGIN BORDERED TABLE PORTLET-->
-        <div class="portlet box yellow">
+        <div class="portlet box blue">
             <div class="portlet-title">
                 <div class="caption">
                     Share with love
@@ -1118,7 +1240,6 @@
                 <span class='st_whatsapp_large' displayText='WhatsApp'></span>
                 <span class='st_facebook_large' displayText='Facebook'></span>
                 <span class='st_twitter_large' displayText='Tweet'></span>
-                <span class='st_print_large' displayText='Print'></span>
                 <span class='st_linkedin_large' displayText='LinkedIn'></span>
                 <span class='st_blogger_large' displayText='Blogger'></span>
                 <span class='st_delicious_large' displayText='Delicious'></span>

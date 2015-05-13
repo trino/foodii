@@ -709,7 +709,7 @@ if(path.replace('profile','')!=path){
             '<span class="amount">'+price.toFixed(2)+'</span></div>'+
             '<div class="right">'+
             '<strong>$<span class="total">'+(pre_cnt*price).toFixed(2)+'</span>'+
-            '</strong> &nbsp;<a id="inc'+ids+'" class="increase btn btn-success small " href="javascript:void(0);">'+
+            '</strong> &nbsp;<a id="inc'+ids+'" class="increase btn btn-blue small " href="javascript:void(0);">'+
             '<strong>+</strong></a></div><div class="clearfix"></div>');
         //$('#list'+menu_id).load(base_url+'restaurants/orderlist/'+menu_id);
         //var price = $('.profileprice'+menu_id).text();

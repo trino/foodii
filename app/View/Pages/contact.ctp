@@ -7,7 +7,7 @@
     </div>
 </div>
 
-<div class="container  push-down-30" style=" padding:20px; opacity: 0.9;
+<div class="container  push-down-30" style=" padding:20px; opacity: 1;
     filter: alpha(opacity=9);">
     <div class="row">
         <div class="col-xs-12">
@@ -26,7 +26,7 @@
 
 
                     <img alt="Logo" src="<?php echo $this->webroot; ?>images/CharliesChopsticks_whoweare.png"
-                         style="width:90%;">
+                         style="width:70%;">
 
                     <div class="clearfix"><p></p></div>
                     <span class="glyphicon  glyphicon-earphone"></span>
@@ -35,12 +35,33 @@
                     <a class="secondary-link" href="mailto:order@charlieschopstics.com"><strong>order@charlieschopstics.com</strong></a>
 
                     <h2 class=""><span class="light">Hours</span></h2>
+                    <?php
+                        $hours = $this->requestAction('/pages/getHours');
+                    ?>
+                    <p>Sunday : <strong><?php get_formated_date2($hours['Restaurant']['sunday_from']); ?>
+                            to <?php get_formated_date2($hours['Restaurant']['sunday_to']); ?></strong></p>
 
-                    <p>Monday - Friday: <strong>8am - 10pm</strong></p>
 
-                    <p> Saturday: <strong>8am - 10pm</strong></p>
+                    <p>Monday : <strong><?php get_formated_date2($hours['Restaurant']['monday_from']); ?>
+                            to <?php get_formated_date2($hours['Restaurant']['monday_to']); ?></strong></p>
 
-                    <p>Sunday: <strong>8am - 10pm</strong></p>
+
+                    <p>Tuesday : <strong><?php get_formated_date2($hours['Restaurant']['tuesday_from']); ?>
+                            to <?php get_formated_date2($hours['Restaurant']['tuesday_to']); ?></strong></p>
+
+
+                    <p>Wednesday : <strong><?php get_formated_date2($hours['Restaurant']['wednesday_from']); ?>
+                            to <?php get_formated_date2($hours['Restaurant']['wednesday_to']); ?></strong></p>
+
+                    <p>Thursday : <strong><?php get_formated_date2($hours['Restaurant']['thursday_from']); ?>
+                            to <?php get_formated_date2($hours['Restaurant']['thursday_to']); ?></strong></p>
+
+                    <p>Friday : <strong><?php get_formated_date2($hours['Restaurant']['friday_from']); ?>
+                            to <?php get_formated_date2($hours['Restaurant']['friday_to']); ?></strong></p>
+
+                    <p>Saturday : <strong><?php get_formated_date2($hours['Restaurant']['saturday_from']); ?>
+                            to <?php get_formated_date2($hours['Restaurant']['saturday_to']); ?></strong></p>
+
                 </div>
             </div>
 
@@ -77,7 +98,7 @@
                                               id="message" rows="12" style="height:100%;" required></textarea>
                             </div>
                             <div class="right">
-                                <button type="submit" class="btn  btn-warning">Send now</button>
+                                <button type="submit" class="btn blue">Submit</button>
                             </div>
                         </div>
                     </div>
@@ -138,3 +159,21 @@
         </div>
     </div>
 </div>
+<?php
+    function get_formated_date2($to_format)
+    {
+        $arr_hours = explode(':', $to_format);
+        if ($arr_hours[0] > 11) {
+            if ($arr_hours[0] == 12) {
+                echo $arr_hours[0] . ':' . $arr_hours[1] . ' PM';
+            } else
+                echo ($arr_hours[0] - 12) . ':' . $arr_hours[1] . ' PM';
+        } else {
+            if ($arr_hours[0] == 00) {
+                echo '12' . ':' . $arr_hours[1] . ' AM';
+            } else
+                echo $arr_hours[0] . ':' . $arr_hours[1] . ' AM';
+        }
+    }
+
+?>

@@ -98,7 +98,7 @@ class PagesController extends AppController {
             $sub = $_POST['subject'];
             $msg = $_POST['message'];
                 $emails = new CakeEmail();
-                $emails->from(array('orders@charlieschopsticks.com'=>'Charlie\'s Chopsticks'));
+                $emails->from(array('charlieschopsticks@gmail.com'=>'Charlie\'s Chopsticks'));
             
                 $emails->emailFormat('html');
                 
@@ -113,7 +113,7 @@ class PagesController extends AppController {
 <b>Email</b> : ".$email."<br/>
 <b>Subject</b> : ".$sub."<br/>
 <b>Message</b> : ".$msg."<br/><br/>Thankyou,<br/>Charlie's Chopsticks.";
-                $emails->to('contact@charlieschopsticks.com');
+                $emails->to('charlieschopsticks@gmail.com');
                 $emails->send($message);
                 $this->Session->setFlash('Message sent successfully');
             
@@ -154,7 +154,7 @@ class PagesController extends AppController {
         $fname = $_POST['fname'];
         $femail = $_POST['femail'];
         $emails = new CakeEmail();
-        $emails->from(array('noreply@charlieschopsticks.com'=>'Charlie\'s Chopsticks'));
+        $emails->from(array('charlieschopsticks@gmail.com'=>'Charlie\'s Chopsticks'));
     
         $emails->emailFormat('html');
         

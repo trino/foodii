@@ -13,7 +13,7 @@
 </div>
 
 
-<div class="container" style="padding: 20px 30px;  opacity: 0.9;
+<div class="container" style="padding: 20px 30px;  opacity: 1;
     filter: alpha(opacity=9);">
 
     <div class="">
@@ -39,7 +39,7 @@
                 never had before is our goal at the end of the day. Everything from our friendly staff to our
                 newly-designed store fronts are all meant to brighten the Charlie's label.
                 We're always interested in growing our team. If you want to be a part of Charlie's, email us at
-                <a href="mailto:contact@charlieschopsticks.com">contact@charlieschopsticks.com</a>. Franchising
+                <a href="mailto:charlieschopsticks@gmail.com">charlieschopsticks@gmail.com</a>. Franchising
                 is available!</p>
         </div>
 

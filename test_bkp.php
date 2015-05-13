@@ -120,7 +120,7 @@
                         <address>
                             <strong>Email</strong><br>
                             <a href="mailto:#">
-                                order@charlieschopsticks.com</a>
+                                charlieschopsticks@gmail.com</a>
                         </address>
 
                   </div>

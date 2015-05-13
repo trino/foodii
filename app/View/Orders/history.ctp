@@ -19,7 +19,7 @@
 
 <div class="container">
   <!-- Big banner -->
-  <div class="row">
+  <div class="row" style="padding-top: 15px;">
     <div class="col-xs-12">
       <div class="push-down-30">
         <div class="banners--big">

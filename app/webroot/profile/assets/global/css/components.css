@@ -1,5 +1,5 @@
 /*********************************
- METRONIC SQUARE STYLE COMPONENTS 
+ METRONIC SQUARE STYLE COMPONENTS
 *********************************/
 /***
 Rounded corners reset
@@ -27,6 +27,9 @@ li {
   border-radius: 0 !important;
 }
 
+
+
+
 /* except below bootstrap elements */
 .img-circle {
   border-radius: 50% !important;
@@ -50,8 +53,8 @@ body {
 }
 
 /*
- Internet Explorer 10 doesn't differentiate device width from viewport width, and thus doesn't 
- properly apply the media queries in Bootstrap's CSS. To address this, 
+ Internet Explorer 10 doesn't differentiate device width from viewport width, and thus doesn't
+ properly apply the media queries in Bootstrap's CSS. To address this,
  you can optionally include the following CSS and JavaScript to work around this problem until Microsoft issues a fix.
 */
 @-webkit-viewport {
@@ -70,8 +73,8 @@ body {
   width: device-width;
 }
 /*
- Internet Explorer 10 doesn't differentiate device width from viewport width, 
- and thus doesn't properly apply the media queries in Bootstrap's CSS. To address this, following CSS code applied 
+ Internet Explorer 10 doesn't differentiate device width from viewport width,
+ and thus doesn't properly apply the media queries in Bootstrap's CSS. To address this, following CSS code applied
 */
 @-ms-viewport {
   width: auto !important;
@@ -91,7 +94,6 @@ body {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: #aaaaaa;
 }
 
 ::-webkit-scrollbar-track {
@@ -110,16 +112,31 @@ body {
 General typography
 ***/
 /* Headings */
+
+
+
+@font-face
+{
+    font-family: mainfont;
+    src: url(../../../../CubeComp-Expan.ttf);
+}
+
+
+
+
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  font-family: "Open Sans", sans-serif;
-  font-weight: 300;
+    font-family: mainfont!important;
+
 }
 
+.caption {
+    font-family: mainfont!important;
+}
 h1 {
   font-size: 33px;
 }
@@ -171,10 +188,9 @@ a {
   color: #5b9bd1;
 }
 a:hover {
-  color: #3175af;
 }
 a:focus, a:hover, a:active {
-  outline: 0;
+
 }
 
 /* Horizontal break */
@@ -10586,7 +10602,7 @@ Yellow Default
 }
 
 .portlet.box.yellow {
-  border: 1px solid #ffcc7b;
+
   border-top: 0;
 }
 .portlet.box.yellow > .portlet-title {

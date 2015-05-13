@@ -1134,7 +1134,6 @@
                 <span class='st_whatsapp_large' displayText='WhatsApp'></span>
                 <span class='st_facebook_large' displayText='Facebook'></span>
                 <span class='st_twitter_large' displayText='Tweet'></span>
-                <span class='st_print_large' displayText='Print'></span>
                 <span class='st_linkedin_large' displayText='LinkedIn'></span>
                 <span class='st_blogger_large' displayText='Blogger'></span>
                 <span class='st_delicious_large' displayText='Delicious'></span>

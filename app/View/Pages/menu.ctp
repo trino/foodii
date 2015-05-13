@@ -13,7 +13,7 @@
 </div>
 
 
-<div class="container" style="  opacity: 0.9;
+<div class="container" style="  opacity: 1;
     filter: alpha(opacity=9);">
     <div class="push-down-35"></div>
 

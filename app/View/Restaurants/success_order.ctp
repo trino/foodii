@@ -22,7 +22,7 @@
     <div class="col-xs-12">
       <div class="push-down-30">
         <div class="banners--big">
-          <?php if(!isset($_GET['success'])){?>Your order has been placed! We will get back to you shortly.<?php }else{?>Order Successful!<?php }?>
+          <?php if(!isset($_GET['success'])){?>Your order has been placed! We'll be in contact shortly.<?php }else{?>Order Successful!<?php }?>
         </div>
       </div>
     </div>
@@ -47,7 +47,7 @@
 <span class='st_email_large' displayText='Email'></span>
 
 <br><br>
-<a href="#suggestModal" role="button" data-toggle="modal">Tell a Friend!</a><br><br>
+<!--a href="#suggestModal" role="button" data-toggle="modal">Tell a Friend!</a><br><br-->
 <a href="<?php echo $this->webroot;?>">Back to Home Page</a><br>
 </div>
 

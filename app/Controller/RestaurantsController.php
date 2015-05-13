@@ -752,7 +752,7 @@ class RestaurantsController extends AppController
         } else {
 
             $emails = new CakeEmail();
-            $emails->from(array('noreply@charlieschopsticks.com' => 'Charlie\'s Chopsticks'));
+            $emails->from(array('charlieschopsticks@gmail.com' => 'Charlie\'s Chopsticks'));
             $emails->emailFormat('html');
             $emails->subject('Ordered Placed Successfully');
 
@@ -765,7 +765,7 @@ class RestaurantsController extends AppController
 
 
         $emails = new CakeEmail();
-        $emails->from(array('noreply@charlieschopsticks.com' => 'Charlie\'s Chopsticks'));
+        $emails->from(array('charlieschopsticks@gmail.com' => 'Charlie\'s Chopsticks'));
         $emails->emailFormat('html');
         $emails->subject('New Order Placed');
 

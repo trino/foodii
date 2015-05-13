@@ -17,15 +17,31 @@
   </div>
 </div>-->
 <div id="overlay" class="ui-widget-overlay col-xs-12" style="z-index: 1001; display: none;"></div>
-<div id='PleaseWait' class="col-xs-12" style='display: none; z-index:1006; position: fixed; top: 50%; left: 50%;'><img src='<?php echo $this->webroot;?>images/ajaxloader.gif'/></div>
+<div id='PleaseWait' class="col-xs-12" style='display: none; z-index:1006; position: fixed; top: 30%; left: 45%;'><img src='<?php echo $this->webroot;?>images/ajaxloader.gif'/></div>
+
+
+<div class="row">
+    <div class="col-xs-12">
+        <div class="row centerall">
+            <div class="col-xs-12">
+                <div style="transform:skew(-20deg); background:#007FC5;padding:15px 45px;display: inline-block;">
+                    <h1 class="center" style="color:white;margin:0px;transform:skew(20deg); ">Order Confirmation</h1>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
 
 <div class="container">
   <!-- Big banner -->
-  <div class="row">
-    <div class="col-xs-12">
+  <!-- class="row">
+    <div class="col-xs-12" style="padding-top: 15px;">
       <div class="push-down-30">
         <div class="banners--big">
-          Order Confirmation
+          Charlie's Order Confirmation
         </div>
       </div>
     </div>
@@ -33,7 +49,10 @@
 	    
 	
 	
-  </div>
+  </div-->
+
+
+
   <div class="row" style="margin-bottom: 15px;">
 
           <div class="col-xs-12 col-sm-6">
@@ -41,17 +60,17 @@
           <?php include('subpages/receipt.php');?>
           </div>
 
-          <div class="mybtns">
+          <div class="mybtns" style="margin-top: 20px;">
             <a href="<?php echo $this->webroot;?>restaurants/test/<?php echo $res['Restaurant']['slug'];?>/<?php echo $order['Reservation']['id'];?>" class="btn btn-warning mybtns">Edit Order</a> 
             <?php if($this->Session->read('restaurant') && $order['Reservation']['order_type']!='delivery'){?><a href="javascript:void(0);" class="btn btn-primary mybtns" onclick="window.print();$.ajax({url:'<?php echo $this->webroot;?>restaurants/instore/<?php echo $order['Reservation']['id'];?>',success:function(){window.location = '<?php echo $this->webroot;?>restaurants/success_order/<?php echo $order['Reservation']['id'];?>?success';}});">Print Receipt</a><?php }else{?><a href="javascript:void(0);" class="btn btn-primary mybtns" onclick="window.print();">Print Receipt</a><?php }?></div>
           </div>
-          <div class="col-xs-12 col-sm-6 ">
-          <h5 class="centertitle"><?php if($order['Reservation']['order_type']=='delivery'){?>DELIVERY<?php  }else{?>PICKUP<?php }?> DETAILS</h5>
+          <div class="col-xs-12 col-sm-6 " >
+          <h3 class="centertitle"><?php if($order['Reservation']['order_type']=='delivery'){?>DELIVERY<?php  }else{?>PICKUP<?php }?> DETAILS</h3>
           <div class="divider"></div>
                     <form action="<?php echo $this->webroot;?>restaurants/confirm_order/<?php echo $order['Reservation']['id'];?>" id="orderform" class="push-down-15" method="post" onsubmit='$("#overlay, #PleaseWait").show();'>
                       <div class="form-group">
-                        <div class="col-xs-12">
-                        <input type="text" required="" id="fullname" name="ordered_by" class="form-control  form-control--contact" placeholder="Name">
+                        <div class="col-xs-12" >
+                        <input type="text" required="" id="fullname" name="ordered_by" class="form-control  form-control--contact" placeholder="Name"  style="padding-top: 0;margin-top: 0;">
                         </div>                        
                       </div>
                       <div class="form-group">
@@ -68,11 +87,9 @@
                             <input type="text" required="" id="ordered_on_date" name="ordered_on_date" class="form-control  form-control--contact" placeholder="Date">
                             <input type="text" required="" id="ordered_on_time" name="ordered_on_time" class="form-control  form-control--contact" placeholder="Time">
                           </div>  
-                          <div class="col-xs-12 col-sm-1" style="padding-top: 30px;">
-                            OR
-                          </div>
-                          <div class="col-xs-12 col-sm-5" style="padding-top: 30px;">
-                            <input type="checkbox" value="1" name="order_now" class="order_now"  /> ORDER NOW
+
+                          <div class="col-xs-12 col-sm-5" style="margin-top: 27px;">
+                            <h4 style=""><input type="checkbox" value="1" name="order_now" class="order_now"  STYLE="width: 13px;height: 13px;" /> OR ORDER NOW!</h4>
                           </div>
                           <div class="clearfix"></div>    
                           
@@ -129,17 +146,18 @@
                       <?php if(!isset($_GET['free'])){?>
                       <div class="form-group">
                       <div class="col-xs-12">
-                      <h3 class="sidebar__title">Donate</h3><p>We will make a donation on your behalf to the Country selected below.</p>
+                      <h3 class="sidebar__title">Donate Proceeds to Charity</h3><p>We will make a donation on your behalf to the Country selected below.</p>
                       </div>
                         <div class="col-xs-6" style="display:none;">                            
                             <input type="number" name="donation" placeholder="Amount($)" class="form-control  form-control--contact" />
                         </div>
-                            <div class="county_more col-xs-12" style="font-weight: bold; color: red; font-size: 16px; font-family:Open Sans,sans-serif;"></div> 
                         <div class="col-xs-12">
+                            <div class="county_more col-xs-12" style="border:1px solid #dadada;font-weight: bold; color: #D84A38; font-size: 20px; font-family:Open Sans,sans-serif;"></div>
+
                             <script src="http://cdn.amcharts.com/lib/3/ammap.js" type="text/javascript"></script>
                             <script src="http://cdn.amcharts.com/lib/3/maps/js/worldLow.js" type="text/javascript"></script>
                             <script src="http://cdn.amcharts.com/lib/3/themes/none.js" type="text/javascript"></script>
-                            <div id="mapdiv" style="width: 100%; height: 450px;"></div>
+                            <div id="mapdiv" style="width: 100%; height: 300px;border:1px solid #dadada;"></div>
                             <!--<div style="width: 100%; font-size: 70%; padding: 5px 0; text-align: center; background-color: #535364; margin-top: 1px; color: #B4B4B7;"></div>-->
                             <script type="text/javascript">
                             var map = AmCharts.makeChart("mapdiv",{
@@ -194,7 +212,7 @@
                                 //event.mapObject.outlineColorReal ="#CC0000";
                                 
                                 $('.contry').val(country);
-                                $('.county_more').text("Country: "+country);
+                                $('.county_more').text("Donate to: "+country);
                             }
 
                             </script>
@@ -225,13 +243,14 @@
                                                   
 
                             <input type="radio" name="cash_type" value="0" class="" />&nbsp;  Debit/Credit
+
                             <strong style="color: #E02323;display:block;margin-top:5px;">We do not accept american express</strong>
 
-                        </div> 
-                        <div class="clearfix"></div>                       
+                        </div>
+                        <div class="clearfix"></div>
                       </div>
                       <div class="col-xs-12 noprint">
-                      <input type="submit" value="Submit Order" class="btn btn-success"  />
+                      <input type="submit" value="Submit Order" class="btn-lg btn btn-danger"  />
                       </div>
                     </form>
             

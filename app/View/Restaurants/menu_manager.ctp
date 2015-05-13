@@ -16,14 +16,14 @@
 </div>
 </div>-->
 
-<div class="container">
+<div class="container ">
 <!-- Big banner -->
-<div class="row">
+<div class="row " style="padding-top: 20px;">
 <div class="col-xs-12">
-<div class="push-down-30">
-<div class="banners--big">
+<div class="">
+<!--div class="banners--big">
 Welcome, <?php echo $this->Session->read('name');?>
-</div>
+</div-->
 </div>
 </div>
 </div>
