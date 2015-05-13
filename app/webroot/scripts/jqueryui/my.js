@@ -845,7 +845,7 @@ if(path.replace('test','')!=path){
             $('.orders').prepend('<div id="list'+ids+'" class="infolist" ></div>');
             $('#list'+ids).html('<strong class="namemenu">'+app_title+'</strong>'+
             '<div class="left"><a style="padding: 6px;height: 20px;line-height: 6px" id="dec'+ids+'" class="decrease small btn btn-danger" href="javascript:void(0);">'+
-            '<strong>-</strong></a> &nbsp;<span class="count">'+pre_cnt+'</span><input type="hidden" class="count" name="qtys[]" value="'+pre_cnt+'" />'+ '&nbsp;<a id="inc'+ids+'" class="increase btn btn-success small " href="javascript:void(0);" style="padding: 6px;height: 20px;line-height: 6px">'+
+            '<strong>-</strong></a> &nbsp;<span class="count">'+pre_cnt+'</span><input type="hidden" class="count" name="qtys[]" value="'+pre_cnt+'" />'+ '&nbsp;<a id="inc'+ids+'" class="increase btn btn-primary small " href="javascript:void(0);" style="padding: 6px;height: 20px;line-height: 6px">'+
             '<strong>+</strong></a> &nbsp; '+
             '<input type="hidden" class="menu_ids" name="menu_ids[]" value="C_'+menu_id+'" />'+
             '<input type="hidden" name="extras[]" value="'+dbtitle+'"/><input type="hidden" name="listid[]" value="'+ids+'" />'+
@@ -1163,7 +1163,7 @@ if(path.replace('test','')!=path){
             $('.orders').prepend('<div id="list'+ids+'" class="infolist" ></div>');
             $('#list'+ids).html('<strong class="namemenu">'+app_title+'</strong>'+
             '<div class="left"><a style="padding: 6px;height: 20px;line-height: 6px" id="dec'+ids+'" class="decrease small btn btn-danger" href="javascript:void(0);">'+
-            '<strong>-</strong></a> &nbsp;<span class="count">'+pre_cnt+'</span><input type="hidden" class="count" name="qtys[]" value="'+pre_cnt+'" />'+ '&nbsp;<a id="inc'+ids+'" class="increase btn btn-success small " href="javascript:void(0);" style="padding: 6px;height: 20px;line-height: 6px">'+
+            '<strong>-</strong></a> &nbsp;<span class="count">'+pre_cnt+'</span><input type="hidden" class="count" name="qtys[]" value="'+pre_cnt+'" />'+ '&nbsp;<a id="inc'+ids+'" class="increase btn btn-primary small " href="javascript:void(0);" style="padding: 6px;height: 20px;line-height: 6px">'+
             '<strong>+</strong></a> &nbsp; '+
             '<input type="hidden" class="menu_ids" name="menu_ids[]" value="'+menu_id+'" />'+
             '<input type="hidden" name="extras[]" value="'+dbtitle+'"/><input type="hidden" name="listid[]" value="'+ids+'" />'+

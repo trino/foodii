@@ -1106,7 +1106,7 @@ $('.order_now').change(function(){
             $('.orders').prepend('<tr id="list'+ids+'" class="infolist" ></tr>');
             $('#list'+ids).html('<td><strong class="namemenu">'+app_title+'</strong></td>'+
             '<td><a style="padding: 6px;height: 20px;line-height: 6px" id="dec'+ids+'" class="decrease small btn btn-danger" href="javascript:void(0);">'+
-            '<strong>-</strong></a> &nbsp;<span class="count">'+pre_cnt+'</span><input type="hidden" class="count" name="qtys[]" value="'+pre_cnt+'" />'+ '&nbsp;<a id="inc'+ids+'" class="increase btn btn-success small " href="javascript:void(0);" style="padding: 6px;height: 20px;line-height: 6px">'+
+            '<strong>-</strong></a> &nbsp;<span class="count">'+pre_cnt+'</span><input type="hidden" class="count" name="qtys[]" value="'+pre_cnt+'" />'+ '&nbsp;<a id="inc'+ids+'" class="increase btn btn-primary small " href="javascript:void(0);" style="padding: 6px;height: 20px;line-height: 6px">'+
             '<strong>+</strong></a> &nbsp; '+
             '<input type="hidden" class="menu_ids" name="menu_ids[]" value="C_'+menu_id+'" />'+
             '<input type="hidden" name="extras[]" value="'+dbtitle+'"/><input type="hidden" name="listid[]" value="'+ids+'" />'+
@@ -1503,13 +1503,13 @@ $('.order_now').change(function(){
             
             $('#list'+ids).remove();
             $('.orders').prepend('<tr id="list'+ids+'" class="infolist" ></tr>');
-            $('#list'+ids).html('<td><strong class="namemenu">'+app_title+'</strong></td>'+
-            '<td><a style="padding: 6px;height: 20px;line-height: 6px" id="dec'+ids+'" class="decrease small btn btn-danger" href="javascript:void(0);">'+
-            '<strong>-</strong></a> &nbsp;<span class="count">'+pre_cnt+'</span><input type="hidden" class="count" name="qtys[]" value="'+pre_cnt+'" />'+ '&nbsp;<a id="inc'+ids+'" class="increase btn btn-success small " href="javascript:void(0);" style="padding: 6px;height: 20px;line-height: 6px">'+
-            '<strong>+</strong></a> &nbsp; '+
+            $('#list'+ids).html('<td><span class="namemenu">'+app_title+'</span></td>'+
+            '<td style="width:100px;"><a style="padding: 6px;height: 20px;line-height: 6px" id="dec'+ids+'" class="decrease small btn btn-danger" href="javascript:void(0);">'+
+            '<strong>-</strong></a><span class="count">'+pre_cnt+'</span><input type="hidden" class="count" name="qtys[]" value="'+pre_cnt+'" />'+ ' &nbsp;<a id="inc'+ids+'" class="increase btn btn-primary small " href="javascript:void(0);" style="padding: 6px;height: 20px;line-height: 6px">'+
+            '<strong>+</strong></a>'+
             '<input type="hidden" class="menu_ids" name="menu_ids[]" value="'+menu_id+'" />'+
             '<input type="hidden" name="extras[]" value="'+dbtitle+'"/><input type="hidden" name="listid[]" value="'+ids+'" />'+
-            '<input type="hidden" class="prs" name="prs[]" value="'+price.toFixed(2)+'" />X $'+
+            '<input type="hidden" class="prs" name="prs[]" value="'+price.toFixed(2)+'" /><br>X $'+
             '<span class="amount">'+price.toFixed(2)+'</span></td>'+
             '<td>'+
             '<strong>$<span class="total">'+(pre_cnt*price).toFixed(2)+'</span>'+

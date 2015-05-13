@@ -424,9 +424,9 @@
             <div class="shop__divider">
             </div>
             <center>
-                <h3>
+                <span style="font-size: 30px;">
                     Thank you for your order
-                </h3>
+                </span>
 
                 <p>
                     GST/HST: 83409 3189 RT0001

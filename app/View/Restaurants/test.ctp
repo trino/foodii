@@ -179,8 +179,8 @@
                 <div class="row" style=" text-wrap: break-word;padding:10px;">
                     <center>
 
-                        <img style="max-width: 40%;"
-                             src="<?php echo $this->webroot; ?>images/CharliesChopsticks_whoweare.png"/>
+                        <img style="max-width: 80%;"
+                             src="<?php echo $this->webroot; ?>images/logo.png"/>
 
                         <br> <br>
                         <address>
@@ -221,7 +221,7 @@
 
             <div class="portlet-title" style="background-color: #D84A38;">
                 <div class="caption">
-                    <i class="fa fa-spoon" style="color:white;"></i>Charlie's Online Ordering System
+                    Charlie's Online Ordering System
                 </div>
             </div>
             <div class="portlet-body" style="background-color:rgba(0,0,0,0.5);">
@@ -807,7 +807,7 @@
                                                                                                        class="inp"
                                                                                                        id="boxes_<?php echo $subm['MenuCategory']['id']; ?>"
                                                                                                        maxlength="<?php echo ($subm['MenuCategory']['itemno']) ? $subm['MenuCategory']['itemno'] : '1'; ?>"
-                                                                                                       style="text-transform: uppercase; width:200px;PADDING:20PX;font-size: 18px;FONT-WEIGHT:BOLD;border:1px solid #dadada;"/><br/>
+                                                                                                       style="text-transform: uppercase; width:200px;PADDING:10PX;font-size: 18px;FONT-WEIGHT:BOLD;border:1px solid #dadada;"/><br/>
 
                                                                                                 <div
                                                                                                     style="display: none;">

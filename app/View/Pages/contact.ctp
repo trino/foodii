@@ -25,14 +25,14 @@
                 <div class="row">
 
 
-                    <img alt="Logo" src="<?php echo $this->webroot; ?>images/CharliesChopsticks_whoweare.png"
-                         style="width:70%;">
+                    <img alt="Logo" src="<?php echo $this->webroot; ?>images/logo.png"
+                         style="">
 
                     <div class="clearfix"><p></p></div>
                     <span class="glyphicon  glyphicon-earphone"></span>
                     <span class="text-dark">(905) 388-9888</span><br>
                     <span class="glyphicon  glyphicon-envelope"></span>
-                    <a class="secondary-link" href="mailto:order@charlieschopstics.com"><strong>order@charlieschopstics.com</strong></a>
+                    <a class="secondary-link" href="mailto:charlieschopstics@gmail.com"><strong>charlieschopstics@gmail.com</strong></a>
 
                     <h2 class=""><span class="light">Hours</span></h2>
                     <?php
@@ -66,7 +66,7 @@
             </div>
 
 
-            <div class=" col-sm-9">
+            <div class=" col-sm-9" style="border: 1px solid #f8f8f8;padding-top:15px;">
                 <form method="post" action="" validate>
                     <div class="row">
                         <div class="col-xs-12 col-sm-4">

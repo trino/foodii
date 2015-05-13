@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <!--[if IE 8]>
 <html lang="en" class="ie8 no-js"> <![endif]-->
 <!--[if IE 9]>
@@ -91,9 +90,7 @@
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css"/>
     <link rel="stylesheet" href="<?php echo $this->webroot; ?>lightSlider/css/lightSlider.css"/>
 
-
     <link rel="stylesheet" href="<?php echo $this->webroot; ?>css/styles.css"/>
-
 
     <!-- END THEME STYLES -->
     <link rel="shortcut icon" href="favicon.ico"/>
@@ -284,20 +281,7 @@
         <!-- BEGIN TOP NAVIGATION MENU -->
         <div class="top-menu">
             <ul class="nav navbar-nav pull-right">
-                <!-- BEGIN NOTIFICATION DROPDOWN -->
-                <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
 
-                <!-- END NOTIFICATION DROPDOWN -->
-                <!-- BEGIN INBOX DROPDOWN -->
-                <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
-
-                <!-- END INBOX DROPDOWN -->
-                <!-- BEGIN TODO DROPDOWN -->
-                <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
-
-                <!-- END TODO DROPDOWN -->
-                <!-- BEGIN USER LOGIN DROPDOWN -->
-                <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
                 <?php
                     if (!$this->Session->read('restaurant')) {
                         ?>
@@ -309,8 +293,8 @@
                     }
                     if ($this->Session->read('restaurant')) {
                         ?>
-                        <li><a href="<?php echo $this->webroot;?>restaurants/dashboard">Dashboard</a></li>
-                        <li><a href="<?php echo $this->webroot;?>restaurants/logout">Logout</a></li>
+                        <li><a href="<?php echo $this->webroot; ?>restaurants/dashboard">Dashboard</a></li>
+                        <li><a href="<?php echo $this->webroot; ?>restaurants/logout">Logout</a></li>
                     <?php } ?>
 
                 <!--<li class="dropdown dropdown-user">
