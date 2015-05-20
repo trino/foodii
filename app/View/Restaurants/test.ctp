@@ -781,7 +781,7 @@
                                                                                     $ch = 0;
                                                                                     foreach ($submenuscat as $key => $subm) {
                                                                                         $ch++; ?>
-                                                                                        <td width="<?php echo 100 / $menu_count; ?>%"
+                                                                                        <td style="vertical-align: top;" width="<?php echo 100 / $menu_count; ?>%"
                                                                                             id="td_<?php echo $subm['MenuCategory']['id']; ?>">
                                                                                             <input type="hidden"
                                                                                                    id="extra_no_<?php echo $subm['MenuCategory']['id']; ?>"
