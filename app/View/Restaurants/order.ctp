@@ -190,7 +190,7 @@
                             autoZoom : true,
                             color : "#007BBF",
                             colorSolid : "#D84A38",
-                            selectedColor : "#84ADE9",
+                            selectedColor : "#F3565D",
                             outlineColor : "#666666",
                             rollOverColor : "#9EC2F7",
                             rollOverOutlineColor : "#000000"

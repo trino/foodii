@@ -650,6 +650,8 @@ $('.order_now').change(function(){
               }
               var total_td = box.parent().parent().parent().find('td').length;
               var td = Number(nxt.attr('title'));
+              if(isNaN(td))
+                td = 1;
               if(mn.length+1== max)
                   if (td == total_td)
                     box.parent().parent().parent().parent().parent().parent().parent().find('.add_end').click();
@@ -668,6 +670,9 @@ $('.order_now').change(function(){
             var nxt = thi.parent().parent().parent().parent().parent().parent().parent().find('.nxt_button');
             var total_td = thi.parent().parent().parent().find('td').length;
             var td = Number(nxt.attr('title'));
+            if(isNaN(td))
+                td = 1;
+            
             if(e.keyCode == 13)
             {
                
@@ -678,7 +683,7 @@ $('.order_now').change(function(){
             }
             var max = $(this).attr('maxlength');
             var l = $(this).val().length;
-   
+            var f =0;
             var id = $(this).attr('id').replace('boxes_','');
            
             var chr = $('.chars_'+id).val();
@@ -693,7 +698,7 @@ $('.order_now').change(function(){
                 
                 if(inArray(t,ch))
                 {
-                    
+                    f=0;
                 }
                 else
                 {
@@ -703,7 +708,7 @@ $('.order_now').change(function(){
                     nt = nt.replace(t,'');
                     $('#boxes_'+id).val(nt);
                     $('#boxes_'+id).focus();
-                   
+                   f++;
                 }    
             });
             thi.parent().parent().find('.buttons').each(function(){
@@ -745,7 +750,7 @@ $('.order_now').change(function(){
                 
                 
             });
-            if(l==max)
+            if(l==max && f==0)
                  if (td == total_td)
                     thi.parent().parent().parent().parent().parent().parent().parent().find('.add_end').click();
                  else

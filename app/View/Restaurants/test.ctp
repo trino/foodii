@@ -737,7 +737,7 @@
                                                                 </button>
 
                                                             </div>
-                                                            <div class="modal-body" style="background:#D84A38;">
+                                                            <div class="modal-body" style="background:#D84A38; font-family:mainfont;">
                                                                 <div class="col-sm-6"
                                                                      style="text-align: left;padding:0px;">
                                                                     <h2 style="color:white;"><?php echo $me['menu_item'] . ": $ " . $pr; ?></h2>
@@ -861,14 +861,14 @@
 //if($k%3 == 0 ){                                                                                               
                                                                                                             ?>
                                                                                                             <div
-                                                                                                                class="subin btn default blue-stripe btnxx"
-                                                                                                                style="padding: 0px;">
+                                                                                                                class="subin btn default btnxx"
+                                                                                                                style="padding: 0px;border-radius: 17px 0 0 17px !important;">
                                                                                                                 <?php //}
                                                                                                                 ?>
                                                                                                                 <?php if ($subm['MenuCategory']['is_multiple'] == '1') { ?>
                                                                                                                     <div
                                                                                                                         class="col-xs-12 "
-                                                                                                                        style="padding:0px;">
+                                                                                                                        style="padding:0px; ">
 
                                                                                                                         <a href="javascript:void(0);"
                                                                                                                            class="buttons"
@@ -876,7 +876,7 @@
                                                                                                                            title="<?php echo $alpha[$k]; ?>"
                                                                                                                            style="text-decoration: none; display:inline-block; padding-right: 15px;">
                                                                                                                             <button
-                                                                                                                                class="btn btn-primary"><?php echo $alpha[$k]; ?></button>
+                                                                                                                                class="btn btn-primary" style="border-radius: 17px!important;"><?php echo $alpha[$k]; ?></button>
                                                                                                                             <input
                                                                                                                                 type="checkbox"
                                                                                                                                 value=""
@@ -911,14 +911,14 @@
                                                                                                                     ?>
                                                                                                                     <div
                                                                                                                         class="col-xs-12 "
-                                                                                                                        style="padding:0px;">
+                                                                                                                        style="padding:0px;border-radius: 17px 0 0 17px !important;">
                                                                                                                         <a href="javascript:void(0);"
                                                                                                                            class="buttons "
                                                                                                                            id="buttons_<?php echo $m['id']; ?>"
                                                                                                                            title="<?php echo $alpha[$k]; ?>"
                                                                                                                            style="text-decoration: none;display:inline-block; padding-right: 15px;">
                                                                                                                             <button
-                                                                                                                                class="btn btn-primary"><?php echo $alpha[$k]; ?></button>
+                                                                                                                                class="btn btn-primary" style="border-radius: 17px!important;"><?php echo $alpha[$k]; ?></button>
                                                                                                                             <input
                                                                                                                                 type="radio"
                                                                                                                                 style="display: none;"

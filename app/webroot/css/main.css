@@ -2023,6 +2023,10 @@ pre {
   padding: 9px 20px;
   -webkit-transition: all .1s linear;
   transition: all .1s linear;
+    font-family:mainfont;
+}
+.buttons {
+  
 }
 
 /* line 14, ../sass/components/_buttons.scss */
