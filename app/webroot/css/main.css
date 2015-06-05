@@ -2025,8 +2025,8 @@ pre {
   transition: all .1s linear;
     font-family:mainfont;
 }
-.buttons {
-  
+.buttons:active {
+  background:none!important;
 }
 
 /* line 14, ../sass/components/_buttons.scss */

@@ -818,7 +818,7 @@
                                                                                                         style="display: none;"
                                                                                                         id="<?php echo $subm['MenuCategory']['id']; ?>"
                                                                                                         title="___"
-                                                                                                        value="<?php echo ($key != 0) ? "| " . $subm['MenuCategory']['title'] : $subm['MenuCategory']['title']; ?>"/>
+                                                                                                        value="<?php echo ($key != 0) ? "<br/> " . $subm['MenuCategory']['title'] : $subm['MenuCategory']['title']; ?>"/>
                                                                                                 </div>
                                                                                                 <a href="javascript:void(0);" <?php /*onclick="$($(this).parent().children('div:eq(0)')).toggle('slow'); $('.extra-<?php echo $subm['MenuCategory']['id'];?>').each(function(){$(this).removeAttr('checked');}) "*/
                                                                                                 ?> ><strong><?php echo $subm['MenuCategory']['title']; ?></strong></a> <?php if ($subm['MenuCategory']['description'] && $subm['MenuCategory']['description'] != 'undefined') { ?>:<?php } ?>
@@ -883,7 +883,7 @@
                                                                                                                                 name="extra"
                                                                                                                                 style="display:none;"
                                                                                                                                 class="extra-<?php echo $subm['MenuCategory']['id']; ?> spanextra_<?php echo $m['id']; ?>"
-                                                                                                                                title="<?php echo $m['id'] . "_(" . $alpha[$k] . ") " . $m['menu_item'] ."_" . $m['price'] . "_" . $subm['MenuCategory']['title']; ?>"
+                                                                                                                                title="<?php echo $m['id'] . "_<br/>(" . $alpha[$k] . ") " . $m['menu_item'] ."_" . $m['price'] . "_" . $subm['MenuCategory']['title']; ?>"
                                                                                                                                 id="extra_<?php echo $m['id']; ?>"/>
                                                                                                                             &nbsp;&nbsp;<?php if ($m['price']) echo $m['menu_item'] . "  (+ $" . number_format(str_replace('$', '', $m['price']), 2) . ")"; else {
                                                                                                                                 echo $m['menu_item'];
@@ -925,7 +925,7 @@
                                                                                                                                 value=""
                                                                                                                                 name="extra_<?php echo $subm['MenuCategory']['id']; ?>"
                                                                                                                                 class="extra-<?php echo $subm['MenuCategory']['id']; ?>"
-                                                                                                                                title="<?php echo $m['id'] . "_(" . $alpha[$k] . ") ". $m['menu_item'] ."_" . $m['price'] . "_" . $subm['MenuCategory']['title']; ?>"
+                                                                                                                                title="<?php echo $m['id'] . "_<br/>(" . $alpha[$k] . ") ". $m['menu_item'] ."_" . $m['price'] . "_" . $subm['MenuCategory']['title']; ?>"
                                                                                                                                 id="extra_<?php echo $m['id']; ?>"/>
                                                                                                                             &nbsp;&nbsp;<?php if ($m['price']) echo $m['menu_item'] . "  (+ $" . number_format(str_replace('$', '', $m['price']), 2) . ")"; else {
                                                                                                                                 echo $m['menu_item'];
@@ -1064,7 +1064,7 @@
                         <table class="table">
                             <thead>
                             <tr>
-                                <th>
+                                <th style="width: 55%;">
                                     Item
                                 </th>
                                 <th>
