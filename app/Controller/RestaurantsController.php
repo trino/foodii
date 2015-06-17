@@ -774,7 +774,7 @@ class RestaurantsController extends AppController
         if($q['Reservation']['city_receipt'] == 'Hamilton')
         $emails->to($q2['Restaurant']['email']);
         else
-        $emails->to('info@trinoweb.com');
+        $emails->to('charlieswelland@gmail.com');
         $emails->send($message);
         $this->redirect('success_order/' . $id);
         //die('here');
