@@ -2267,8 +2267,7 @@ pre {
 .table > tbody > tr > td {
   border: 0;
   color: #5d564c;
-  font-size: 14px;
-  font-weight: 600;
+  font-size: 13px;
 }
 
 /* line 10, ../sass/components/_tables.scss */

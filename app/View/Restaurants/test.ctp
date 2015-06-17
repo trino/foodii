@@ -858,7 +858,7 @@
                                                                                                         $alpha = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
                                                                                                         foreach ($subm['Menu'] as $k => $m) {
                                                                                                             $char .= $alpha[$k] . ",";
-//if($k%3 == 0 ){                                                                                               
+//if($k%3 == 0 ){
                                                                                                             ?>
                                                                                                             <div
                                                                                                                 class="subin btn default btnxx"
@@ -1066,13 +1066,13 @@
                             <thead>
                             <tr>
                                 <th style="width: 55%;">
-                                    Item
+                                    Item/Qty/Price
                                 </th>
                                 <th>
-                                    Qty
+
                                 </th>
                                 <th>
-                                    Price
+
                                 </th>
                             </tr>
                             </thead>
@@ -1093,8 +1093,8 @@
                                             $tt = $m['Combo']['title'];
                                         }
                                         ?>
-                                        <tr id="list<?php echo $list_ids[$k]; ?>" class="infolist">
-                                            <td><strong
+                                        <tr id="list<?php echo $list_ids[$k]; ?>" class="infolist" style="padding: 0;">
+                                            <td style="padding: 0;"><strong
                                                     class="namemenu"><?php echo str_replace(":", ": ", $tt) . " " . $x; ?></strong>
                                             </td>
                                             <td>

@@ -1369,18 +1369,18 @@ $(function () {
             pre_cnt = 1;
 
         $('#list' + ids).remove();
-        $('.orders').prepend('<tr id="list' + ids + '" class="infolist" ></tr>');
-        $('#list' + ids).html('<td><span class="namemenu">' + app_title + '</span></td>' +
-        '<td style="width:100px;"><a style="padding: 6px;height: 18px;line-height: 6px" id="dec' + ids + '" class="decrease small btn btn-danger" href="javascript:void(0);">' +
+        $('.orders').prepend('<div id="list' + ids + '" class="infolist" style="padding:0;clear:both;" ></div>');
+        $('#list' + ids).html('<div><span class="namemenu">' + app_title + '</span></div>' +
+        '<div style="float:left;width:50%;"><a style="padding: 6px;height: 18px;line-height: 6px" id="dec' + ids + '" class="decrease small btn btn-danger" href="javascript:void(0);">' +
         '<strong>-</strong></a><span class="count">' + pre_cnt + '</span><input type="hidden" class="count" name="qtys[]" value="' + pre_cnt + '" />' + ' &nbsp;<a id="inc' + ids + '" class="increase btn btn-primary small " href="javascript:void(0);" style="padding: 6px;height: 18px;line-height: 6px">' +
         '<strong>+</strong></a>' +
         '<input type="hidden" class="menu_ids" name="menu_ids[]" value="' + menu_id + '" />' +
         '<input type="hidden" name="extras[]" value="' + dbtitle + '"/><input type="hidden" name="listid[]" value="' + ids + '" />' +
-        '<input type="hidden" class="prs" name="prs[]" value="' + price.toFixed(2) + '" /><br>X $' +
-        '<span class="amount">' + price.toFixed(2) + '</span></td>' +
-        '<td>' +
+        '<input type="hidden" class="prs" name="prs[]" value="' + price.toFixed(2) + '" /> X $' +
+        '<span class="amount">' + price.toFixed(2) + '</span></div>' +
+        '<div style="float:right;width:40%;">' +
         '<strong>$<span class="total">' + (pre_cnt * price).toFixed(2) + '</span>' +
-        '</strong></td>');
+        '</strong></div><div style="padding-top:6px;clear:both;border-bottom:1px solid #dadada;"></div></div>');
 
         price = parseFloat(price);
         var subtotal = "";
