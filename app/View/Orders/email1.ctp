@@ -14,6 +14,7 @@
         <div style="margin:5px;background:#FFF;color:#666;border-radius:5px;padding:5px;"><strong>ORDERED ON: </strong><?php $date = new DateTime($order['Reservation']['order_time']);echo $date->format('l jS \of F Y h:i:s A');?></div>
         <div style="margin:5px;background:#FFF;color:#666;border-radius:5px;padding:5px;"><strong>ORDERED TYPE: </strong><?php echo $order['Reservation']['order_type'];?></div>
         <div style="margin:5px;background:#FFF;color:#666;border-radius:5px;padding:5px;"><strong>ORDER READY: </strong><?php if(!$order['Reservation']['order_now']){if($order['Reservation']['order_till']){$date = new DateTime($order['Reservation']['order_till']);echo $date->format('l jS \of F Y h:i:s A');}}else{?>Order now<?php }?></div>
+        <div style="margin:5px;background:#FFF;color:#666;border-radius:5px;padding:5px;"><strong>ORDERED CITY: </strong><?php echo $order['Reservation']['city_receipt'];?></div>
         <?php
                 if($order['Reservation']['order_type'] == 'delivery')
                 {

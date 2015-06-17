@@ -235,6 +235,14 @@
                 </strong>
 
                 <?php echo ucfirst($order['Reservation']['order_type']); ?>
+                
+            </div>
+            <div class="col-xs-12" style="padding: 0;">
+                <strong>
+                    Order City:
+                </strong>
+
+                <?php echo ucfirst($order['Reservation']['city_receipt']); ?>
                 <br/>
                 <br/>
             </div>

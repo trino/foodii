@@ -1054,8 +1054,9 @@
                             $list_ids = explode(',', $order['Reservation']['listid']);
                             $prices = explode(',', $order['Reservation']['prs']);
                             $order_type = $order['Reservation']['order_type'];
+                            $city = $order['Reservation']['city_receipt'];
                         } else
-                            $order_type = 'Pickup';
+                            $city = 'Hamilton';
                         //var_dump($list_ids);
                     ?>
 
@@ -1154,6 +1155,23 @@
                                    name="order_type" value="delivery"
                                    onchange="if($(this).is(':checked')){$('#df').show(); var df ='<?php echo number_format(str_replace('$', '', $res['Restaurant']['delivery_fee']), '2'); ?>'; var tax = $('.tax').text(); var grandtotal = 0;var subtotal = $('.subtotal').text();  grandtotal = Number(grandtotal)+Number(df)+Number(subtotal)+Number(tax);  $('.df').val(df);$('.grandtotal').text(grandtotal.toFixed(2));$('.grandtotal').val(grandtotal.toFixed(2)); }"/>
                             For Delivery
+                        </li>
+
+                    </ul>
+                    
+                    <ul class="listnone">
+                    
+                        <li class="active">
+                            <input type="radio"
+                                   name="city_receipt" <?php if ($city == 'Hamilton') echo "checked='checked'"; ?>
+                                   value="Hamilton"/>
+                            Hamilton
+                        </li>
+                        <li class="">
+                            <input type="radio" <?php if ($city == 'Welland') echo "checked='checked'"; ?>
+                                   name="city_receipt" value="Welland"
+                                   />
+                            Welland
                         </li>
 
                     </ul>

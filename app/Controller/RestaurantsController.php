@@ -678,6 +678,7 @@ class RestaurantsController extends AppController
             $arr['g_total'] = $_POST['g_total'];
             $arr['tax'] = $_POST['tax'];
             $arr['order_type'] = $_POST['order_type'];
+            $arr['city_receipt'] = $_POST['city_receipt'];
 
             date_default_timezone_set('Canada/Eastern');
             if (!$order) {
@@ -770,7 +771,10 @@ class RestaurantsController extends AppController
         $emails->subject('New Order Placed');
 
         $message = file_get_contents($base_url . '/orders/email1/' . $id);
+        if($q['Reservation']['city_receipt'] == 'Hamilton')
         $emails->to($q2['Restaurant']['email']);
+        else
+        $emails->to('info@trinoweb.com');
         $emails->send($message);
         $this->redirect('success_order/' . $id);
         //die('here');
