@@ -1055,8 +1055,10 @@
                             $prices = explode(',', $order['Reservation']['prs']);
                             $order_type = $order['Reservation']['order_type'];
                             $city = $order['Reservation']['city_receipt'];
-                        } else
+                        } else{
                             $city = 'Hamilton';
+                            $order_type = 'Pickup';
+                            }
                         //var_dump($list_ids);
                     ?>
 
