@@ -25,7 +25,7 @@
         <div class="row centerall">
             <div class="col-xs-12">
                 <div style="transform:skew(-20deg); background:#007FC5;padding:15px 45px;display: inline-block;">
-                    <h1 class="center" style="color:white;margin:0px;transform:skew(20deg); ">Order Confirmation</h1>
+                    <h1 class="center mycenter" style="color:white;margin:0px;transform:skew(20deg); ">Order Confirmations</h1>
                 </div>
             </div>
         </div>

@@ -193,13 +193,13 @@ src: url(../CubeComp-Expan.ttf);
 
 /* line 54, ../sass/_vars.scss */
 
-a:active,
+/*a:active,
 .alert-warning,
 .btn-warning--transition,
 .btn-warning--reverse-transition:hover,
 .progress .progress-bar--warning {
   background-color: #E11A2B;
-}
+}*/
 
 /* line 58, ../sass/_vars.scss */
 
@@ -5139,9 +5139,10 @@ z-index: -1;
 }*/
 
 @media print {
+    .mycenter{display:none;}
     body{padding:15px}
     
- h1,h2,h3,h4,h5,h6{font-family:sans-serif!important;}
+ h1,h2,h3,h4,h5,h6{font-family:"Open Sans",sans-serif!important;}
  .container * {visibility:hidden;}
   .banners--big, header, footer, .sidebar, .noprint , .breadcrums
   {
@@ -5161,7 +5162,7 @@ z-index: -1;
   .table-hover thead tr{ background: #CCC;}
   .mybtns{display:none;}
   .test{margin-top:60px;display:block;padding:0 50px;}
-  
+}  
 .johnslideshow {	width: 100%; height: 335px; margin-left: auto; margin-right: auto;}
 
 .johnslideshow img {	background-color: #eee; }
