@@ -29,7 +29,7 @@ App::uses('AppController', 'Controller');
  * @link http://book.cakephp.org/2.0/en/controllers/pages-controller.html
  */
 class PagesController extends AppController {
-    var $components = array('Email');
+    var $components = array('Email','CustomMail');
 
 /**
  * This controller does not use a model
@@ -185,5 +185,10 @@ class PagesController extends AppController {
         
         $this->loadModel('Restaurant');
         return $this->Restaurant->find('first');
+    }
+    function testing()
+    {
+        $this->CustomMail->test('justdoit2045@gmail.com','test','<b>Test</b>ing');
+        die();
     }
 }
