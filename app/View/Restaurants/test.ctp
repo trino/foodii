@@ -807,7 +807,7 @@
                                                                                                        class="inp"
                                                                                                        id="boxes_<?php echo $subm['MenuCategory']['id']; ?>"
                                                                                                        maxlength="<?php echo ($subm['MenuCategory']['itemno']) ? $subm['MenuCategory']['itemno'] : '1'; ?>"
-                                                                                                       style="text-transform: uppercase; width:200px;PADDING:10PX;font-size: 18px;FONT-WEIGHT:BOLD;border:1px solid #dadada;"/><br/>
+                                                                                                       style="margin-bottom:20px;text-transform: uppercase; width:200px;PADDING:10PX;font-size: 18px;FONT-WEIGHT:BOLD;border:1px solid #dadada;"/><br/>
 
                                                                                                 <div
                                                                                                     style="display: none;">

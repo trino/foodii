@@ -220,7 +220,7 @@
         <!-- BEGIN LOGO -->
         <div class="page-logo">
             <a href="<?php echo $this->webroot; ?>">
-                <h4 style="color:white;padding-top:7px;">Charlie's Chopsticks Beta</h4>
+                <h4 style="color:white;padding-top:7px;">Charlie's Chopsticks <span style="color:#d64635;">Beta</span></h4>
             </a>
         </div>
         <!-- END LOGO -->

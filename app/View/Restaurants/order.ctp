@@ -53,7 +53,7 @@
 
 
 
-  <div class="row" style="margin-bottom: 15px;">
+  <div class="row" style="margin-bottom: 50px;">
 
           <div class="col-xs-12 col-sm-6">
           <div class="">
@@ -255,7 +255,7 @@
                     </form>
             
           </div>
-          <div class="clearfix"></div>
+          <div class="clearfix" ></div>
         
           
   </div>
