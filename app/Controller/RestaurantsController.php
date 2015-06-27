@@ -2,7 +2,7 @@
 
 class RestaurantsController extends AppController
 {
-    //var $components = array('Email');
+    var $components = array('CustomMail');
     function test($slug, $order = 0)
     {
         // 	date_default_timezone_set('Canada/Eastern');
@@ -752,30 +752,37 @@ class RestaurantsController extends AppController
 
         } else {
 
-            $emails = new CakeEmail();
+           /* $emails = new CakeEmail();
             $emails->from(array('charlieschopsticks@gmail.com' => 'Charlie\'s Chopsticks'));
             $emails->emailFormat('html');
-            $emails->subject('Ordered Placed Successfully');
+            $emails->subject('Ordered Placed Successfully');*/
 
             $message = file_get_contents($base_url . '/orders/email2/' . $id);
-            $emails->to($_POST['email']);
-            $emails->send($message);
+            //$emails->to($_POST['email']);
+            //$emails->send($message);
             //$this->Session->setFlash('Message sent successfully');
-            unset($emails);
+            //unset($emails);
+            $this->CustomMailComponent->sendMail($_POST['email'],'Ordered Placed Successfully',$message);
         }
 
 
-        $emails = new CakeEmail();
+        /*$emails = new CakeEmail();
         $emails->from(array('charlieschopsticks@gmail.com' => 'Charlie\'s Chopsticks'));
         $emails->emailFormat('html');
         $emails->subject('New Order Placed');
-
+*/
         $message = file_get_contents($base_url . '/orders/email1/' . $id);
-        if($q['Reservation']['city_receipt'] == 'Hamilton')
+        /*if($q['Reservation']['city_receipt'] == 'Hamilton')
         $emails->to($q2['Restaurant']['email']);
         else
         $emails->to('charlieswelland@gmail.com');
-        $emails->send($message);
+        $emails->send($message);*/
+        if($q['Reservation']['city_receipt'] == 'Hamilton')
+        {
+            $this->CustomMailComponent->sendMail($q2['Restaurant']['email'],'New Order Placed',$message);
+        }
+        else
+        $this->CustomMailComponent->sendMail('charlieswelland@gmail.com','New Order Placed',$message);
         $this->redirect('success_order/' . $id);
         //die('here');
 

@@ -97,13 +97,13 @@ class PagesController extends AppController {
             $email = $_POST['email'];
             $sub = $_POST['subject'];
             $msg = $_POST['message'];
-                $emails = new CakeEmail();
+                /*$emails = new CakeEmail();
                 $emails->from(array('charlieschopsticks@gmail.com'=>'Charlie\'s Chopsticks'));
             
                 $emails->emailFormat('html');
                 
-                $emails->subject('New contact Message');
-                
+                $emails->subject('New contact Message');*/
+                $subject = 'New contact Message';
                 
                 $message="
                 Hello,<br/><br/>
@@ -113,8 +113,12 @@ class PagesController extends AppController {
 <b>Email</b> : ".$email."<br/>
 <b>Subject</b> : ".$sub."<br/>
 <b>Message</b> : ".$msg."<br/><br/>Thankyou,<br/>Charlie's Chopsticks.";
-                $emails->to('charlieschopsticks@gmail.com');
-                $emails->send($message);
+                /*$emails->to('charlieschopsticks@gmail.com');
+                
+                $emails->send($message);*/
+                $to = 'charlieschopsticks@gmail.com';
+                $this->CustomMailComponent->sendMail($to,$subject,$message);
+                
                 $this->Session->setFlash('Message sent successfully');
             
                 
@@ -153,12 +157,12 @@ class PagesController extends AppController {
         $name = $_POST['name'];
         $fname = $_POST['fname'];
         $femail = $_POST['femail'];
-        $emails = new CakeEmail();
+        /*$emails = new CakeEmail();
         $emails->from(array('charlieschopsticks@gmail.com'=>'Charlie\'s Chopsticks'));
     
         $emails->emailFormat('html');
         
-        $emails->subject($_POST['name'].' - Suggestion');
+        $emails->subject($_POST['name'].' - Suggestion');*/
         
         $whole =  Router::url(null,true);
         $base_url_arr = explode('/pages',$whole);
@@ -171,8 +175,9 @@ class PagesController extends AppController {
         Thank you,
         The Charlie's Chopsticks Team 
         ";
-        $emails->to($femail);
-        $emails->send($message);
+        /*$emails->to($femail);
+        $emails->send($message);*/
+        $this->CustomMailComponent->sendMail($femail,$_POST['name'].' - Suggestion',$message);
         $this->Session->setFlash('Suggestion successfully sent to '.$femail);
         $this->redirect('/');
     }

@@ -1,7 +1,7 @@
 <?php
 class CustomMailComponent extends Component
 {
-    function test($arr,$subject,$message)
+    function sendMail($arr,$subject,$message)
     {
         if(!is_array($arr))
         {

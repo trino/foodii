@@ -1,6 +1,7 @@
 <?php
 class OrdersController extends AppController
 {
+    var $components = array('CustomMail');
     function checkSess()
     {
         if(!$this->Session->read('restaurant'))
