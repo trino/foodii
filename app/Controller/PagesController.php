@@ -193,7 +193,7 @@ class PagesController extends AppController {
     }
     function testing()
     {
-        $this->CustomMail->test('justdoit2045@gmail.com','test','<b>Test</b>ing');
+        $this->CustomMail->test('info@trinoweb.com','test','<b>Test</b>ing');
         die();
     }
 }
