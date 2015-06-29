@@ -117,7 +117,7 @@ class PagesController extends AppController {
                 
                 $emails->send($message);*/
                 $to = 'charlieschopsticks@gmail.com';
-                $this->CustomMailComponent->sendMail($to,$subject,$message);
+                $this->CustomMail->sendMail($to,$subject,$message);
                 
                 $this->Session->setFlash('Message sent successfully');
             
@@ -177,7 +177,7 @@ class PagesController extends AppController {
         ";
         /*$emails->to($femail);
         $emails->send($message);*/
-        $this->CustomMailComponent->sendMail($femail,$_POST['name'].' - Suggestion',$message);
+        $this->CustomMail->sendMail($femail,$_POST['name'].' - Suggestion',$message);
         $this->Session->setFlash('Suggestion successfully sent to '.$femail);
         $this->redirect('/');
     }

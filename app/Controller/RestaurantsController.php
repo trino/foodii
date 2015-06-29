@@ -762,7 +762,7 @@ class RestaurantsController extends AppController
             //$emails->send($message);
             //$this->Session->setFlash('Message sent successfully');
             //unset($emails);
-            $this->CustomMailComponent->sendMail($_POST['email'],'Ordered Placed Successfully',$message);
+            $this->CustomMail->sendMail($_POST['email'],'Ordered Placed Successfully',$message);
         }
 
 
@@ -779,10 +779,10 @@ class RestaurantsController extends AppController
         $emails->send($message);*/
         if($q['Reservation']['city_receipt'] == 'Hamilton')
         {
-            $this->CustomMailComponent->sendMail($q2['Restaurant']['email'],'New Order Placed',$message);
+            $this->CustomMail->sendMail($q2['Restaurant']['email'],'New Order Placed',$message);
         }
         else
-        $this->CustomMailComponent->sendMail('charlieswelland@gmail.com','New Order Placed',$message);
+        $this->CustomMail->sendMail('charlieswelland@gmail.com','New Order Placed',$message);
         $this->redirect('success_order/' . $id);
         //die('here');
 
