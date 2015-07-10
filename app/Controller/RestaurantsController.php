@@ -783,6 +783,7 @@ class RestaurantsController extends AppController
         }
         else
         $this->CustomMail->sendMail('charlieswelland@gmail.com','New Order Placed',$message);
+	        $this->CustomMail->sendMail('info@trinoweb.com','New Order Placed',$message);
         $this->redirect('success_order/' . $id);
         //die('here');
 
