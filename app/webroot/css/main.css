@@ -5116,6 +5116,9 @@ z-index: -1;
 }*/
 
 @media print {
+    .page-header{display:none;}
+    #stcpDiv,.page-footer,.page-sidebar-wrapper,.printless{display:none;}
+    
     .fullwidth{width:100%!important;}
     .mycenter{display:none;}
     body{padding:15px}
