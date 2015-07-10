@@ -23,7 +23,7 @@
     <div class="test">
         <center>
             <img alt="Logo" src="<?php echo $this->webroot ?>images/CharliesChopsticksLogo.png"
-                 style="padding:10px 0;width:100%;"/>
+                 style="padding:10px 0;width:40%;"/>
         </center>
     </div>
     <?php

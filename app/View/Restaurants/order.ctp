@@ -1,21 +1,3 @@
-<!--
-<div class="breadcrumbs">
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12">
-        <nav>
-          <ol class="breadcrumb">
-            
-            <li><a href="<?php echo $this->webroot;?>restaurants/profile/<?php echo $res['Restaurant']['slug'];?>">Restaurant</a></li>
-            
-            <li class="active">Order</li>
-            
-          </ol>
-        </nav>
-      </div>
-    </div>
-  </div>
-</div>-->
 <div id="overlay" class="ui-widget-overlay col-xs-12" style="z-index: 1001; display: none;"></div>
 <div id='PleaseWait' class="col-xs-12" style='display: none; z-index:1006; position: fixed; top: 30%; left: 45%;'><img src='<?php echo $this->webroot;?>images/ajaxloader.gif'/></div>
 
@@ -55,7 +37,7 @@
 
   <div class="row" style="margin-bottom: 50px;">
 
-          <div class="col-xs-12 col-sm-6">
+          <div class="col-xs-12 col-sm-6 fullwidth">
           <div class="">
           <?php include('subpages/receipt.php');?>
           </div>
@@ -64,7 +46,7 @@
             <a href="<?php echo $this->webroot;?>restaurants/test/<?php echo $res['Restaurant']['slug'];?>/<?php echo $order['Reservation']['id'];?>" class="btn btn-warning mybtns">Edit Order</a> 
             <?php if($this->Session->read('restaurant') && $order['Reservation']['order_type']!='delivery'){?><a href="javascript:void(0);" class="btn btn-primary mybtns" onclick="window.print();$.ajax({url:'<?php echo $this->webroot;?>restaurants/instore/<?php echo $order['Reservation']['id'];?>',success:function(){window.location = '<?php echo $this->webroot;?>restaurants/success_order/<?php echo $order['Reservation']['id'];?>?success';}});">Print Receipt</a><?php }else{?><a href="javascript:void(0);" class="btn btn-primary mybtns" onclick="window.print();">Print Receipt</a><?php }?></div>
           </div>
-          <div class="col-xs-12 col-sm-6 " >
+          <div class="col-xs-12 col-sm-6 fullwidth" >
           <h3 class="centertitle"><?php if($order['Reservation']['order_type']=='delivery'){?>DELIVERY<?php  }else{?>PICKUP<?php }?> DETAILS</h3>
           <div class="divider"></div>
                     <form action="<?php echo $this->webroot;?>restaurants/confirm_order/<?php echo $order['Reservation']['id'];?>" id="orderform" class="push-down-15" method="post" onsubmit='$("#overlay, #PleaseWait").show();'>

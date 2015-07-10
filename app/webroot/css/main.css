@@ -1,26 +1,3 @@
-/*------------------------------------*\
-    Organique - HTML template
-\*------------------------------------*/
-
-/**
- * TABLE OF CONTENTS
- *
- * 01. Project variables..Imported variables 
- * 02. Tags...............Like <body>, <h1> etc.
- * 03. Helpers............The general styles like .push-down-15 etc.
- * 04. Components.........Imported files, like partials, Compass etc.
- * 05. Accessibility overrides, usually with help of JS.
- */
-
-/*------------------------------------*\
-    Project variables
-\*------------------------------------*/
-
-/**
- * Variables and Bootstrap overrides
- */
-
-/* line 38, ../sass/_vars.scss */
 @font-face
 {
 font-family: mainfont;
@@ -5139,6 +5116,7 @@ z-index: -1;
 }*/
 
 @media print {
+    .fullwidth{width:100%!important;}
     .mycenter{display:none;}
     body{padding:15px}
     
