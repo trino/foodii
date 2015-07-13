@@ -201,4 +201,15 @@ class PagesController extends AppController {
         $this->CustomMail->test('info@trinoweb.com','test','<b>Test</b>ing');
         die();
     }
+
+
+
+    function getLocations() {
+        $this->loadModel('Restaurants');
+        $this->loadMOdel('Locations');
+        $data = array();
+        $data["Restaurants"] =  $this->Restaurants->find('all');
+        $data["Locations"] = $this->Locations->find('all');
+        return $data;
+    }
 }

@@ -599,7 +599,8 @@ class RestaurantsController extends AppController
         $this->Session->write('restaurant', $_POST['email']);
         $this->Session->write('name', $_POST['name']);
 
-        $this->Session->setFlash('<center>Welcome ' . $_POST['name'] . ', to Charlie\'s Chopsticks</center>');
+        $generic = $this->requestAction('/pages/getGeneric');
+        $this->Session->setFlash('<center>Welcome ' . $_POST['name'] . ', to ' . $generic ["title"] . '</center>');
         $this->redirect('dashboard');
     }
 

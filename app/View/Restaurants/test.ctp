@@ -1230,14 +1230,13 @@
                                 </TR>
                             </TABLE>
                         </div>
-                        <div class="submits">
+                        <div class="submits" align="center">
 
 
-                            <input <?php if ($closed){ ?>disabled="disabled"<?php } ?> type="submit"
+                            <input <?php if ($closed){ ?>disabled="disabled"<?php } ?> type="submit" style="width: 48%"
                                    value="Order" class="btn btn-lg red  hidden-print margin-bottom-5"/>
 
-                            <a style="" class="btn btn-sm grey hidden-print margin-bottom-5"
-                               href="">
+                            <a class="btn btn-sm grey hidden-print margin-bottom-5" style="width: 48%" href="" onclick="return confirm('Are you sure you want to erase your order?');">
                                 Restart
                             </a>
 

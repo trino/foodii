@@ -16,4 +16,10 @@ function findrestuarant($restaurants, $ID){
         }
     }
 }
+
+function get($key, $default = ""){
+    if (isset($_POST[$key])) { return $_POST[$key];}
+    if (isset($_GET[$key])) { return $_GET[$key];}
+    return $default;
+}
 ?>

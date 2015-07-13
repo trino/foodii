@@ -1,6 +1,11 @@
 <?php
-    $thisrest = $restaurants[0]["Restaurants"];
     include_once("subpages/api.php");
+    $restaurantID = get("rest", 0);
+    if (!isset($restaurants[$restaurantID])){$restaurantID=0;}
+    $thisrest = $restaurants[$restaurantID]["Restaurants"];
+
+
+    //$test =$this->requestAction('/pages/getLocations');
 ?>
 
 <div class="row centerall">
@@ -113,7 +118,7 @@
                 </form>
 
                 <hr class="divider divider-about"><center>
-                <h2 class="no-margin">Charlie's Locations</h2><br/>
+                <h2 class="no-margin">Locations</h2><br/>
                 </center>
 <?php
     foreach($locations as $location){
