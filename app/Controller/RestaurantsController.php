@@ -108,6 +108,11 @@ class RestaurantsController extends AppController
         $this->set('res', $q);
         $this->set('rescat', $q2);
         $this->set('displaybackground', '1');
+
+        $this->loadMOdel('Locations');
+        $this->loadMOdel('Restaurants');
+        $this->set('locations', $this->Locations->find('all'));
+        $this->set('restaurants', $this->Restaurants->find('all'));
     }
 
     function profile($slug, $order = 0)

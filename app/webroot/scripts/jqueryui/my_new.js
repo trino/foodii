@@ -7,10 +7,12 @@ function inArray(needle, haystack) {
 }
 $(function () {
     var path = window.location.pathname;
-    if (path.replace('charlies', '') != path)
-        var base_url = 'http://localhost/charlies/';
-    else
+    if(path.replace('foodie','')!=path) {
+        var base_url = 'http://localhost/foodie/';
+    }else {
         var base_url = 'http://charlieschopsticks.com/';
+    }
+
 
 
 //Script for order submission page

@@ -130,7 +130,12 @@ class PagesController extends AppController {
                 
                 $this->redirect('contact');
         }
-           
+
+            $this->loadMOdel('Locations');
+            $this->loadMOdel('Restaurants');
+            $this->set('locations', $this->Locations->find('all'));
+            $this->set('restaurants', $this->Restaurants->find('all'));
+
     }
     public function search_result()
     {
