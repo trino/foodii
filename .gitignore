@@ -8,3 +8,5 @@ app/[Cc]onfig/database.php
 *.xml
 *.xml
 *.xml
+app/webroot/css/mainmin.js
+app/webroot/css/mainmin.css

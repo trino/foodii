@@ -1,50 +1,133 @@
+<link rel="shortcut icon" href="favicon.ico"/>
 <?php
+    function debugprint($path, $text, $caption = "------------------------------------------------"){
+        $dashes= "";
+        if($caption) {$dashes = "\r\n\r\n\r\n /* " . $caption . " */ \r\n";}
+        file_put_contents($path, $dashes . $text, FILE_APPEND);
+    }
+
+    function getextension($path, $value=PATHINFO_EXTENSION){
+        return strtolower(pathinfo($path, $value));
+    }
+
+    function minify($buffer, $file){
+        switch(getextension($file)) {
+            case "css":
+                $buffer = preg_replace('!/\*[^*]*\*+([^/][^*]*\*+)*/!', '', $buffer);// Remove comments
+                $buffer = str_replace(': ', ':', $buffer);// Remove space after colons
+                $buffer = str_replace(array("\r\n", "\r", "\n", "\t", '  ', '    ', '    '), '', $buffer);// Remove whitespace
+                break;
+            case "js":
+                //include_once("jsmin.php");
+                //$buffer = JSMin::minify($buffer);
+        }
+        return trim($buffer);
+    }
+
+    function needsupdating($files, $mainfile){
+        $needsupdating = true;
+        if(file_exists($mainfile) ){
+            $mainmintime = filemtime($mainfile);
+            $needsupdating = filemtime(__FILE__) > $mainmintime;//if this file is newer than mainmin.css
+        }
+        if(!$needsupdating) {
+            foreach ($files as $file) {
+                if ($file && filemtime($file) > $mainmintime) {
+                    $needsupdating = true;
+                    break;
+                }
+            }
+        }
+        return $needsupdating;
+    }
+    function autoappend($files, $mainfile){
+        if(needsupdating($files, $mainfile)) {
+            unlink($mainfile);
+            debugprint($mainfile, "", "combined " . $mainfile . ", last updated at: " . date("Y-m-d H:i:s"));
+            foreach ($files as $file) {
+                if ($file) {
+                    $filecontents = "";
+                    if (file_exists($file)) {$filecontents = minify(file_get_contents($file), $file);}
+                    if (!$filecontents) {$filecontents = "/* [EMPTY OR MISSING FILE] */";}
+                    debugprint($mainfile, $filecontents, $file);
+                }
+            }
+        }
+        return $mainfile;
+    }
+
+    //an auto-updating system that combines these css files into 1, whenever mainmin.css's last update time is < any css file's last update time
     $usemin = true;
     if($usemin) {
-        echo '<link href="' . $this->webroot . 'css/mainmin.css" rel="stylesheet" type="text/css"/>';
+        $files = array();
+        $files[] = "css/opensans.css";
+        $files[] = "css/main.css";
+        $files[] = "profile/assets/global/plugins/font-awesome/css/font-awesome.min.css";
+        $files[] = "profile/assets/global/plugins/simple-line-icons/simple-line-icons.min.css";
+        $files[] = "profile/assets/global/plugins/bootstrap/css/bootstrap.min.css";
+        $files[] = "profile/assets/global/plugins/uniform/css/uniform.default.css";
+        $files[] = "profile/assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css";
+        $files[] = "profile/assets/global/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css";
+        $files[] = "profile/assets/global/plugins/fullcalendar/fullcalendar.min.css";
+        $files[] = "profile/assets/global/plugins/jqvmap/jqvmap/jqvmap.css";
+        $files[] = "profile/assets/admin/pages/css/tasks.css";
+        $files[] = "profile/assets/global/css/plugins.css";
+        $files[] = "profile/assets/admin/layout/css/layout.css";
+        $files[] = "profile/assets/admin/layout/css/custom.css";
+        $files[] = "css/timepicker.css";
+        $files[] = "css/jquery-ui.css";
+        $files[] = "lightSlider/css/lightSlider.css";
+        $files[] = "css/styles.css";
+        echo '<link href="' . $this->webroot . autoappend($files,  "css/mainmin.css") . '" rel="stylesheet" type="text/css"/>';
+
+        $files = array();
+        $files[] = "profile/assets/global/plugins/jquery.min.js";
+
+        echo '<script src="' . $this->webroot . autoappend($files, "css/mainmin.js") . '"></script>';
     } else {
+        //Any files in this block have been added to the auto updater
 ?>
 
-<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css"/>
-<link href="<?php echo $this->webroot; ?>css/main.css" rel="stylesheet" type="text/css"/>
-<link href="<?php echo $this->webroot; ?>profile/assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
-<link href="<?php echo $this->webroot; ?>profile/assets/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css"/>
-<link href="<?php echo $this->webroot; ?>profile/assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-<link href="<?php echo $this->webroot; ?>profile/assets/global/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css"/>
-        
-<?php } ?>
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css"/>
+        <link href="<?php echo $this->webroot; ?>css/main.css" rel="stylesheet" type="text/css"/>
+        <link href="<?php echo $this->webroot; ?>profile/assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+        <link href="<?php echo $this->webroot; ?>profile/assets/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css"/>
+        <link href="<?php echo $this->webroot; ?>profile/assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="<?php echo $this->webroot; ?>profile/assets/global/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css"/>
+        <link href="<?php echo $this->webroot; ?>profile/assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css"/>
+        <!-- END GLOBAL MANDATORY STYLES -->
+        <!-- BEGIN PAGE LEVEL PLUGIN STYLES -->
+        <link href="<?php echo $this->webroot; ?>profile/assets/global/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css" rel="stylesheet" type="text/css"/>
+        <link href="<?php echo $this->webroot; ?>profile/assets/global/plugins/fullcalendar/fullcalendar.min.css" rel="stylesheet" type="text/css"/>
+        <link href="<?php echo $this->webroot; ?>profile/assets/global/plugins/jqvmap/jqvmap/jqvmap.css" rel="stylesheet" type="text/css"/>
+        <!-- END PAGE LEVEL PLUGIN STYLES -->
+        <!-- BEGIN PAGE STYLES -->
+        <link href="<?php echo $this->webroot; ?>profile/assets/admin/pages/css/tasks.css" rel="stylesheet" type="text/css"/>
+        <!-- END PAGE STYLES -->
+        <!-- BEGIN THEME STYLES -->
+        <!--id="style_components"-->
+        <link href="<?php echo $this->webroot; ?>profile/assets/global/css/plugins.css" rel="stylesheet" type="text/css"/>
+        <link href="<?php echo $this->webroot; ?>profile/assets/admin/layout/css/layout.css" rel="stylesheet" type="text/css"/>
+        <!--id="style_color"-->
+        <link href="<?php echo $this->webroot; ?>profile/assets/admin/layout/css/custom.css" rel="stylesheet" type="text/css"/>
+        <link href="<?php echo $this->webroot; ?>css/timepicker.css" rel="stylesheet">
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css"/>
+        <link rel="stylesheet" href="<?php echo $this->webroot; ?>lightSlider/css/lightSlider.css"/>
+        <link rel="stylesheet" href="<?php echo $this->webroot; ?>css/styles.css"/>
 
+        <script src="<?php echo $this->webroot; ?>profile/assets/global/plugins/jquery.min.js" type="text/javascript"></script>
+<?php } // THE BELOW 2 CSS FILES CANNOT BE COMBINED ?>
 
-<link href="<?php echo $this->webroot; ?>profile/assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css"/>
-<!-- END GLOBAL MANDATORY STYLES -->
-<!-- BEGIN PAGE LEVEL PLUGIN STYLES -->
-<link href="<?php echo $this->webroot; ?>profile/assets/global/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css" rel="stylesheet" type="text/css"/>
-<link href="<?php echo $this->webroot; ?>profile/assets/global/plugins/fullcalendar/fullcalendar.min.css" rel="stylesheet" type="text/css"/>
-<link href="<?php echo $this->webroot; ?>profile/assets/global/plugins/jqvmap/jqvmap/jqvmap.css" rel="stylesheet" type="text/css"/>
-<!-- END PAGE LEVEL PLUGIN STYLES -->
-<!-- BEGIN PAGE STYLES -->
-<link href="<?php echo $this->webroot; ?>profile/assets/admin/pages/css/tasks.css" rel="stylesheet" type="text/css"/>
-<!-- END PAGE STYLES -->
-<!-- BEGIN THEME STYLES -->
 <link href="<?php echo $this->webroot; ?>profile/assets/global/css/components.css" id="style_components" rel="stylesheet" type="text/css"/>
-<link href="<?php echo $this->webroot; ?>profile/assets/global/css/plugins.css" rel="stylesheet" type="text/css"/>
-<link href="<?php echo $this->webroot; ?>profile/assets/admin/layout/css/layout.css" rel="stylesheet" type="text/css"/>
 <link id="style_color" href="<?php echo $this->webroot; ?>profile/assets/admin/layout/css/themes/darkblue.css" rel="stylesheet" type="text/css"/>
-<link href="<?php echo $this->webroot; ?>profile/assets/admin/layout/css/custom.css" rel="stylesheet" type="text/css"/>
-
-<link href="<?php echo $this->webroot; ?>css/timepicker.css" rel="stylesheet">
-<link rel="stylesheet" href="http://code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css"/>
-<link rel="stylesheet" href="<?php echo $this->webroot; ?>lightSlider/css/lightSlider.css"/>
-
-<link rel="stylesheet" href="<?php echo $this->webroot; ?>css/styles.css"/>
-
 <!-- END THEME STYLES -->
-<link rel="shortcut icon" href="favicon.ico"/>
 <!--[if lt IE 9]>
 <script src="<?php echo $this->webroot; ?>profile/assets/global/plugins/respond.min.js"></script>
 <script src="<?php echo $this->webroot; ?>profile/assets/global/plugins/excanvas.min.js"></script>
 <![endif]-->
-<script src="<?php echo $this->webroot; ?>profile/assets/global/plugins/jquery.min.js" type="text/javascript"></script>
+
+
+
 <script src="<?php echo $this->webroot; ?>profile/assets/global/plugins/jquery-migrate.min.js" type="text/javascript"></script>
 <!-- IMPORTANT! Load jquery-ui-1.10.3.custom.min.js before bootstrap.min.js to fix bootstrap tooltip conflict with jquery ui tooltip -->
 <script src="<?php echo $this->webroot; ?>profile/assets/global/plugins/jquery-ui/jquery-ui-1.10.3.custom.min.js" type="text/javascript"></script>
