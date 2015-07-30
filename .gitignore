@@ -10,3 +10,4 @@ app/[Cc]onfig/database.php
 *.xml
 app/webroot/css/mainmin.js
 app/webroot/css/mainmin.css
+app/webroot/css/mainmin.css
